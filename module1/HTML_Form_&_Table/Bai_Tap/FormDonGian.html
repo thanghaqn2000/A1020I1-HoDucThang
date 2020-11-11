@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form phần 2</title>
+</head>
+<style>
+    div.formP2{
+        width: 390px;
+        margin-left: 100px;
+        background: #fff722;
+    }
+    div.title2{
+        background:#11fff8 ;
+    }
+    div.formP1{
+        width: 390px;
+        margin-left: 50px;
+        background: #f9fffb;
+    }
+    div.title1{
+        background: #ff6a1b;
+    }
+    div.checkbox{
+        margin-left: 50px;
+    }
+    div.tong{
+        background: #11fff8;
+        width: 490px;
+    }
+    div.main{
+        display: flex;
+    }
+</style>
+<body>
+<div class="main">
+    <div class="tong">
+        <div class="formP1">
+            <div class="title1">
+                <h1>SỞ THÍCH CỦA BẠN</h1>
+            </div>
+            <label>Họ và tên</label>
+            <input type="text" style="margin-left: 1px"><br><br>
+            <label>Email</label>
+            <input type="text" style="margin-left: 25px"><br><br>
+            <label>Sở thích</label>
+            <div class="checkbox">
+                <input type="checkbox">Thể Thao
+                <input type="checkbox">Âm nhạc
+                <input type="checkbox">Đọc sách<br>
+                <input type="checkbox">Lướt web
+                <input type="checkbox">Chơi game
+                <input type="checkbox">Điện ảnh<br>
+                <input type="checkbox">Du lịch
+            </div><br>
+            <input type="submit" value="Gửi thông tin" style="margin-left: 50px">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </div>
+    <div class="formP2" >
+        <div class="title2">
+            <h1 style="color: #1420ff">ĐĂNG KÍ HỌC VIÊN</h1>
+        </div>
+        <form name="form">
+            <label>Họ và tên<input type="text" size="20" style="margin-left: 25px;"></label><br><br>
+            <label>Ngày sinh<input type="text" size="10" style="margin-left: 22px;"></label><br><br>
+            <label>Giới tính
+                <input type="radio" name="gender" style="margin-left: 25px">Nam
+                <input type="radio" name="gender">Nữ
+            </label><br><br>
+            <p class="add">Địa chỉ</p>
+            <textarea style="margin-left: 0px;" cols="50" rows="4"></textarea>
+            <br>
+            <label>Lớp</label>
+            <select name="Class" style="margin-left: 58px">Chọn Lớp
+                <option name="ClassE" >
+                    -Chọn lớp-
+                </option>
+                <option name="ClassE">
+                    18T2
+                </option>
+            </select>
+            <br>
+            <br>
+            <label>Email</label>
+            <input type="text" size="20" style="margin-left:47px ">
+            <br>
+            <br>
+            <label>Điện thoại</label>
+            <input type="text" size="20" style="margin-left: 20px">
+            <br> <br>
+            <input type="submit" style="margin-left: 90px" value="Đăng kí">
+            <input type="reset" style="margin-left: 50px" value="Nhập lại">
+        </form>
+    </div>
+</div>
+</body>
+</html>
