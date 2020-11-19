@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<style>
+    .tong{
+        display: flex;
+        margin-left: 300px;
+    }
+</style>
+<body>
+    <div class="tong">
+        <div class="nhap1">
+            <p>Amount</p>
+            <input type="number" id="input">
+            <p>Result</p>
+            <span id="kq"></span>
+        </div>
+        <div class="nhap2" style="margin-left: 30px">
+            <p>From Currency</p>
+            <select id="from" >
+                <option   name="current" value="VietNam">VietNam</option>
+                <option   name="current" value="USA">USA</option>
+            </select>
+        </div>
+        <div class="nhap3" style="margin-left: 30px">
+            <p>To Curency</p>
+            <select id="to">
+                <option   name="current" value="VietNam">VietNam</option>
+                <option   name="current" value="USA">USA</option>
+            </select>
+            </select>
+            <button onclick="change()" style="margin-left: 20px">Convert</button>
+        </div>
+    </div>
+<script>
+    // function thongbao() {
+    //     let nhap=document.getElementById("input").value
+    //     if(isNaN(nhap)){
+    //         alert("Không được nhập chữ đauuuuuuu")
+    //     }
+    // }
+        function change() {
+            let tien=document.getElementById("input").value
+            var to=document.getElementById("to").value
+            var from=document.getElementById("from").value
+            let kq=1
+                if(from==="VietNam" & to==="USA" ){
+                    kq=tien/23
+                    document.getElementById("kq").innerHTML=kq
+                }else if (from==="USA" & to==="VietNam"){
+                    kq=tien*23
+                    document.getElementById("kq").innerHTML=kq
+                }else  {
+                    document.getElementById("kq").innerHTML="Chưa chọn khác quốc gia"
+                }
+                if(tien<=0){
+                    document.getElementById("kq").innerHTML="Hãy nhập lớn hơn 0"
+                }
+
+            }
+</script>
+</body>
+</html>
