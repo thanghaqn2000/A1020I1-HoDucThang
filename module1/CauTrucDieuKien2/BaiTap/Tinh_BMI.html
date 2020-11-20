@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <script>
+        let weight=parseInt(prompt("Nhập vào số cân nặng của bạn"))
+        let height=parseFloat(prompt("Nhập vào chiều cao của bạn"))
+        let BMI=weight/(height*height)
+        if(BMI<=18.5){
+            alert("chỉ số BMI của bạn: "+BMI.toFixed(2)+"Underweight")
+        }else if(BMI < 25){
+            alert("chỉ số BMI của bạn: "+BMI.toFixed(2)+" Normal")
+        }else if(BMI < 30){
+            alert("chỉ số BMI của bạn: "+BMI.toFixed(2)+" Overweight")
+        }else{
+            alert("chỉ số BMI của bạn: "+BMI.toFixed(2)+" Obese")
+        }
+    </script>
 </body>
 </html>

@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h3>DO YOU LOVE ME ?</h3>
+<input type="button" value="Yes" onclick="yes()">
+<input type="button"  id="nope" value="No" onmouseover="no()">
+<script>
+    function yes() {
+        alert("You are right :)))")
+    }
+    function no() {
+        document.getElementById("nope").style.marginLeft=Math.random(2);
+    }
+</script>
 </body>
 </html>
