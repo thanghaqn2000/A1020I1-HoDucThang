@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10</title>
+</head>
+<body>
+<script>
+    // Biết rằng 100 kWh đầu giá 1000,
+    // từ kWh 101 – 150 giá 1200,
+    // từ kWh 151 – 200 giá 2000,
+    // từ 201 trở lên giá 2500.
+    let tieu_thu = parseInt(prompt("Nhập số điện tiêu thụ vào đây"));
+    if (isNaN(tieu_thu)) {
+        alert("Hãy nhập đúng dữ liệu");
+    } else {
+        if (tieu_thu < 0) {
+            alert("Hãy nhập đúng số lượng tiêu thụ");
+        } else {
+            if (tieu_thu <= 100) {
+                gia_tien = tieu_thu * 1000;
+                alert("Số tiêu thụ của bạn là "+tieu_thu+" => số tiền phải nộp: "+gia_tien)
+            } else if (tieu_thu <= 150) {
+                gia_tien = tieu_thu * 1000 + (tieu_thu - 100) * 1200
+                alert("Số tiêu thụ của bạn là "+tieu_thu+" => số tiền phải nộp: "+gia_tien)
+            } else if (tieu_thu <= 200) {
+                gia_tien = tieu_thu * 1000 + 50 * 1200 + (tieu_thu - 150) * 2500;
+                alert("Số tiêu thụ của bạn là "+tieu_thu+" => số tiền phải nộp: "+gia_tien)
+            } else {
+                gia_tien = tieu_thu * 1000 + 50 * 1200 + 50 * 2500 + (tieu_thu - 200) * 2500;
+                alert("Số tiêu thụ của bạn là "+tieu_thu+" => số tiền phải nộp: "+gia_tien)
+            }
+        }
+    }
+</script>
+</body>
+</html>

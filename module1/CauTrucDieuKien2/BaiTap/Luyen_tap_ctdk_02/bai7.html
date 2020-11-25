@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7 </title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập số a"));
+    let b = parseInt(prompt("Nhập số b"));
+    let c = parseInt(prompt("Nhập số c"));
+    let delta = (b * b) - (4 * a * c)
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert("Hãy nhập đúng dữ liệu");
+    } else {
+        if (delta == 0) {
+            x1 = -b / 2 * a;
+            x2 = b / 2 * a;
+            alert("Phương trình có hai nghiệm kép: x1=x2= " + x1)
+        } else if (delta < 0) {
+            alert("Phương trình vô nghiệm")
+        } else {
+            x1 = (-b - Math.sqrt(delta)) / (2 * a);
+            x2 = (-b + Math.sqrt(delta)) / (2 * a);
+            alert("Phương trình có hai nghiệm : x1= " + x1 + " và x2= " + x2)
+        }
+    }
+</script>
+</body>
+</html>

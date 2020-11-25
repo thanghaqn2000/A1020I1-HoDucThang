@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+<script>
+    let tien = parseInt(prompt("Nhập tiền cần tiết kiệm"));
+    let thang = parseInt(prompt("Nhập tháng cần tiết kiệm"));
+    if (isNaN(tien) || isNaN(thang)) {
+        alert("Hãy nhập đúng dữ liệu cần nhập");
+    } else {
+        switch (thang) {
+            case 1:
+                kq = tien * 0.029 / 12;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 2:
+                kq = (0.03 / 12) * 2 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 3:
+                kq = (0.031 / 12) * 3 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 4:
+                kq = (0.031 / 12) * 4 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 5:
+                kq = (0.031 / 12) * 5 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 6:
+                kq = (0.048 / 12) * 6 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 7:
+                kq = (0.048 / 12) * 7 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 8:
+                kq = (0.048 / 12) * 8 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 9:
+                kq = (0.048 / 12) * 9 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 10:
+                kq = (0.048 / 12) * 10 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 11:
+                kq = (0.048 / 12) * 11 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            case 12:
+                kq = (0.048 / 12) * 12 * tien;
+                alert("Số tiền tiết kiệm được là: " + kq)
+                break;
+            default:
+                alert("Chỉ được gửi trong vòng 1 năm " )
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let a=parseInt(prompt("Nhập chiều cạnh kề a"));
+    let b=parseInt(prompt("Nhập chiều cạnh kề b"));
+    if(isNaN(a) || isNaN(b)){
+        alert("Hãy nhập đúng dữ liệu");
+    }else{
+        if (a<=0 || b<=0){
+            alert("Làm gì có cạnh như vậy");
+        }else{
+            dien_tich=0.5*a*b;
+            alert("Diện tích hình tam giác vuông là: "+dien_tich);
+        }
+    }
+</script>
+</body>
+</html>

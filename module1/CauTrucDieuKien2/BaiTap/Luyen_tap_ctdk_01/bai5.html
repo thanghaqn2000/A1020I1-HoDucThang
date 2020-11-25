@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let diem_ktra=parseInt(prompt("Nhập điểm kiểm tra"));
+    let diem_gk=parseInt(prompt("Nhập điểm giữa kì"));
+    let diem_ck=parseInt(prompt("Nhập điểm cuối kì"));
+    let diem_tongket=(diem_ktra*0.2)+(diem_gk*0.3)+(diem_ck*0.5)
+    if(isNaN(diem_ktra) || isNaN(diem_ck) || isNaN(diem_gk)){
+        alert("Hãy nhập đúng dữ liệu");
+    }else{
+        if(diem_tongket>=8.5){
+            alert(+diem_tongket+" điểm , loại A")
+        }else if(diem_tongket>=7.0){
+            alert(+diem_tongket+" điểm , loại B")
+        }else if(diem_tongket>=5.5){
+            alert(+diem_tongket+" điểm , loại C")
+        }else if(diem_tongket>=4.0){
+            alert(+diem_tongket+" điểm , loại D")
+        }else{
+            alert(+diem_tongket+" điểm F, rớt môn rồi nhé")
+        }
+    }
+</script>
+</body>
+</html>

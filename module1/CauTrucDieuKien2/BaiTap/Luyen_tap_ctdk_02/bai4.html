@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    let cd=parseInt(prompt("Nhập chiều dài"));
+    let cr=parseInt(prompt("Nhập chiều rộng"));
+    if(isNaN(cd) || isNaN(cr)){
+        alert("Hãy nhập đúng dữ liệu");
+    }else{
+        if (cd<=0 || cr<=0){
+            alert("Làm gì có cạnh như vậy");
+        }else{
+            dien_tich=cr*cd;
+            alert("Diện tích hình chữ nhật là: "+dien_tich);
+        }
+    }
+</script>
+</body>
+</html>

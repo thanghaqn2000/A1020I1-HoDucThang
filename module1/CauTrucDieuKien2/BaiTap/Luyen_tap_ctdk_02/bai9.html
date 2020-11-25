@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+    <script>
+        let a=parseFloat(prompt("Nhập cạnh a và đây"));
+        let b=parseFloat(prompt("Nhập cạnh b và đây"));
+        let c=parseFloat(prompt("Nhập cạnh c và đây"));
+        if(isNaN(a) || isNaN(b) || isNaN(c)){
+            alert("Hãy nhập đúng dữ liệu");
+        }else{
+            if(a<=0 || b<=0 || c<=0){
+                alert("Không phải tam giác")
+            }else if(a+c>b && b+c>a && a+b>c){
+                alert("Là tam giác")
+            }else{
+                alert("Không phải tam giác")
+            }
+        }
+    </script>
+</body>
+</html>

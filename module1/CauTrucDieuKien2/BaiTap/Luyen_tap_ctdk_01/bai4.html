@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    let num_1=parseInt(prompt("Nhập số 1"));
+    let num_2=parseInt(prompt("Nhập số 2"));
+    let num_3=parseInt(prompt("Nhập số 3"));
+    if(isNaN(num_1) || isNaN(num_2) || isNaN(num_3)){
+        alert("Hãy nhập đúng dữ liệu nào");
+    }else{
+        if(num_1>num_2 && num_1>num_3){
+            alert("số lớn nhất là "+num_1 );
+        }else if(num_2>num_1 && num_2>num_3){
+            alert("số lớn nhất là "+num_2);
+        }else if(num_3>num_1 && num_3>num_2){
+            alert("số lớn nhất là "+num_3);
+        }else{
+            alert("Cả ba số bằng nhau")
+        }
+    }
+</script>
+</body>
+</html>

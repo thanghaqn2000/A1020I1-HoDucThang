@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>You must love me</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="http://www.javascriptbank.com" />
 </head>
+
 <body>
-<h3>DO YOU LOVE ME ?</h3>
-<input type="button" value="Yes" onclick="yes()">
-<input type="button"  id="nope" value="No" onmouseover="no()">
+<h1 style="position:absolute; left:220px; top:175px; width:auto; height:210px;">Do you love me?</h1>
+<div id="By" style="position:absolute; left:285px; top:235px; width:210px;
+height:210px;">
+    <input type="button" value=" YES " onclick="f1()" />
+</div>
+<div ID="Bn" style="position:absolute; left:360px; top:235px; width:210px; height:210px;">
+    <input type="button"  id="nope" value=" NO " onmouseover="f()" />
+</div>
 <script>
-    function yes() {
-        alert("You are right :)))")
+    //flag = 1
+    flag=false
+    function f1() {
+        alert("Yeahh, you're right :))))")
     }
-    function no() {
-        document.getElementById("nope").style.marginLeft=Math.random(2);
+    function f() {
+
+        Bn.style.top = Math.floor(Math.random()*innerHeight)
+        Bn.style.left = Math.floor(Math.random()*innerWidth)
     }
 </script>
-</body>
+</BODY>
+
 </html>

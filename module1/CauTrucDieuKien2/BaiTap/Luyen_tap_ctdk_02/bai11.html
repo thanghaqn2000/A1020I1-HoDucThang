@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11</title>
+</head>
+<body>
+<!--Bậc 1: 4 triệu đồng/tháng 0%;-->
+<!--Bậc 2: Trên 4 - 6 triệu đồng/tháng: 5%;-->
+<!--Bậc 3: Trên 6 - 9 triệu đồng: 10%;-->
+<!--Bậc 4: Trên 9 - 14 triệu đồng/tháng: 15%;-->
+<!--Bậc 5: trên 14 - 24 triệu đồng/tháng: 20%;-->
+<!--Bậc 6: Trên 24 - 44 triệu đồng/tháng: 25%;-->
+<!--Bậc 7: Trên 44 triệu đồng/tháng: 30%;-->
+
+<script>
+    let luong=parseInt(prompt("Nhập số tiền lương của bạn vào đây"));
+    if(isNaN(luong)){
+        alert("Hãy nhập đúng dữ liệu")
+    }else{
+        if(luong<=4000000){
+            alert("Với số tiền: "+luong+" thì bạn không cần phải nộp thuế đâu nhé !")
+        }else if(luong<=6000000){
+            thue=(luong-4000000)*0.05;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }else if(luong<=9000000){
+            thue=(6000000-4000000)*0.05+(luong-6000000)*0.1;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }else if(luong<=14000000){
+            thue=(6000000-4000000)*0.05+(9000000-6000000)*0.1+(luong-9000000)*0.15;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }else if(luong<=24000000){
+            thue=(6000000-4000000)*0.05+(9000000-6000000)*0.1+(14000000-9000000)*0.15+(luong-14000000)*0.2;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }else if(luong<=44000000){
+            thue=(6000000-4000000)*0.05+(9000000-6000000)*0.1+(14000000-9000000)*0.15+(24000000-14000000)*0.2+(luong-24000000)*0.25;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }else{
+            thue=(6000000-4000000)*0.05+(9000000-6000000)*0.1+(14000000-9000000)*0.15+(24000000-14000000)*0.2+(44000000-24000000)*0.25
+            +(luong-44000000)*0.3;
+            alert("Với số tiền: "+luong+" thì bạn cần phải nộp mức thuế là: "+thue);
+        }
+    }
+</script>
+</body>
+</html>

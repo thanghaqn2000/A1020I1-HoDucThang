@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Puzzple</title>
+</head>
+<style>
+    img {
+        box-shadow: black 2px 3px 3px;
+        padding: 10px 10px;
+    }
+    .tong{
+        width: 1250px;
+        height: 1250px;
+        background: #ff0;
+    }
+    h1{
+        font-size: 50px;
+    }
+</style>
+<body>
+<div class="tong">
+    <div class="one">
+        <img src="anh3.jpg" id="1" onclick="changeimg1()">
+        <img src="anh4.jpg" id="2" onclick="changeimg2()" >
+    </div>
+    <div class="two">
+        <img src="anh2.jpg" id="3" onclick="changeimg3()">
+        <img src="anh1.jpg" id="4" onclick="changeimg4()">
+    </div>
+</div>
+<h1 id="show">Vẫn chưa được</h1>
+<script>
+    let array = ['anh1.jpg', 'anh2.jpg', 'anh3.jpg', 'anh4.jpg']
+    var num = 0;
+    let num1 = array.length;
+    let anh1=document.getElementById("1");
+    let anh2=document.getElementById("2");
+    let anh3=document.getElementById("3");
+    let anh4=document.getElementById("4");
+    function changeimg1() {
+        document.getElementById("1").src = array[num];
+        if (num < num1) {
+            num++
+        } else {
+            num = 0
+            document.getElementById("1").src = array[num];
+        }
+        if(anh1.getAttribute("src")==array[0] && anh2.getAttribute("src")==array[1] && anh3.getAttribute("src")==array[2] &&
+            anh4.getAttribute("src")==array[3] ){
+            document.getElementById("show").innerHTML="Ok lunnnnnnnn"
+        }       else{
+            document.getElementById("show").innerHTML="Vẫn chưa được"
+        }
+    }
+    function changeimg2() {
+        document.getElementById("2").src = array[num];
+        if (num < num1) {
+            num++
+        } else {
+            num = 0
+            document.getElementById("2").src = array[num];
+        }
+        if(anh1.getAttribute("src")==array[0] && anh2.getAttribute("src")==array[1] && anh3.getAttribute("src")==array[2] &&
+            anh4.getAttribute("src")==array[3] ){
+            document.getElementById("show").innerHTML="Ok lunnnnnnnn"
+        }       else{
+            document.getElementById("show").innerHTML="Vẫn chưa được"
+        }
+    }
+
+    function changeimg3() {
+        document.getElementById("3").src = array[num];
+        if (num < num1) {
+            num++
+        } else {
+            num = 0
+            document.getElementById("3").src = array[num];
+        }
+        if(anh1.getAttribute("src")==array[0] && anh2.getAttribute("src")==array[1] && anh3.getAttribute("src")==array[2] &&
+            anh4.getAttribute("src")==array[3] ){
+            document.getElementById("show").innerHTML="Ok lunnnnnnnn"
+        }       else{
+            document.getElementById("show").innerHTML="Vẫn chưa được"
+        }
+    }
+    function changeimg4() {
+        document.getElementById("4").src = array[num];
+        if (num < num1) {
+            num++
+        } else {
+            num = 0
+            document.getElementById("4").src = array[num];
+        }
+        if(anh1.getAttribute("src")==array[0] && anh2.getAttribute("src")==array[1] && anh3.getAttribute("src")==array[2] &&
+            anh4.getAttribute("src")==array[3] ){
+            document.getElementById("show").innerHTML="Ok lunnnnnnnn"
+        }       else{
+            document.getElementById("show").innerHTML="Vẫn chưa được"
+        }
+    }
+</script>
+</body>
+
+</html>

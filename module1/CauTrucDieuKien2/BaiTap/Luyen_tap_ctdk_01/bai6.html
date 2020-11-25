@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    // Từ 0-200 ngàn đồng có hoa hồng là 3%
+    // Từ 200-500 ngàn đồng có hoa hồng là 10%
+    // Từ 500 ngàn đồng trở lên có hoa hồng là 20%
+    let doanhso=parseInt(prompt("Nhập doanh số bán hàng tháng này"));
+    let hoahong=1;
+    if(isNaN(doanhso)){
+        alert("Hãy nhập đúng dữ liệu nào");
+    }else{
+        if(doanhso>=200){
+            hoahong=doanhso*3/100;
+            alert("Doanh số: "+doanhso+", hoa hồng nhận được là: "+hoahong);
+        }else if(doanhso>=500){
+            hoahong=doanhso*10/100;
+            alert("Doanh số: "+doanhso+", hoa hồng nhận được là: "+hoahong);
+        }else {
+            hoahong=doanhso*20/100;
+            alert("Doanh số: "+doanhso+", hoa hồng nhận được là: "+hoahong);
+        }
+    }
+</script>
+</body>
+</html>

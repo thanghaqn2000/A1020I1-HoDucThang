@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    let a=parseInt(prompt("Hãy nhập biến a"));
+    let b=parseInt(prompt("Hãy nhập biến b"));
+    let x=-b/a;
+    if(isNaN(a) || isNaN(b)){
+        alert("Hãy nhập đúng dữ liệu");
+    }else{
+        if(a==0){
+            alert("Phương trình:"+a+"x "+"+"+b+" =0, vô nghiệm")
+        }else if(b==0){
+            alert("Phương trình:"+a+"x "+" +"+b+" =0, vô số nghiệm")
+        }else{
+            alert("Phương trình:"+a+"x "+" +"+b+" =0, có nghiệm x="+x);
+        }
+    }
+</script>
+</body>
+</html>

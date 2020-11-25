@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<script>
+    let age=parseInt(prompt("Nhập tuổi của bạn vào đây"))
+    if(isNaN(age)){
+        alert("Hãy nhập đúng dữ liệu");
+    }else {
+        if (age <= 0 || age > 120) {
+            alert(+age + " tuổi ? , có chắc là đây là tuổi của bạn không vậy , mình nghĩ nên nhập lại đi")
+        } else {
+            alert(age + " tuổi, đúng là tuổi của bạn rồi")
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
