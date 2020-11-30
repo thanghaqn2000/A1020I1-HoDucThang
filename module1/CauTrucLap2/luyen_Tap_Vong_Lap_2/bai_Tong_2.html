@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp 2</title>
+</head>
+<body>
+<p id="bai1">In dãy fibonacci </p>
+<input type="button" onclick="bai1()" value="Thực hiện">
+<hr>
+<p id="bai2">Giai thừa số nguyên dương</p>
+<input type="button" onclick="bai2()" value="Thực hiện">
+<hr>
+<p id="tg1">In hình tam giác 1</p>
+<input type="button" onclick="tg1()" value="Thực hiện">
+<hr>
+<p id="tg2">In hình tam giác 2</p>
+<input type="button" onclick="tg2()" value="Thực hiện">
+<hr>
+<p id="tg3">In hình tam giác 3</p>
+<input type="button" onclick="tg3()" value="Thực hiện">
+<hr>
+<p id="tg4">In hình tam giác 4</p>
+<input type="button" onclick="tg4()" value="Thực hiện">
+<hr>
+<p id="hcn">In hình chữ nhật</p>
+<input type="button" onclick="hcn()" value="Thực hiện">
+<hr>
+<p id="heart">In hình trái tim</p>
+<input type="button" onclick="heart()" value="Thực hiện">
+<hr>
+<script>
+    function bai1() {
+        let a = 0;
+        let b = 1;
+        let c = " ";
+        let kq = a + ", " + b + ","
+        let nhap = parseInt(prompt("Nhập số lượng fibonacci cần in ra:"))
+        for (let i = 0; i < (nhap - 2); i++) {
+            c = a + b;
+            kq = kq + c + ",";
+            a = b;
+            b = c;
+        }
+        document.getElementById("bai1").innerHTML = kq;
+    }
+    function bai2() {
+        let input=parseInt(prompt("Nhập vào số nguyên dương cần tính giai thừa"));
+        let kq=1;
+        for (let i=1;i<=input;i++){
+            kq*=i;
+        }
+        document.getElementById("bai1").innerText=input+"! = "+kq;
+    }
+
+    function tg1() {
+        for (let i=0;i<5;i++){
+            for (let j=0;j<=i;j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+    function tg2() {
+        for (let i=0;i<5;i++){
+            for (j=5;j>i;j--){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+    function tg3() {
+        let result="";
+        for(let i=0;i<5;i++){
+            for (let j=0;j<i;j++){
+              result+=" ";
+            }
+            for (let j=i;j<5;j++){
+                result+="*";
+            }
+          result+="<br>";
+        }
+        document.write("<pre>"+result+"</pre>");
+    }
+    function tg4() {
+        let result="";
+        let i,j;
+        for(i=0;i<=5;i++){
+            for(j=1;j<=5;j++){
+                if(j<=5-i){
+                    result +=" ";
+                }
+                else{
+                    result+= "*";
+                }
+            }
+            result+= "<br>";
+        }
+        document.write("<pre>"+result+"</pre>")
+    }
+    function hcn() {
+        let i,j;
+        let result="";
+        for(i=1;i<=5;i++){
+            for(j=1;j<=17;j++){
+                if(i==1 || j==1 || i==5 || j == 17){
+                  result+="*";
+                }else{
+                    result+=" ";
+                }
+            }
+            result+="<br>";
+        }
+        document.write("<pre>"+result+"</pre>");
+    }
+    function heart() {
+        let i,j;
+        let result="";
+        for(i=1;i<7;i++){
+            for(j=1;j<=7;j++){
+            if(!((i==1 && (j==1 ||j==4||j==7))
+            || (i==4 && (j==1 || j==7))
+                ||(i==5 && (j==1|| j==2|| j==7 || j==6))||
+                (i==6 && (j<=3 || j>=5))))
+            {
+                result+="*";
+            }else{
+                result+=" ";
+            }
+            }
+            result+="<br>";
+        }
+        document.write("<pre>"+result+"</pre>");
+    }
+</script>
+</body>
+</html>

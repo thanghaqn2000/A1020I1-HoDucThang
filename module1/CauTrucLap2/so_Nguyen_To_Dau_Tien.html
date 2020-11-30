@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    let count=0;//tao bien dem
+    let ketqua="";//gan ket qua
+    num=2;//snt bat dau tu 2
+    let num_check=parseInt(prompt("Nhập số lượng nguyên tố cần in ra"))
+    while(count<num_check)//neu nhu khi bien count ma = voi so nhap vao thi thoat khoi vong while
+    {
+        let check=true;//bien check gan ban dau bang true
+        for(let i=2;i<num;i++){// kiem tra snt bang cach cho i chay tu 2 den num
+            if(num%i==0){//neu num chia het cho i thi ko phai snt=> check=false , sau do thoat khoi for
+                check=false;
+                break;
+            }
+        }
+        if(check){//neu num la snt thi check==true
+            ketqua+=num+", "//gan ket qua vao
+            count++//tang bien dem count
+        }
+        num++//tang bien dem num de tiep tuc kiem tra snt
+    }
+ document.write(ketqua)
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp 1</title>
+</head>
+<body>
+<div class="tong">
+    <p id="bai1">Kết quả bài 1</p>
+    <input type="button" onclick="bai1()" value="Thực hiện">
+    <hr>
+    <p id="bai2">Kết quả bài 2</p>
+    <input type="button" onclick="bai2()" value="Thực hiện">
+    <hr>
+    <p id="bai3">Kết quả bài 3</p>
+    <input type="button" onclick="bai3()" value="Thực hiện">
+    <hr>
+    <p id="bai4">Kết quả bài 4</p>
+    <p id="snt_5">Số đầu tiên trong dãy chia hết cho 5 là: </p>
+    <input type="button" onclick="bai4()" value="Thực hiện">
+    <hr>
+    <p id="bai5">Kết quả bài 5</p>
+    <p id="sum_snt">Tổng</p>
+    <input type="button" onclick="bai5()" value="Thực hiện">
+    <hr>
+    <p id="bai6">Kết quả bài 6</p>
+    <p id="sum_7">Tổng:</p>
+    <input type="button" onclick="bai6()" value="Thực hiện">
+    <hr>
+    <p id="bai7">Kết quả bài 7</p>
+    <p id="Fizz_Buzz">Fizz and Buzz</p>
+    <input type="button" onclick="bai7()" value="Thực hiện">
+    <hr>
+    <p id="bai8">Kết quả bài 8</p>
+    <input type="button" onclick="bai8()" value="Thực hiện">
+</div>
+<script>
+    function bai1() {
+        var kq = 0;
+        for (let i = 1; i <= 99; i++) {
+            kq = kq + i + " ";
+            if (i == 99) {
+                setTimeout(noti_bai1, 150);
+                break;
+            }
+        }
+        document.getElementById("bai1").innerText = kq;
+    }
+
+    function noti_bai1() {
+        alert("Hoàn thành")
+    }
+
+    function bai2() {
+        let nhiet_Do = parseInt(prompt("Nhập nhiệt độ cần kiểm tra"))
+        let check_sai = false;
+        while (check_sai == false) {
+            if (nhiet_Do < 20) {
+                alert("Cần tăng nhiệt độ lên");
+                check_sai = false
+            } else if (nhiet_Do > 100) {
+                alert("Cần giảm nhiệt độ xuống");
+                check_sai = false
+            } else if (isNaN(nhiet_Do)) {
+                alert("Chưa nhập hoặc nhập sai dữ liệu cần tính");
+                check_sai = false
+            } else {
+                alert("Nhiệt độ vừa phải");
+                break;
+            }
+            nhiet_Do = parseInt(prompt("Nhập lại nhiệt độ cần kiểm tra"));
+        }
+    }
+
+    function bai3() {
+        let a = 0;
+        let b = 1;
+        let c = " ";
+        let kq = a + ", " + b
+        for (let i = 0; i < 18; i++) {
+            c = a + b;
+            kq = kq + c + ",";
+            a = b;
+            b = c
+        }
+        document.getElementById("bai3").innerHTML = kq;
+    }
+
+    function bai4() {
+        let a = 0;
+        let b = 1;
+        let c = " ";
+        let kq = a + ", " + b + ","
+        let snt_5 = "";
+        let count = 0;
+        let nhap = parseInt(prompt("Nhập số lượng fibonacci cần in ra:"))
+        for (let i = 0; i < (nhap - 2); i++) {
+            c = a + b;
+            while (count < 1) {
+                if (c % 5 == 0) {
+                    console.log(c)
+                    snt_5 = c;
+                    count++
+                    break;
+                }
+                break;
+            }
+            kq = kq + c + ",";
+            a = b;
+            b = c;
+
+        }
+
+        document.getElementById("bai4").innerHTML = kq;
+        document.getElementById("snt_5").innerHTML = "Số đầu tiên trong dãy chia hết cho 5 là: " + snt_5;
+    }
+
+    function bai5() {
+        let a = 0;
+        let b = 1;
+        let c = " ";
+        let kq = a + ", " + b + ","
+        let sum = 1;
+        let nhap = parseInt(prompt("Nhập số lượng fibonacci cần tính tổng:"))
+        for (let i = 0; i < (nhap - 2); i++) {
+            c = a + b;
+            kq = kq + c + ",";
+            a = b;
+            b = c;
+            sum += c;
+        }
+        document.getElementById("bai5").innerHTML = kq;
+        document.getElementById("sum_snt").innerHTML = "Tổng là: " + sum;
+    }
+
+    function bai6() {
+        var kq = 0;
+        var count = 0
+        var sum = 0;
+        for (let i = 7; i <= 1000; i++) {
+            if (i % 7 == 0) {
+                kq = kq + i + " ";
+                sum += i;
+                count++
+            }
+            if (count == 30) {
+                break;
+            }
+        }
+        document.getElementById("bai6").innerText = "30 số chia hết cho 7 đầu tiên trong dãy số là: " + kq;
+        document.getElementById("sum_7").innerHTML = "Tổng là: " + sum;
+    }
+
+    function bai7() {
+        var kq = 0;
+        var output = ""
+        var input = parseInt(prompt("Nhập dãy số cần xuất"))
+        for (let i = 1; i <= input; i++) {
+            kq = kq + i + " ";
+            if (i % 3 == 0 && i % 5 == 0) {
+                output += 'FizzBuzz '
+            } else if (i % 3 == 0) {
+                output += 'Fizz '
+            } else if (i % 5 == 0) {
+                output += 'Buzz '
+            } else {
+                output += i + " "
+            }
+        }
+        document.getElementById("bai7").innerText = kq;
+        document.getElementById("Fizz_Buzz").innerText = output;
+    }
+
+    function bai8() {
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        let random_num = 0;
+        let input = parseInt(prompt("Bạn muốn đoán trong khoảng nào" + "\n"
+            + "1. Từ 0-10" + "\n"
+            + "2. Từ 11-20" + "\n"
+            + "3. Từ 21-30"));
+        let num = parseInt(prompt("Nhập vào con số bạn muốn đoán:"));
+        let check = false;
+        var con_firm;
+        while (check == false) {
+            switch (input) {
+                case 1:
+                    random_num = getRndInteger(0, 10);
+                    if (num > random_num) {
+                        alert("Con số của bạn " + num + " lớn hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else if (num < random_num) {
+                        alert("Con số của bạn " + num + " bé hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else {
+                        alert(+num + " = " + random_num + " chúc mừng bạn đã đoán trúng");
+                        check = true;
+                        break;
+                    }
+                    if (check == false) {
+                        con_firm = confirm("Bạn có muốn chơi lại không ?");
+                        if (con_firm == true) {
+                            input = parseInt(prompt("Bạn muốn đoán trong khoảng nào" + "\n"
+                                + "1. Từ 0-10" + "\n"
+                                + "2. Từ 11-20" + "\n"
+                                + "3. Từ 21-30"));
+                            num = parseInt(prompt("Nhập vào con số bạn muốn đoán:"));
+                        } else {
+                            check = true;
+                            break;
+                        }
+                    }
+                    break;
+                case 2:{
+                    random_num = getRndInteger(11, 20);
+                    if (num > random_num) {
+                        alert("Con số của bạn " + num + " lớn hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else if (num < random_num) {
+                        alert("Con số của bạn " + num + " bé hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else {
+                        alert(+num + " = " + random_num + " chúc mừng bạn đã đoán trúng");
+                        check = true;
+                        break;
+                    }
+                    if (check == false) {
+                        con_firm = confirm("Bạn có muốn chơi lại không ?");
+                        if (con_firm == true) {
+                            input = parseInt(prompt("Bạn muốn đoán trong khoảng nào" + "\n"
+                                + "1. Từ 0-10" + "\n"
+                                + "2. Từ 11-20" + "\n"
+                                + "3. Từ 21-30"));
+                            num = parseInt(prompt("Nhập vào con số bạn muốn đoán:"));
+                        } else {
+                            check = true;
+                            break;
+                        }
+                    }
+                    break;
+                }
+
+                case 3:{
+                    random_num = getRndInteger(21, 30);
+                    if (num > random_num) {
+                        alert("Con số của bạn " + num + " lớn hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else if (num < random_num) {
+                        alert("Con số của bạn " + num + " bé hơn con số " + random_num + " mất rồi");
+                        check = false;
+                    } else {
+                        alert(+num + " = " + random_num + " chúc mừng bạn đã đoán trúng");
+                        check = true;
+                        break;
+                    }
+                    if (check == false) {
+                        con_firm = confirm("Bạn có muốn chơi lại không ?");
+                        if (con_firm == true) {
+                            input = parseInt(prompt("Bạn muốn đoán trong khoảng nào" + "\n"
+                                + "1. Từ 0-10" + "\n"
+                                + "2. Từ 11-20" + "\n"
+                                + "3. Từ 21-30"));
+                            num = parseInt(prompt("Nhập vào con số bạn muốn đoán:"));
+                        } else {
+                            check = true;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                    default:{
+                        alert("Vui lòng hãy nhập đúng khoảng")
+                        check=true;
+                        break;
+                    }
+
+            }
+        }
+    }
+</script>
+</body>
+</html>
