@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm có sẵn</title>
+</head>
+<body>
+<p id="bai1" >Kết quả bài 1</p>
+<input type="button" onclick="bai1()" value="Thực hiện">
+<hr>
+<p id="bai2" >Kết quả bài 2</p>
+<input type="button" onclick="bai2()" value="Thực hiện">
+<hr>
+<script>
+    function bai1() {
+        var myColor = ["Red", "Green", "White", "Black"];
+
+        document.getElementById("bai1").innerText=myColor.join(",")
+    }
+    function bai2() {
+       var num=(prompt("Nhập vào 1 dãy số"))
+        var str = num.toString();
+        var result = [str[0]];
+
+        for(let x=1; x<str.length; x++)
+        {
+            if((str[x-1]%2 === 0)&&(str[x]%2 === 0))
+            {
+                result.push('-', str[x]);
+            }
+            else
+            {
+                result.push(str[x]);
+            }
+        }
+       document.getElementById("bai2").innerText=result.join('')
+    }
+</script>
+</body>
+</html>

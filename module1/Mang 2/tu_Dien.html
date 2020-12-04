@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<form>
+    <input type="text" placeholder="Nhập từ tiếng anh cần dịch" id="eng">
+    <p id="vie">Kết quả tiếng việt</p>
+    <input type="button" onclick="tu_Dien_1_array();" value="Thực hiện">
+</form>
+<script>
+    function tu_Dien_1_array() {
+        let eng = ["hi", "apple", "banana"];
+        let vie = ["Xin chào", "Quả táo", "Quả chuối"]
+        let check=false;
+        let display=document.getElementById("vie").innerHTML
+        let search = document.getElementById("eng").value;
+        for (let i = 0; i <= eng.length-1; i++) {
+            if (eng[i] == search) {
+                check=true
+             alert(vie[i])
+                break;
+            }
+        }
+        if(check==false){
+            alert("Không tìm thấy")
+        }
+    }
+    function tu_Dien_2_array() {
+        let display=document.getElementById("vie").innerHTML
+        let check=false;
+        var search = document.getElementById("eng").value;
+        var libary=[
+            ["hi", "apple", "banana"],
+            ["Xin chào", "Quả táo", "Quả chuối"]
+        ]
+        for(let i=0;i<=libary.length;i++){
+            for(let j=0;j<=libary[i].length;j++){
+                if(search==libary[i][j]){
+                    check=true
+                    i++
+                   display=libary[i][j]
+                    break;
+                }
+            }
+            if(check==false){
+                alert("Không có")
+                break;
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

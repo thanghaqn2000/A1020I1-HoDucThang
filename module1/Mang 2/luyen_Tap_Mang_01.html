@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập mảng 01</title>
+</head>
+<body>
+<p id="mang_bai1"></p>
+<p id="bai1">Kết quả bài 1</p>
+<input type="button" onclick="bai1()" value="Thực hiện">
+<hr>
+<p id="mang_bai2"></p>
+<p id="bai2">Kết quả bài 2</p>
+<input type="button" onclick="bai2()" value="Thực hiện">
+<hr>
+<p id="mang_bai3"></p>
+<p id="max_bai3"></p>
+<p id="bai3">Kết quả bài 3</p>
+<input type="button" onclick="bai3()" value="Thực hiện">
+<hr>
+<p id="mang_bai4"></p>
+<p id="mang_nguoc_4">Kết quả bài 4</p>
+<input type="button" onclick="bai4()" value="Thực hiện">
+<hr>
+<p id="mang_bai5"></p>
+<p id="mang_am_5">Kết quả bài 5</p>
+<input type="button" onclick="bai5()" value="Thực hiện">
+<hr>
+<p id="mang_bai6"></p>
+<p id="yes_no">Kết quả bài 6</p>
+<input type="button" onclick="bai6()" value="Thực hiện">
+<hr>
+<p id="mang_bai7"></p>
+<p id="mang_da_xoa">Kết quả bài 7</p>
+<input type="button" onclick="bai7()" value="Thực hiện">
+<hr>
+<p id="mang_bai8"></p>
+<p id="mang_dao_nguoc">Kết quả bài 8</p>
+<input type="button" onclick="bai8()" value="Thực hiện">
+<hr>
+<p id="mang_bai9"></p>
+<p id="mang_da_noi">Kết quả bài 9</p>
+<input type="button" onclick="bai9()" value="Thực hiện">
+<hr>
+<script>
+    function bai1() {
+        let num_int = [1, 2, 3, 20, 15, 6, 10, 23, 5, 7];
+        let count = 0;
+        let num = "";
+        for (let i = 0; i <= num_int.length - 1; i++) {
+            if (num_int[i] >= 10) {
+                count++;
+                num += num_int[i] + ",";
+            }
+        }
+        document.getElementById("mang_bai1").innerHTML = num_int.toString();
+        document.getElementById("bai1").innerHTML = count + " số >=10 đó là " + num;
+    }
+
+    function bai2() {
+        let num = [1, 2, 3, 20, 15, 6, 10, 23, 25, 7];
+        let max = 0;
+        let index = 0;
+        for (let i = 0; i <= num.length - 1; i++) {
+            if (num[i] > max) {
+                max = num[i];
+                index = i;
+            }
+        }
+        document.getElementById("mang_bai2").innerHTML = num.toString();
+        document.getElementById("bai2").innerHTML = "Số lớn nhất trong mảng là " + max + " vị trí của " + max + " là " + index;
+    }
+
+    function bai3() {
+        let num = [1, 2, 3, 4, 6];
+        let max = 0;
+        let TB = 0;
+        for (let i = 0; i <= num.length - 1; i++) {
+            if (num[i] > max) {
+                max = num[i];
+            }
+            TB += num[i] / num.length;
+        }
+        document.getElementById("mang_bai3").innerHTML = num.toString();
+        document.getElementById("max_bai3").innerHTML = "Số lớn nhất trong mảng là " + max;
+        document.getElementById("bai3").innerHTML = "Trung bình số các phần tử trong mảng là " + TB;
+    }
+
+    function bai4() {
+        let num = [];
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        document.getElementById("mang_bai4").innerHTML = "Mảng ban đầu: " + num.toString();
+        document.getElementById("mang_nguoc_4").innerHTML = "Mảng đã đảo ngược: " + num.reverse();
+    }
+
+    function bai5() {
+        let num = [];
+        let nguyen_am = "";
+        let count = 0;
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        for (let i = 0; i < num.length - 1; i++) {
+            if (num[i] < 0) {
+                nguyen_am += num[i] + ",";
+                count++
+            }
+        }
+        document.getElementById("mang_bai5").innerHTML = "Mảng ban đầu: " + num.toString();
+        document.getElementById("mang_am_5").innerHTML = "Có " + count + " số âm đó là " + nguyen_am;
+    }
+
+    function bai6() {
+        let num = [];
+        let check = false;
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        let search = parseInt(prompt("Nhập vào số cần tìm trong mảng"))
+        for (let i = 0; i < num.length - 1; i++) {
+            if (num[i] - search == 0) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            document.getElementById("yes_no").innerHTML = "Số " + search + " có trong mảng " + num.toString();
+
+        } else {
+            document.getElementById("yes_no").innerHTML = "Không có số " + search + " trong mảng " + num.toString();
+
+        }
+    }
+
+    function bai7() {
+        let num = [];
+        let check = false;
+        let index = 0;
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        let search = parseInt(prompt("Nhập vào số cần xóa trong mảng"))
+        for (let i = 0; i < num.length - 1; i++) {
+            if (num[i] - search == 0) {
+                num.splice(i, 1);
+
+            }
+        }
+        document.getElementById("mang_da_xoa").innerHTML = num.toString();
+    }
+    function bai8() {
+        let num = [];
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        document.getElementById("mang_bai8").innerHTML = "Mảng đã nhập ban đầu: " + num.toString();
+        document.getElementById("mang_dao_nguoc").innerHTML = "Mảng đã đảo ngược: " + num.sort(function (a, b) {
+            return b - a;
+        });
+    }
+    function bai9() {
+        let c = new Array(20);
+        let a=[];
+        let b=[];
+        for (let i = 1; i <=10; i++) {
+            a[i] = parseInt(prompt("Nhập vào phần tử " + i+" của mảng A"));
+        }for (let i = 1; i <=10; i++) {
+            b[i] = parseInt(prompt("Nhập vào phần tử " + i+" của mảng B"));
+        }
+        c=a.concat(b)
+        document.getElementById("mang_da_noi").innerHTML="Mảng đã nối: "+c.join(",");
+    }
+</script>
+</body>
+</html>

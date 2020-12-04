@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập mảng 2</title>
+</head>
+<body>
+<p id="bai1">Kết quả bài 1</p>
+<p id="ket_qua"></p>
+<input type="button" value="Thực hiện" onclick="bai1()">
+<hr>
+<p id="bai2">Kết quả bài 2</p>
+<p id="ket_qua_2"></p>
+<input type="button" value="Thực hiện" onclick="bai2()">
+<hr>
+<p id="bai3">Kết quả bài 3</p>
+<p id="ket_qua_3"></p>
+<input type="button" value="Thực hiện" onclick="bai3()">
+<hr>
+<p id="bai4">Kết quả bài 4</p>
+<p id="ket_qua_4"></p>
+<input type="button" value="Thực hiện" onclick="bai4()">
+<hr>
+<p id="bai5">Kết quả bài 5</p>
+<p id="ket_qua_5"></p>
+<input type="button" value="Thực hiện" onclick="bai5()">
+<hr>
+<p id="bai6">Kết quả bài 6</p>
+<p id="ket_qua_6"></p>
+<input type="button" value="Thực hiện" onclick="bai6()">
+<hr>
+<script>
+    function bai1(){
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4]
+        ]
+        let output="";
+        for (let i = 0; i < a.length; i++) {
+            output+="row "+i+"<br>";
+            for (let j=0;j<a[i].length;j++){
+                output += "Element " + i + j + " = " + a[i][j] + "<br/>";
+            }
+        }
+        document.getElementById("ket_qua").innerHTML=output.toString();
+    }
+    function bai2() {
+        let arr=['e','m','o','s','d','n','a','h'];
+        document.getElementById("bai2").innerHTML="Mảng ban đầu "+arr.toString();
+        let arr_reverse=[];
+        arr_reverse=arr.reverse();
+        document.getElementById("ket_qua_2").innerHTML="Mảng đã đảo ngược "+arr_reverse.join("");
+    }
+    function bai3() {
+        let kitu=[];
+        let count=0;
+        let temp="";
+        let input=parseInt(prompt("Muốn nhập vào bao nhiêu từ hoặc số"));
+        for (let i=1;i<=input;i++){
+            kitu[i]=prompt("Nhập vào từ hoặc số"+i);
+        }
+        for (let i=0;i<kitu.length;i++){
+            if(!isNaN(parseInt(kitu[i]))){
+                count++
+                temp+=kitu[i]+","
+            }
+        }
+        document.getElementById("bai3").innerHTML="Có "+count+" số: "+temp+" trong mảng: "+kitu.toString();
+
+    }
+    function bai4() {
+        let s = prompt("Nhập chuỗi")
+        document.getElementById("ket_qua_4").innerHTML = "Có " + s.trim().split(/\s+/).length+" từ" ;
+    }
+    function bai5() {
+        let a = [];
+        let b = [];
+        a[0] = prompt("Nhập vào chuỗi 1");
+        b[0] = prompt("Nhập vào chuỗi 2");
+        if (a[0].toUpperCase() === b[0].toUpperCase()) {
+            document.getElementById("ket_qua_5").innerHTML = "Hai chuỗi giống nhau: " + a[0];
+        } else {
+            document.getElementById("ket_qua_5").innerHTML = "Hai chuỗi khác nhau: " + a[0] + " và " + b[0];
+
+        }
+    }
+        function bai6() {
+            let kitu=[];
+            let input=parseInt(prompt("Muốn nhập vào bao nhiêu kí tự"));
+            for (let i=1;i<=input;i++){
+                kitu[i]=prompt("Nhập vào kí tự "+i);
+            }
+            document.getElementById("bai6").innerHTML="Mảng ban đầu :"+kitu.join("  ")
+            let key_word="-";
+            let replace="_";
+            for (let i=1;i<=kitu.length;i++){
+                if (kitu[i]===key_word){
+                  kitu.splice(i,1,replace)
+                }
+            }
+            document.getElementById("ket_qua_6").innerHTML="Mảng đã biến đổi :"+kitu.join("  ")
+        }
+
+
+</script>
+</body>
+</html>
