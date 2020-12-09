@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm 02</title>
+</head>
+<body>
+<p>Kết quả bài 1</p>
+<input type="text" id="num1" placeholder="Nhập số cần bình phương"><br><br>
+<input type="button" value="Thực hiện" onclick="bai1()">
+<hr>
+<p>Kết quả bài 2</p>
+<input type="text" id="num2" placeholder="Nhập bán kính cần tính"><br><br>
+<input type="button" value="Thực hiện" onclick="bai2()">
+<hr>
+<p>Kết quả bài 3</p>
+<input type="text" id="num3" placeholder="Nhập số cần tính giai thừa"><br><br>
+<input type="button" value="Thực hiện" onclick="bai3()">
+<hr>
+<p>Kết quả bài 4</p>
+<input type="text" id="num4" placeholder="Nhập vào kí tự cần kiểm tra"><br><br>
+<input type="button" value="Thực hiện" onclick="bai4()">
+<hr>
+<p>Kết quả bài 5</p>
+<input type="button" value="Thực hiện" onclick="bai5()">
+<hr>
+<p>Kết quả bài 6</p>
+<input type="button" value="Thực hiện" onclick="bai6()">
+<hr>
+<p>Kết quả bài 7</p>
+<input type="button" value="Thực hiện" onclick="bai7()">
+<hr>
+<p>Kết quả bài 8</p>
+<p id="mang_ban_dau"></p>
+<p id="mang_nguoc"></p>
+<input type="button" value="Thực hiện" onclick="bai8()">
+<hr>
+<p>Kết quả bài 9</p>
+<input type="button" value="Thực hiện" onclick="bai9()">
+<hr>
+<script>
+
+    function bai1() {
+        let number=parseInt(document.getElementById("num1").value);
+        alert("Bình phương của "+number+" là "+number*number);
+    }
+    function bai2() {
+        let R=parseInt(document.getElementById("num2").value);
+        alert("Diện tích hình tròn là: "+3.14*2*R);
+        alert("Chu vi hình tròn là: "+3.14*2*R);
+
+    }
+    function bai3() {
+        let number=parseInt(document.getElementById("num3").value);
+        let kq=1;
+        for (let i=1;i<=number;i++){
+            kq*=i
+        }
+        alert("Giai thừa của "+number+" là "+kq)
+    }
+    function bai4() {
+        let kitu=parseInt(document.getElementById("num4").value);
+        if(isNaN(kitu)){
+         alert(false)
+        }else{
+            alert(true);
+        }
+    }
+    function bai5() {
+        let a=parseInt(prompt("Nhập vào số 1"));
+        let b=parseInt(prompt("Nhập vào số 2"));
+        let c=parseInt(prompt("Nhập vào số 3"));
+        if(a<b && a<c)
+            alert("Số nhỏ nhất là "+a);
+         if(c<b && c<a)
+            alert("Số nhỏ nhất là "+c);
+         if(b<a && b<c){
+             alert("Số nhỏ nhất là "+b);
+         }else{
+             alert("cả ba số bằng nhau "+a)
+         }
+    }
+    function bai6() {
+        let num=parseInt(prompt("Nhập vào số cần kiểm tra"));
+        if(num>=0)
+            alert(true);
+        else
+            alert(false);
+    }
+    function bai7() {
+        let num_1=parseInt(prompt("Nhập vào số 1"));
+        let num_2=parseInt(prompt("Nhập vào số 2"));
+        let temp=0;
+        temp=num_1;
+        num_1=num_2;
+        num_2=temp
+        alert("Số 1 là "+num_1);
+        alert("Số 2 là "+num_2);
+    }
+    function bai8() {
+        let num = [];
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 0; i < input; i++) {
+            num[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        document.getElementById("mang_ban_dau").innerHTML="Mảng ban đầu "+num.toString();
+        document.getElementById("mang_nguoc").innerHTML="Mảng ban đầu "+num.reverse();
+    }
+    function bai9() {
+        let array = [];
+        let count=0;
+        let check=false;
+        let input = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử"));
+        for (let i = 1; i <= input; i++) {
+            array[i] = parseInt(prompt("Nhập vào phần tử " + i));
+        }
+        let find_word=prompt("Nhập vào kí tự bất kỳ")
+        for(let i=0;i<array.length;i++){
+            if(array[i]==find_word){
+                count++
+                check=true
+            }
+            else {
+                check=false
+            }
+        }
+        alert("Mảng đã nhập là: "+array)
+        if(check){
+            alert("Số lần xuất hiện ở mảng là: "+count);
+        }else if(check==false){
+            alert("Số lần xuất hiện ở mảng là: -1");
+        }
+
+    }
+</script>
+</body>
+</html>

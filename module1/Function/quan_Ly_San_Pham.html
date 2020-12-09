@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản lí sản phẩm</title>
+</head>
+<body>
+<input type="text" placeholder="Nhập vào sản phẩm cần thêm" id="new_Product">
+<input type="button" value="Add" onclick="add_Product()" style="background: rgba(73,185,61,0.82)"><br><br>
+<label id="soLuong">Số lượng</label>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+    </tr>
+    </thead>
+    <tbody id="result">
+    </tbody>
+</table>
+<script>
+    let Product_list = [];
+    function add_Product() {
+        var productName = document.getElementById("new_Product").value;
+        var product = {
+            'productName': productName
+        };
+        if(productName==""){
+            alert("Hãy nhập tên cho sản phẩm");
+        }else {
+            Product_list.push(product);
+            show_Product();
+        }
+    }
+    function show_Product() {
+        document.getElementById('result').innerHTML = '';
+        for (var i = 0; i < Product_list.length; i++) {
+            document.getElementById('result').innerHTML += `<tr>
+				<td>${i + 1}</td>
+				<td>${Product_list[i].productName}</td>
+				<td><button style="background: rgba(73,185,61,0.82)" onclick = "edit_Product(${i})">Edit</button></td>
+				<td><button style="background: rgba(73,185,61,0.82)" onclick="delete_Product(${i})">Delete</button></td>
+				</tr>`
+        }
+        document.getElementById("soLuong").innerHTML="Số lượng: "+Product_list.length;
+    }
+    function edit_Product(index) {
+        let fix_product=prompt("Nhập vào tên cần chỉnh sửa");
+        if(fix_product=="" && fix_product==null){
+            alert("Hãy nhập từ cần sửa");
+        }else{
+            Product_list[index].productName=fix_product;
+            show_Product();
+        }
+    }
+    function delete_Product(index) {
+        Product_list.splice(index, 1);
+        show_Product();
+    }
+
+</script>
+</body>
+</html>

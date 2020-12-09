@@ -15,7 +15,6 @@
         let eng = ["hi", "apple", "banana"];
         let vie = ["Xin chào", "Quả táo", "Quả chuối"]
         let check=false;
-        let display=document.getElementById("vie").innerHTML
         let search = document.getElementById("eng").value;
         for (let i = 0; i <= eng.length-1; i++) {
             if (eng[i] == search) {
@@ -28,30 +27,7 @@
             alert("Không tìm thấy")
         }
     }
-    function tu_Dien_2_array() {
-        let display=document.getElementById("vie").innerHTML
-        let check=false;
-        var search = document.getElementById("eng").value;
-        var libary=[
-            ["hi", "apple", "banana"],
-            ["Xin chào", "Quả táo", "Quả chuối"]
-        ]
-        for(let i=0;i<=libary.length;i++){
-            for(let j=0;j<=libary[i].length;j++){
-                if(search==libary[i][j]){
-                    check=true
-                    i++
-                   display=libary[i][j]
-                    break;
-                }
-            }
-            if(check==false){
-                alert("Không có")
-                break;
-            }
-        }
 
-    }
 </script>
 </body>
 </html>

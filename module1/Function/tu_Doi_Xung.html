@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ đối xứng</title>
+</head>
+<input type="text" id="key_word" placeholder="Nhập từ cần kiểm tra vào đây">
+<input type="button" value="Thực hiện" onclick="show()">
+<body>
+<script>
+
+    function isPalindrome(s) {
+        if (s.length <= 1) {
+            alert("Là từ đối xứng")
+            return true;
+        } else if (s.charAt(s.length - 1) == s.charAt(0)) {
+            return isPalindrome(s.substring(1, s.length - 1));
+        } else {
+            alert("Không phải là từ đối xứng")
+            return;
+        }
+    }
+    function show() {
+        let word = document.getElementById("key_word").value;
+        isPalindrome(word);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi feet và meet</title>
+</head>
+<body>
+<input type="text" id="footer" placeholder="Nhập vào foot cần đổi">
+<input type="button" value="Foot To Met" onclick="footer()"><br><br>
+<input type="text" id="meter" placeholder="Nhập vào mét cần đổi">
+<input type="button" value="Met To Foot" onclick="meter()">
+<script>
+    function footToMeter(foot){
+        return foot*0.305;
+    }
+    function meterToFoot(meter){
+        return meter*3.279;
+    }
+    function footer() {
+        let foot=parseFloat(document.getElementById("footer").value);
+      alert(footToMeter(foot))
+    }
+    function meter() {
+        let met=parseFloat(document.getElementById("meter").value);
+       alert(meterToFoot(met));
+    }
+
+</script>
+
+</body>
+</html>

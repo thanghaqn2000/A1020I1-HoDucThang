@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm 01</title>
+</head>
+<body>
+<p id="bai1">Kết quả bài 1</p>
+<input type="button" onclick="bai1()" value="Thực hiện">
+<hr>
+<p id="bai2">Kết quả bài 2</p>
+<input type="text" id="num2"><br><br>
+<input type="button" onclick="show2()" value="Thực hiện">
+<hr>
+<p id="bai3">Kết quả bài 3</p>
+<input type="text" id="num_1"><br><br>
+<input type="text" id="num_2"><br><br>
+<input type="button" onclick="show3()" value="Thực hiện">
+<hr>
+<p id="bai4">Kết quả bài 4</p>
+<input type="button" onclick="show4()" value="Thực hiện">
+<hr>
+<p id="bai5">Kết quả bài 5</p>
+<input type="text" id="input_5"><br><br>
+<input type="button" onclick="show5()" value="Thực hiện">
+<hr>
+</body>
+<script>
+    function bai1() {
+        alert("Xin Chào")
+    }
+
+    function bai2(number) {
+        return number + 1;
+    }
+
+    function show2() {
+        let num2 = parseInt(document.getElementById("num2").value);
+        alert(bai2(num2));
+    }
+
+    function bai3(a, b) {
+        if (a <= b) {
+            return a + b;
+        }
+        return (a + " > " + b);
+    }
+
+    function show3() {
+        let num1 = parseInt(document.getElementById("num_1").value);
+        let num2 = parseInt(document.getElementById("num_2").value);
+        alert(bai3(num1, num2));
+    }
+
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+
+    function show4() {
+        result = 0;
+        alert("Trước khi gọi hàm: " + result);
+        result = addNumbers();
+        alert("Sau khi gọi hàm: " + result);
+    }
+
+    function bai5(star_name) {
+        let check = false;
+        let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let chom_star = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        for (let i = 0; i < star.length; i++) {
+            if (star[i] === star_name) {
+                return "Chòm sao của " + star_name + " là " + chom_star[i];
+            }
+                check = false;
+        }
+        if (check == false) {
+            return "Không tìm thấy chòm sao của " + star_name;
+        }
+    }
+
+    function show5() {
+        let input = document.getElementById("input_5").value
+        alert(bai5(input));
+    }
+</script>
+</html>
