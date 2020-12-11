@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(temperature) {
+            this.temperature=temperature;
+        }
+        setTemperature(temperature){
+            this.temperature=temperature;
+        }
+        getTemperature(){
+            return this.temperature;
+        }
+        getFromCtoF(){
+            return this.temperature+" độ C sang F ="+parseFloat( this.temperature *1.8 + 32);
+        }
+        getFromCtoK(){
+            return this.temperature+" độ C sang Kenvin ="+parseFloat(this.temperature+273.15);
+        }
+    }
+    let nhietdo=parseInt(prompt("Nhập vào nhiệt độ C cần đổi:"))
+    let temperature=new Temperature(nhietdo);
+    alert(temperature.getFromCtoF());
+    alert(temperature.getFromCtoK());
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình Chữ Nhật</title>
+</head>
+<body>
+<canvas id="rectangle" width="200" height="100"> </canvas>
+<script>
+    class Rectangle{
+        constructor(width,height) {
+            this.width=width;
+            this.height=height;
+        }
+      setWidth(width){
+            this.width=width;
+      }
+      setHeight(height){
+            this.width=height;
+      }
+      getWidth(){
+            return this.width;
+      }
+      getHeight(){
+            return this.height;
+      }
+      getArea(){
+            return "Recyangle's area is "+this.width*this.height;
+      }
+      getPremieter(){
+            return "Rectangle's perimeter is "+(this.width+this.height)*2;
+      }
+      draw(){
+          let draw=document.getElementById("rectangle");
+          let ctx = draw.getContext("2d");
+          ctx.fillStyle = "#e6ffbf";
+          ctx.fillRect(100,0,this.width,this.height);
+      }
+    }
+    let width=parseInt(prompt("Please type rectangle's width"));
+    let height=parseInt(prompt("Please type rectangle's height"));
+    let rectangle=new Rectangle(width,height);
+    alert(rectangle.getArea());
+    alert(rectangle.getPremieter());
+    rectangle.draw();
+</script>
+</body>
+</html>
