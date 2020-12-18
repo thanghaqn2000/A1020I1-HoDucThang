@@ -6,7 +6,121 @@
 </head>
 <body>
 <script>
-    class
+    class Mobile {
+        constructor(name) {
+            this.name = name;
+            this.pin = 7;
+            this.status = true;
+            this.spam = [];
+            this.inbox = [];
+            this.sent = [];
+        }
+        getPin() {
+            return this.pin;
+        }
+        getStatus() {
+            return this.status;
+        }
+        checkStatus() {
+            if(this.status===true){
+                this.pin-=1;
+                console.log("Trạng thái của điện thoại đang bật");
+
+            }else{
+                console.log("Trạng thái của điện thoại đang tắt" );
+
+            }
+        }
+        turnOn() {
+            this.pin-=1;
+            this.status = true;
+        }
+        turnOff() {
+            this.pin-=1;
+            this.status = false;
+        }
+        charge() {
+            while (this.pin < 100) {
+                this.pin += 10;
+                if(this.pin>100){
+                    this.pin=100;
+                }
+                console.log(this.pin+"%");
+            }
+            console.log("Đã sạc đầy "+this.pin+"%");
+        }
+        texting(message) {
+            if(this.status===true){
+                if (this.pin>=1){
+                    this.pin-=1;
+                    this.spam.push(message);
+                }else{
+                    console.log("Điện thoại đang hết pin, không thể soạn tin nhắn");
+                }
+            }else{
+                console.log("Điện thoại đã tắt, không thể soạn tin nhắn");
+            }
+        }
+        sendingMessage(message,phone){
+            if(this.status===true){
+                if (this.pin>=1){
+                    this.pin-=1;
+                    this.sent.push(message);
+                    phone.inbox.push(message);
+
+                }else{
+                    console.log("Điện thoại đang hết pin, không thể gửi tin nhắn");
+                }
+            }else{
+                console.log("Điện thoại đã tắt, không thể gửi tin nhắn");
+            }
+        }
+        checkSent(){
+            if(this.status===true){
+                if(this.pin>=1){
+                    this.pin-=1;
+                    console.log(this.sent);
+                }else{
+                    console.log("Điện thoại đang hết pin, không thể xem tin nhắn đã gửi");
+
+                }
+            }else{
+                console.log("Điện thoại đã tắt, không thể xem nhắn đã gửi");
+            }
+        }
+        checkInbox(){
+            if(this.status===true){
+                if(this.pin>=1){
+                    this.pin-=1;
+                    console.log(this.inbox);
+                }else{
+                    console.log("Điện thoại đang hết pin, không thể xem tin nhắn");
+
+                }
+            }else{
+                console.log("Điện thoại đã tắt, không thể xem nhắn");
+            }
+        }
+        checkSpam(){
+            if(this.status===true){
+                if (this.pin>=1){
+                    this.pin-=1;
+                    console.log(this.spam);
+                }else{
+                    console.log("Điện thoại đang hết pin, không thể xem tin nhắn đang soạn");
+                }
+            }else{
+                console.log("Điện thoại đã tắt, không thể xem tin nhắn đang soạn");
+            }
+        }
+    }
+    let nokia=new Mobile('Nokia');
+    let iphone=new Mobile('Ịphone');
+
+    nokia.charge();
+    nokia.checkSpam();
+    //console.log(nokia.getPin());
+    nokia.charge();
 </script>
 </body>
 </html>

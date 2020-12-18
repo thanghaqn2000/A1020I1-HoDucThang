@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote điều khiển tivi</title>
+</head>
+<body>
+    <script>
+        class Remote{
+            constructor(id) {
+                this.id=id;
+            }
+            moveChanel(nextChanel,tivi){
+                if(tivi.status==='on'){
+                    tivi.chanel=nextChanel;
+                    console.log("Chuyển đến kênh "+nextChanel);
+                }else if(tivi.status==='off') {
+                    console.log("Tivi hiện tại đang tắt, không thể chuyển kênh");
+                }
+            }
+            controlVolume(UporDown,amount,tivi){
+                    if(tivi.status==='on'){
+                        if(UporDown==='up'){
+                            tivi.volume+=amount;
+                            console.log("Âm lượng của tivi tăng "+amount+", âm lượng hiện giờ là "+tivi.volume);
+                        }else if(UporDown==='down'){
+                            tivi.volume-=amount;
+                            console.log("Âm lượng của tivi giảm "+amount+", âm lượng hiện giờ là "+tivi.volume);
+                        }
+                    }else if(tivi.status==='off'){
+                        console.log("Tivi hiện tại đang tắt, không thể tăng hoặc giảm âm lượng");
+                    }
+            }
+            turnOnorOff(status,tivi){
+                if(status==='on'){
+                    tivi.status='on';
+                    console.log("Tivi đang được bật");
+                }else if(status==='off'){
+                    tivi.status='off';
+                    console.log("Tivi đã tắt");
+                }
+            }
+        }
+        class Tivi{
+            constructor(chanel,volume,status) {
+                this.chanel=chanel;
+                this.volume=volume;
+                this.status=status;
+            }
+            getChanel(){
+                return this.chanel;
+            }
+            moveChanel(nextChanel){
+                if(this.status==='on'){
+                    this.chanel=nextChanel;
+                    console.log("Đang chuyển đến kênh: "+this.chanel);
+                }else if(this.status==='off'){
+                    console.log("Tivi hiện tại đang tắt, không thể chuyển kênh");
+                }
+            }
+            controlVolume(UporDown,amount){
+                if(this.status==='on'){
+                    if(UporDown==='up'){
+                        this.volume+=amount;
+                        console.log("Âm lượng của tivi tăng "+amount+", âm lượng hiện giờ là "+this.volume);
+                    }else if(UporDown==='down'){
+                        this.volume-=amount;
+                        console.log("Âm lượng của tivi giảm "+amount+", âm lượng hiện giờ là "+this.volume);
+                    }
+                }else if(this.status==='off'){
+                    console.log("Tivi hiện tại đang tắt, không thể tăng hoặc giảm âm lượng");
+                }
+            }
+        }
+        let tiviLG=new Tivi("vtv6",20,"on");
+        let remoteLG=new Remote("LG");
+        remoteLG.turnOnorOff('on',tiviLG);
+        tiviLG.moveChanel('vtv10');
+        remoteLG.controlVolume('up',10,tiviLG);
+    </script>
+</body>
+</html>

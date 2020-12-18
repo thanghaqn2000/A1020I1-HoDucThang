@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    class Apple{
+        constructor(weight) {
+            this.weight=weight;
+        }
+        getWeight(){
+            return this.weight=weight;
+        }
+        decrease(){
+            return this.weight;
+        }
+        isEmpty(){
+            if(this.weight<=0){
+                return true;
+            }
+        }
+    }
+    class Human{
+        constructor(name,gender,weight) {
+            this.name=name;
+            this.gender=gender;
+            this.weight=weight;
+        }
+        isMale(){
+            if(this.gender==='Male'){
+                return true;
+            }
+        }
+        setGender(gender){
+            this.gender=gender;
+        }
+        getGender(){
+            return this.gender;
+        }
+        setName(name){
+            this.name=name;
+        }
+        getName(){
+            return this.name;
+        }
+        setWeight(weight){
+            this.weight=weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        checkApple(apple){
+            return true;
+        }
+        eat(apple){
+            if(apple.isEmpty()){
+                console.log("Táo hết mất rồi")
+            }else{
+                this.weight+=1;
+                apple.weight-=1;
+                console.log(" Đã ăn táo , khối lượng hiện tại là: "+this.weight+" khối lượng quả táo hiện tại là "+apple.weight);
+            }
+        }
+        say(String){
+            return String;
+        }
+    }
+    let newapple=new Apple(2);
+    let Adam=new Human("Adam","Male",20);
+    let Eva=new Human("Eva","Female",15);
+    Eva.isMale('female');
+    while (check){
+        if(newapple.isEmpty()){
+            check=false;
+        }else{
+            Adam.eat(newapple);
+            Eva.eat(newapple);
+            check=true;
+        }
+    }
+</script>
+</body>
+</html>
