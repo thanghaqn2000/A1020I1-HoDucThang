@@ -2,16 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Case Study</title>
+    <title>Title</title>
 </head>
 <body>
 <script>
-
-    // Cho phép người dùng nhập vào tên, số CMND, ngày tháng năm sinh, email, địa chỉ, loại Customer (Diamond, Platinum, Gold, Silver, Member),
-    //     giảm giá, số lượng đi kèm, số ngày thuê, loại dịch vụ (Villa, House, Room), loại phòng thuê (Vip, Business,  Normal).
-    let salePay = 1;
-    let total_Pay = 1;
-    let check = false;
     let name_Customer = prompt("Nhập tên của bạn vào đây");
     do {
         var cmnd_Customer = prompt("Nhập số CMND của bạn vào đây");
@@ -79,10 +73,7 @@
     } while (check === false);
     let type_Service = prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room)");
     let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
-    let choose = parseInt(prompt("1.Show Information Customer." + "\n"
-        + "2.Edit Information Customer.." + "\n"
-        + "3.Show the amount to be paid after discount" + "\n"));
-    //YeuCau2
+
     switch (address_Customer.toLowerCase()) {
         case "đà nẵng":
             switch (type_Customer.toLowerCase()) {
@@ -241,22 +232,34 @@
             }
             break;
         default:
-            salePay = +address_Customer + " không phải là địa chỉ được giảm giá";
+            salePay = address_Customer + " không phải là địa chỉ được giảm giá";
             break;
     }
     switch (type_Service.toLowerCase()) {
         case "villa":
-            total_Pay = 500 * rent_Days * (1 - (discount / 100));
+            total_Pay = 500 * rent_Days - salePay;
+            if(isNaN(total_Pay)){
+                total_Pay="Không phải địa chỉ cần giảm giá"
+            }
             break;
         case "house":
-            total_Pay = 300 * rent_Days * (1 - (discount / 100));
+            total_Pay = 300 * rent_Days - salePay;
+            if(isNaN(total_Pay)){
+                total_Pay="Không phải địa chỉ cần giảm giá"
+            }
             break;
         case "room":
-            total_Pay = 100 * rent_Days * (1 - (discount / 100));
+            total_Pay = 100 * rent_Days - salePay;
+            if(isNaN(total_Pay)){
+                total_Pay="Không phải địa chỉ cần giảm giá"
+            }
             break;
         default:
             total_Pay = "Chưa nhập đúng dữ liệu";
     }
+    let choose = parseInt(prompt("1.Show Information Customer." + "\n"
+        + "2.Edit Information Customer.." + "\n"
+        + "3.Show the amount to be paid after discount" + "\n"));
     switch (choose) {
         case 1:
             alert("Name: " + name_Customer + "\n"
@@ -274,7 +277,7 @@
             break;
         case 2:
             let edit = parseInt(prompt("1.Sửa tên của bạn" + "\n"
-                + "2.Sửa tên của bạn" + "\n"
+                + "2.Sửa ngày sinh của bạn" + "\n"
                 + "3.Sửa số CMND của bạn " + "\n"
                 + "4.Sửa email của bạn " + "\n"
                 + "5.Sửa địa chỉ của bạn " + "\n"
@@ -289,7 +292,34 @@
                     name_Customer = prompt("Nhập tên cần sửa vào đây");
                     break;
                 case 2:
-                    cmnd_Customer = prompt("Nhập số CMND của bạn vào đây");
+                    date_Of_Birth_Customer = prompt("Nhập ngày sinh cần sửa vào đây");
+                    break;
+                case 3:
+                    cmnd_Customer = prompt("Nhập cmnd cần sửa vào đây");
+                    break;
+                case 4:
+                    email_Customer = prompt("Nhập email cần sửa vào đây");
+                    break;
+                case 5:
+                    cmnd_Customer = prompt("Nhập địa chỉ cần sửa vào đây");
+                    break;
+                case 6:
+                    type_Customer = prompt("Nhập loại khách hàng cần sửa vào đây");
+                    break;
+                case 7:
+                    discount = prompt("Nhập mức giảm giá cần sửa vào đây");
+                    break;
+                case 8:
+                    amount_Customer = prompt("Nhập số lượng cần sửa vào đây");
+                    break;
+                case 9:
+                    type_Service = prompt("Nhập loại dịch vụ cần sửa vào đây");
+                    break;
+                case 10:
+                    type_Room = prompt("Nhập loại phòng cần sửa vào đây");
+                    break;
+                default:
+                    alert("Failed");
                     break;
             }
             show_Info();
@@ -317,16 +347,6 @@
             + "Loại phòng thuê: " + type_Room + "\n"
             + "Tổng tiền phải trả là: " + total_Pay + "\n");
     }
-    //done yeu cau 2
-    //yeu cau 4
-    let arrNameCustomers=[];
-    function addNameCustomers() {
-        let listCustomer=parseInt(prompt("Muốn nhập bao nhiêu khách hàng ?"));
-        for (let i=0;i<listCustomer;i++){
-
-        }
-    }
-
 </script>
 </body>
 </html>

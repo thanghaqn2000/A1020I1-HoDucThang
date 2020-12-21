@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 6</title>
+</head>
+<body>
+<script>
+    let listCustomers=[];
+    class Customer {
+        constructor(name, cmnd, dof, email, address, typeCustomer, discount, amount, rentDays, typeService, typeRoom) {
+            this.name = name;
+            this.cmnd = cmnd;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.amount = amount;
+            this.rentDays = rentDays;
+            this.typeService = typeService;
+            this.typeRoom = typeRoom;
+        }
+        setName(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setTypeCustomer(typeCustomer) {
+            this.typeCustomer = typeCustomer;
+        }
+
+        getTypeCustomer() {
+            return this.typeCustomer;
+        }
+
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setAmount(amount) {
+            this.amount = amount;
+        }
+
+        getAmount() {
+            return this.amount;
+        }
+
+        setRentDays(rentDays) {
+            this.rentDays = rentDays;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setTyoeService(typeService) {
+            this.typeService = typeService;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        setTypeRoom(typeRoom) {
+            this.typeRoom = typeRoom;
+        }
+
+        getTypeRoom() {
+            return this.typeRoom;
+        }
+        payTienPhong(){
+            if(this.typeService==="Villa"){
+                return "Tiền phòng là: "+500*this.rentDays*(1-(this.discount/100));
+            }else if(this.typeService==="House "){
+                return "Tiền phòng là: "+300*this.rentDays*(1-(this.discount/100));
+            }else if(this.typeService==="Room"){
+                return "Tiền phòng là: "+100*this.rentDays*(1-(this.discount/100));
+            }else{
+                return "Không có loại dịch vụ này! "+this.typeService;
+            }
+        }
+        addNewCustomer(){
+            listCustomers.push(this.name);
+        }
+    }
+    let KH1=new Customer("thang",1,1,"thang@gmail.com",1,1,1,1,1,1,1,1);
+    KH1.addNewCustomer();
+    console.log(listCustomers);
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4</title>
+</head>
+
+<body>
+
+<script>
+    let check = true;
+
+    let arrNameCustomer = [];
+    while (check) {
+        var choose = prompt("1.Add Name Customer"
+            + "\n" + "2.Delete Customer"
+            + "\n" + "3.Exit");
+        switch (choose) {
+            case '1':
+                add_Customer();
+                break;
+            case '2':
+                deleteCustomer();
+                break;
+            case '3':
+                check = false;
+                break;
+            default:
+                alert("Failed");
+                break;
+        }
+    }
+    function add_Customer() {
+        let howMany = parseInt(prompt("Muốn nhập bao nhiêu khách hàng"));
+        for (let i = 0; i < howMany; i++) {
+            var nameCustomer = prompt("Nhập tên khách hàng thứ " + parseInt(i + 1));
+            do {
+                var cmnd_Customer = prompt("Nhập số CMND khách hàng thứ: "+parseInt(i + 1));
+                if (!isNaN(cmnd_Customer) && cmnd_Customer.length == 9) {
+                    check = true;
+                } else {
+                    alert("Hãy nhập đúng định dạng");
+                    check = false;
+                }
+            } while (check === false);
+            do {
+                var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) khách hàng thứ: "+parseInt(i + 1));
+                if (date_Of_Birth_Customer.charAt(2) === '/' && date_Of_Birth_Customer.charAt(5) === '/') {
+                    let day = date_Of_Birth_Customer.substring(0, 2);
+                    let month = date_Of_Birth_Customer.substring(3, 5);
+                    let year = date_Of_Birth_Customer.substring(6, 10);
+                    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                        day = Number.parseFloat(day);
+                        month = Number.parseFloat(month);
+                        year = Number.parseFloat(year);
+                        if (Number.isInteger(day) && Number.isInteger(month) && Number.isInteger(year)) {
+                            if (day < 32 && month < 13 && year > 1950) {
+                                check = true;
+                            } else {
+                                alert("Nhập chưa đúng định dạng");
+                                check = false;
+                            }
+                        } else {
+                            alert("Nhập chưa đúng định dạng");
+                            check = false;
+
+                        }
+                    } else {
+                        alert("Nhập chưa đúng định dạng");
+                        check = false;
+                    }
+                } else {
+                    alert("Nhập chưa đúng định dạng");
+                    check = false;
+                }
+            } while (check === false);
+            do {
+                var email_Customer = prompt("Nhập email khách hàng thứ: "+parseInt(i + 1));
+                let atposition = email_Customer.indexOf("@");
+                let dotposition = email_Customer.lastIndexOf(".");
+                if (atposition < 1 || dotposition < (atposition + 2)
+                    || (dotposition + 2) >= email_Customer.length) {
+                    alert("Hãy nhập đúng định dạng của email:name@gmail.com!");
+                    check = false;
+                } else {
+                    check = true;
+                }
+            } while (check === false);
+            let address_Customer = prompt("Nhập địa chỉ khách hàng thứ: "+parseInt(i + 1));
+            let type_Customer = prompt("Nhập loại khách hàng thứ "+parseInt(i + 1)+" (Diamond, Platinum, Gold, Silver, Member)");
+            let discount = prompt("Nhập mức độ giảm giá");
+            do {
+                var amount_Customer = parseInt(prompt("Nhập số lượng của khách hàng thứ: "+parseInt(i + 1)));
+                var rent_Days = parseInt(prompt("Nhập số ngày thuê của khách hàng thứ: "+parseInt(i + 1)));
+                if (isNaN(amount_Customer) || isNaN(rent_Days)) {
+                    alert("hãy nhập chính xác");
+                    check = false;
+                } else
+                    check = true;
+            } while (check === false);
+            let type_Service = prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room)");
+            let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
+            arrNameCustomer[i] = nameCustomer.toUpperCase();
+        }
+      showCustomer();
+    }
+    function deleteCustomer() {
+        let check=false;
+        let search = prompt("Nhập tên khách hàng muốn xóa");
+        for (let i = 0; i < arrNameCustomer.length; i++) {
+            if (arrNameCustomer[i] === search.toUpperCase()) {
+                alert("Xóa thành công khách hàng: "+arrNameCustomer[i]);
+                arrNameCustomer.splice(i, 1);
+                check=true;
+            }
+        }
+        if(check===false)
+            alert("Không tìm tháy tên cần xóa");
+       showCustomer();
+    }
+function showCustomer() {
+    let result = "";
+    arrNameCustomer.sort();
+    for (let i = 0; i < arrNameCustomer.length; i++) {
+        result += (i+1) + ". " + arrNameCustomer[i] + "\n";
+    }
+    alert(result);
+}
+
+</script>
+</body>
+</html>
