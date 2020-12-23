@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Yêu cầu 4</title>
 </head>
-
 <body>
-
 <script>
     let check = true;
 
@@ -44,34 +42,13 @@
                 }
             } while (check === false);
             do {
-                var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) khách hàng thứ: "+parseInt(i + 1));
-                if (date_Of_Birth_Customer.charAt(2) === '/' && date_Of_Birth_Customer.charAt(5) === '/') {
-                    let day = date_Of_Birth_Customer.substring(0, 2);
-                    let month = date_Of_Birth_Customer.substring(3, 5);
-                    let year = date_Of_Birth_Customer.substring(6, 10);
-                    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
-                        day = Number.parseFloat(day);
-                        month = Number.parseFloat(month);
-                        year = Number.parseFloat(year);
-                        if (Number.isInteger(day) && Number.isInteger(month) && Number.isInteger(year)) {
-                            if (day < 32 && month < 13 && year > 1950) {
-                                check = true;
-                            } else {
-                                alert("Nhập chưa đúng định dạng");
-                                check = false;
-                            }
-                        } else {
-                            alert("Nhập chưa đúng định dạng");
-                            check = false;
-
-                        }
-                    } else {
-                        alert("Nhập chưa đúng định dạng");
-                        check = false;
-                    }
-                } else {
-                    alert("Nhập chưa đúng định dạng");
-                    check = false;
+                var regex_date= /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+                var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của bạn vào đây");
+                if(regex_date.test(date_Of_Birth_Customer)){
+                    check=true;
+                }else{
+                    alert("Nhập sai kiểu dữ liệu!");
+                    check=false;
                 }
             } while (check === false);
             do {
@@ -102,7 +79,6 @@
             let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
             arrNameCustomer[i] = nameCustomer.toUpperCase();
         }
-      showCustomer();
     }
     function deleteCustomer() {
         let check=false;
@@ -116,7 +92,6 @@
         }
         if(check===false)
             alert("Không tìm tháy tên cần xóa");
-       showCustomer();
     }
 function showCustomer() {
     let result = "";

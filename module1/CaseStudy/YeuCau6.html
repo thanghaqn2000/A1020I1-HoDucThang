@@ -3,111 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <title>Yêu cầu 6</title>
+    <script src="Customer.js"></script>
+    <script src="Employee.js"></script>
 </head>
 <body>
 <script>
-    let listCustomers=[];
-    class Customer {
-        constructor(name, cmnd, dof, email, address, typeCustomer, discount, amount, rentDays, typeService, typeRoom) {
-            this.name = name;
-            this.cmnd = cmnd;
-            this.address = address;
-            this.typeCustomer = typeCustomer;
-            this.discount = discount;
-            this.amount = amount;
-            this.rentDays = rentDays;
-            this.typeService = typeService;
-            this.typeRoom = typeRoom;
-        }
-        setName(name) {
-            this.name = name;
-        }
 
-        getName() {
-            return this.name;
-        }
+    let listCustomers = [];
+    let listEmployee = [];
+    let check = true;
 
-        setCmnd(cmnd) {
-            this.cmnd = cmnd;
-        }
-
-        getCmnd() {
-            return this.cmnd;
-        }
-
-        setAddress(address) {
-            this.address = address;
-        }
-
-        getAddress() {
-            return this.address;
-        }
-
-        setTypeCustomer(typeCustomer) {
-            this.typeCustomer = typeCustomer;
-        }
-
-        getTypeCustomer() {
-            return this.typeCustomer;
-        }
-
-        setDiscount(discount) {
-            this.discount = discount;
-        }
-
-        getDiscount() {
-            return this.discount;
-        }
-
-        setAmount(amount) {
-            this.amount = amount;
-        }
-
-        getAmount() {
-            return this.amount;
-        }
-
-        setRentDays(rentDays) {
-            this.rentDays = rentDays;
-        }
-
-        getRentDays() {
-            return this.rentDays;
-        }
-
-        setTyoeService(typeService) {
-            this.typeService = typeService;
-        }
-
-        getTypeService() {
-            return this.typeService;
-        }
-
-        setTypeRoom(typeRoom) {
-            this.typeRoom = typeRoom;
-        }
-
-        getTypeRoom() {
-            return this.typeRoom;
-        }
-        payTienPhong(){
-            if(this.typeService==="Villa"){
-                return "Tiền phòng là: "+500*this.rentDays*(1-(this.discount/100));
-            }else if(this.typeService==="House "){
-                return "Tiền phòng là: "+300*this.rentDays*(1-(this.discount/100));
-            }else if(this.typeService==="Room"){
-                return "Tiền phòng là: "+100*this.rentDays*(1-(this.discount/100));
-            }else{
-                return "Không có loại dịch vụ này! "+this.typeService;
-            }
-        }
-        addNewCustomer(){
-            listCustomers.push(this.name);
+    function displayMainMenu() {
+        let choose = parseInt(prompt("1. Add new customer" + "\n"
+            + "2. Display Information Customer" + "\n"
+            + "3. Display total pay of Customer" + "\n"
+            + "4. Edit Information Customer" + "\n"
+            + "5. Delete Customer" + "\n"
+            + "6. Add new an Employee" + "\n"
+            + "7. Display Information Employee(e)" + "\n"
+            + "8. Display salary of Employee" + "\n"
+            + "9. Exit"));
+        switch (choose) {
+            case 1:
+                addNewCustomer();
+                break;
+            case 2:
+                Displayinforcustomer();
+                break;
+            case 3:
+                Display_total_pay_of_customer();
+                break;
+            case 4:
+                editCustomer();
+                break;
+            case 5:
+                deleteCustomer();
+                break;
+            case 6:
+                addNewEmployee();
+                break;
+            case 7:
+                displayInfoEmp();
+                break;
+            case 8:
+                salaryOfEmployee();
+                break;
+            case 9:
+                check = false;
+                break;
+            default:
+                alert("Failed");
+                break;
         }
     }
-    let KH1=new Customer("thang",1,1,"thang@gmail.com",1,1,1,1,1,1,1,1);
-    KH1.addNewCustomer();
-    console.log(listCustomers);
+
+    while (check) {
+        displayMainMenu();
+    }
+
+    function addNewCustomer() {
+        do {
+            var name_Customer = prompt("Nhập tên của bạn vào đây");
+            if (!isNaN(name_Customer)) {
+                alert("Không nhập đúng kiểu dữ liệu, hãy nhập lại!");
+                check = false;
+            } else {
+                check = true;
+            }
+        } while (check === false);
+        do {
+            var cmnd_Customer = prompt("Nhập số CMND của bạn vào đây");
+            if (!isNaN(cmnd_Customer) && cmnd_Customer.length == 9) {
+                check = true;
+            } else {
+                alert("Hãy nhập đúng định dạng");
+                check = false;
+            }
+        } while (check === false);
+        do {
+            var regex_date = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+            var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của bạn vào đây");
+            if (regex_date.test(date_Of_Birth_Customer)) {
+                check = true;
+            } else {
+                alert("Nhập sai kiểu dữ liệu!");
+                check = false;
+            }
+        } while (check === false);
+        do {
+            var email_Customer = prompt("Nhập email của bạn vào đây");
+            let atposition = email_Customer.indexOf("@");
+            let dotposition = email_Customer.lastIndexOf(".");
+            if (atposition < 1 || dotposition < (atposition + 2)
+                || (dotposition + 2) >= email_Customer.length) {
+                alert("Hãy nhập đúng định dạng của email:name@gmail.com!");
+                check = false;
+            } else {
+                check = true;
+            }
+        } while (check === false);
+        let address_Customer = prompt("Nhập địa chỉ của bạn vào đây");
+        let type_Customer = prompt("Nhập loại khách hàng của bạn(Diamond, Platinum, Gold, Silver, Member)");
+        do {
+            var discount = parseInt(prompt("Nhập mức độ giảm giá"));
+            var amount_Customer = parseInt(prompt("Nhập số lượng của bạn"));
+            var rent_Days = parseInt(prompt("Nhập số ngày thuê của bạn"));
+            if (isNaN(amount_Customer) || isNaN(rent_Days) || isNaN(discount)) {
+                alert("hãy nhập chính xác kiểu dữ liệu");
+                check = false;
+            } else
+                check = true;
+        } while (check === false);
+        let type_Service = prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room)");
+        let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
+        let cus = new Customer();
+        cus.setName(name_Customer);
+        cus.setCmnd(cmnd_Customer);
+        cus.setEmail(email_Customer);
+        cus.setDOF(date_Of_Birth_Customer);
+        cus.setAddress(address_Customer);
+        cus.setAmount(amount_Customer);
+        cus.setDiscount(discount);
+        cus.setRentDays(rent_Days);
+        cus.setTypeService(type_Service);
+        cus.setTypeCustomer(type_Customer);
+        cus.setTypeRoom(type_Room);
+        listCustomers.push(cus);
+    }
+
+    function Displayinforcustomer() {
+        let result = "";
+        for (let i = 0; i < listCustomers.length; i++) {
+            result += i + " " + listCustomers[i].getName() + "\n";
+        }
+        let choose = parseInt(prompt(result));
+        alert("Tên: " + listCustomers[choose].getName() + "\n"
+            + "CMND: " + listCustomers[choose].getCmnd() + "\n"
+            + "Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
+            + "Email: " + listCustomers[choose].getEmail() + "\n"
+            + "Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
+            + "Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
+            + "Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
+            + "Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
+            + "Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
+            + "Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
+            + "Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n"
+        );
+    }
+
+    function Display_total_pay_of_customer() {
+        let result = "";
+        for (let i = 0; i < listCustomers.length; i++) {
+            result += i + " " + listCustomers[i].getName() + "\n";
+        }
+        let choose = parseInt(prompt(result));
+        alert(listCustomers[choose].payTienPhong());
+    }
+    function editCustomer() {
+        let result = "Chọn khách hàng muốn chỉnh sửa:" + "\n";
+        for (let i = 0; i < listCustomers.length; i++) {
+            result += i + " " + listCustomers[i].getName() + "\n";
+        }
+        let choose = parseInt(prompt(result));
+
+        let flag=true;
+        do{
+            let edit = parseInt(prompt("1.Tên: " + listCustomers[choose].getName() + "\n"
+                + "2.CMND: " + listCustomers[choose].getCmnd() + "\n"
+                + "3.Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
+                + "4.Email: " + listCustomers[choose].getEmail() + "\n"
+                + "5.Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
+                + "6.Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
+                + "7.Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
+                + "8.Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
+                + "9.Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
+                + "10.Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
+                + "11.Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n"
+                + "12.Exit:"));
+            switch (edit) {
+                case 1:
+                    listCustomers[choose].setName(prompt("Nhập tên cần sửa vào đây"));
+                    break;
+                case 2:
+                    listCustomers[(choose)].setCmnd(prompt("Nhập số CMND của bạn vào đây"));
+                    break;
+                case 3:
+                    listCustomers[(choose)].setDOF(prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) cần sửa vào đây"));
+                    break;
+                case 4:
+                    listCustomers[(choose)].setEmail(prompt("Nhập email cần sửa vào đây"));
+                    break;
+                case 5:
+                    listCustomers[(choose)].setAddress(prompt("Nhập địa chỉ cần sửa vào đây"));
+                    break;
+                case 6:
+                    listCustomers[(choose)].setTypeCustomer(prompt("Nhập loại khách hàng cần sửa(Diamond, Platinum, Gold, Silver, Member)"));
+                    break;
+                case 7:
+                    listCustomers[(choose)].setDiscount(prompt("Nhập mức độ giảm giá cần sửa"));
+                    break;
+                case 8:
+                    listCustomers[(choose)].setAmount(parseInt(prompt("Nhập số lượng cần sửa")));
+                    break;
+                case 9:
+                    listCustomers[(choose)].setRentDays(parseInt(prompt("Nhập số ngày thuê cần sửa")));
+                    break;
+                case 10:
+                    listCustomers[(choose)].setTypeService(prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room) cần sửa"));
+                    break;
+                case 11:
+                    listCustomers[(choose)].setTypeRoom(prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal) cần sửa"));
+                    break;
+                case 12:
+                    flag=false;
+                    break;
+                default:
+                    alert("Failed");
+                    break;
+            }
+        }while (flag);
+    }
+    function deleteCustomer() {
+        let result = "Chọn Stt khách hàng muốn xóa:" + "\n";
+        for (let i = 0; i < listCustomers.length; i++) {
+            result += i + " " + listCustomers[i].getName() + "\n";
+        }
+        let choose = (prompt(result));
+        if (choose !== "") {
+            for (let i = 0; i < listCustomers.length; i++) {
+                if (i === parseInt(choose)) {
+                    listCustomers.splice((parseInt(choose)), 1);
+                    alert("Xóa thành công");
+                    //displayMainMenu();
+                } else {
+                    alert("Không tìm thấy khách hàng cần xóa");
+                    //deleteCustomer();
+                }
+            }
+        } else {
+            alert("Dữ liệu không được rỗng");
+            //deleteCustomer();
+        }
+    }
+
+    function addNewEmployee() {
+        let regex_name = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+        do {
+            var name_Emp = prompt("Nhập tên của nhân viên vào đây");
+            if (regex_name.test(name_Emp)) {
+                check = true;
+            } else {
+                alert("Nhập sai hãy nhập lại");
+                check = false;
+            }
+        } while (!check);
+        do {
+            var cmnd_Emp = prompt("Nhập số CMND của nhân viên vào đây");
+            if (!isNaN(cmnd_Emp) && cmnd_Emp.length == 9) {
+                check = true;
+            } else {
+                alert("Hãy nhập đúng định dạng");
+                check = false;
+            }
+        } while (check === false);
+        do {
+            var regex_date = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+            var date_Of_Birth_Emp = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của nhân viên vào đây");
+            if (regex_date.test(date_Of_Birth_Emp)) {
+                check = true;
+            } else {
+                alert("Nhập sai kiểu dữ liệu!");
+                check = false;
+            }
+        } while (check === false);
+        do {
+            var email_Emp = prompt("Nhập email của nhân viên vào đây");
+            let atposition = email_Emp.indexOf("@");
+            let dotposition = email_Emp.lastIndexOf(".");
+            if (atposition < 1 || dotposition < (atposition + 2)
+                || (dotposition + 2) >= email_Emp.length) {
+                alert("Hãy nhập đúng định dạng của email:name@gmail.com!");
+                check = false;
+            } else {
+                check = true;
+            }
+        } while (check === false);
+        do {
+            var sdt_Emp = (prompt("Nhập số điện thoại của nhân viên"));
+            if (sdt_Emp.length < 10 || sdt_Emp.length > 11 || isNaN((sdt_Emp))) {
+                alert("chưa nhập đúng số điện thoại");
+                check = false;
+            } else
+                check = true;
+        } while (!check);
+        let level_Emp = prompt("Nhập trình độ của nhân viên(Trung cấp, Cao đẳng, Đại học, sau Đại học)");
+        let position_Emp = prompt("Nhập vị trí làm việc của nhân viên(Sale, Marketing, Manager)");
+        let emp = new Employee();
+        emp.setNameEmp(name_Emp);
+        emp.setCmndEmp(cmnd_Emp);
+        emp.setEmailEmp(email_Emp);
+        emp.setLevelEmp(level_Emp);
+        emp.setPositionEmp(position_Emp);
+        emp.setSdtEmp(sdt_Emp);
+        listEmployee.push(emp);
+    }
+    function displayInfoEmp() {
+        let result = "Chọn nhân viên muốn in" + "\n";
+        for (let i = 0; i < listEmployee.length; i++) {
+            result += i + " " + listEmployee[i].getNameEmp() + "\n";
+        }
+        let choose = parseInt(prompt(result));
+        alert("Tên nhân viên: " + listEmployee[choose].getNameEmp() + "\n" +
+            "Cmnd nhân viên : " + listEmployee[choose].getCmndEmp() + "\n" +
+            "Email nhân viên : " + listEmployee[choose].getEmailEmp() + "\n" +
+            "Level nhân viên : " + listEmployee[choose].getLevelEmp() + "\n" +
+            "Vị trí nhân viên : " + listEmployee[choose].getPositionEmp() + "\n" +
+            "Sdt nhân viên : " + listEmployee[choose].getSdtEmp() + "\n" +
+            listEmployee[choose].workingPartsEmp() + "\n"
+        );
+    }
+
+    function salaryOfEmployee() {
+        let result = "Chọn nhân viên muốn hiển thị lương" + "\n";
+        for (let i = 0; i < listEmployee.length; i++) {
+            result += i + " " + listEmployee[i].getNameEmp() + "\n";
+        }
+        let choose = parseInt(prompt(result));
+        alert("Tiền lương của nhân viên: " + listEmployee[choose].salaryOfEmp())
+    }
 </script>
 </body>
 </html>

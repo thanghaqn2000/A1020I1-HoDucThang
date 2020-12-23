@@ -21,37 +21,45 @@
     </tbody>
 </table>
 <script>
+
+
     let Product_list = [];
+
     function add_Product() {
-        var productName = document.getElementById("new_Product").value;
+        var productName = 'thén';
+        var age='20';
         var product = {
-            'productName': productName
+            'productName': productName,
+            'Age':age
         };
-        if(productName==""){
+        if (productName === "") {
             alert("Hãy nhập tên cho sản phẩm");
-        }else {
+        } else {
             Product_list.push(product);
             show_Product();
         }
     }
+
     function show_Product() {
         document.getElementById('result').innerHTML = '';
         for (var i = 0; i < Product_list.length; i++) {
             document.getElementById('result').innerHTML += `<tr>
 				<td>${i + 1}</td>
 				<td>${Product_list[i].productName}</td>
+				<td>${Product_list[i].Age}</td>
 				<td><button style="background: rgba(73,185,61,0.82)" onclick = "edit_Product(${i})">Edit</button></td>
-				<td><button style="background: rgba(73,185,61,0.82)" onclick="delete_Product(${i})">Delete</button></td>
+				<td><button style="background: rgba(73,185,61,0.82)" onclick="delete_Product(${i })">Delete</button></td>
 				</tr>`
         }
-        document.getElementById("soLuong").innerHTML="Số lượng: "+Product_list.length;
+        document.getElementById("soLuong").innerHTML = "Số lượng: " + Product_list.length;
     }
+
     function edit_Product(index) {
-        let fix_product=prompt("Nhập vào tên cần chỉnh sửa");
-        if(fix_product=="" && fix_product==null){
+        let fix_product = prompt("Nhập vào tên cần chỉnh sửa");
+        if (fix_product === "" && fix_product == null) {
             alert("Hãy nhập từ cần sửa");
-        }else{
-            Product_list[index].productName=fix_product;
+        } else {
+            Product_list[index].productName = fix_product;
             show_Product();
         }
     }
