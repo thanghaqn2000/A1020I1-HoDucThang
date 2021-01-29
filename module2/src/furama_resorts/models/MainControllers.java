@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static furama_resorts.validate.CheckValidate.validateVilla;
+
 class MainControllers {
     public static final String COMMON = ",";
     static Scanner input = new Scanner(System.in);
@@ -99,44 +101,93 @@ class MainControllers {
         } while (check);
     }
 
-    public static void checkCondition(String id, String tenDV, String typeThue, int chiPhiThue, int soLuong) {
+    public static void addNewVilla(Villa villa) {
+        String id="";
+        //add id
+        input.nextLine();
+        do {
+            System.out.println("Nhập id Villa: (SVVl-YYYY)(Y is 0-9)");
+              id=input.nextLine();
+            if (!validateVilla(id))
+                System.out.println("Hãy nhập lại");
+            else
+                villa.setId(id);
+        } while (!validateVilla(id));
 
+        System.out.println("Tên dịch vụ");
+        villa.setTenDichVu(input.nextLine());
+        System.out.println("Kiểu thuê");
+        villa.setKieuThue(input.nextLine());
+        System.out.println("Chi phí thuê");
+        villa.setChiPhiThue(input.nextInt());
+        System.out.println("Số lượng người");
+        villa.setAmountMaxPeople(input.nextInt());
+        input.nextLine();
+        System.out.println("Tiêu chuẩn phòng");
+        villa.setTieuChuanPhong(input.nextLine());
+        System.out.println("Mô tả tiện nghi");
+        villa.setMoTaTienNghi(input.nextLine());
+        System.out.println("Diện tích hồ bơi");
+        villa.setDienTichHoBoi(input.nextDouble());
+        System.out.println("Số tầng");
+        villa.setSoTang(input.nextInt());
+        //Them vao file Villa.csv
+        List<Villa> addVilla = new ArrayList<>();
+        addVilla.add(villa);
+        String lineVilla = null;
+        for (Villa listVilla : addVilla) {
+            lineVilla = villa.getId() + COMMON + villa.getTenDichVu() + COMMON + villa.getKieuThue()
+                    + COMMON + villa.getChiPhiThue() + COMMON
+                    + villa.getAmountMaxPeople() + COMMON + villa.getTieuChuanPhong() +
+                    COMMON + villa.getMoTaTienNghi()
+                    + COMMON + villa.getDienTichHoBoi() + COMMON + villa.getSoTang();
+            Input_Output.writeFile("E:/Villa.csv", lineVilla);
+        }
     }
 
     public static void inputTypeService(Services services) {
         input.nextLine();
-        System.out.println("Nhập id");
-        services.setId(input.nextLine());
-        System.out.println("Tên dịch vụ");
-        services.setTenDichVu(input.nextLine());
-        System.out.println("Kiểu thuê");
-        services.setKieuThue(input.nextLine());
-        System.out.println("Chi phí thuê");
-        services.setChiPhiThue(input.nextInt());
-        System.out.println("Số lượng người");
-        services.setAmountMaxPeople(input.nextInt());
-        if (services instanceof Villa) {
-            input.nextLine();
-            System.out.println("Tiêu chuẩn phòng");
-            ((Villa) services).setTieuChuanPhong(input.nextLine());
-            System.out.println("Mô tả tiện nghi");
-            ((Villa) services).setMoTaTienNghi(input.nextLine());
-            System.out.println("Diện tích hồ bơi");
-            ((Villa) services).setDienTichHoBoi(input.nextDouble());
-            System.out.println("Số tầng");
-            ((Villa) services).setSoTang(input.nextInt());
-            List<Villa> villa = new ArrayList<>();
-            villa.add((Villa) services);
-            String lineVilla = null;
-            for (Villa listVilla : villa) {
-                lineVilla = services.getId() + COMMON + services.getTenDichVu() + COMMON + services.getKieuThue()
-                        + COMMON + services.getChiPhiThue() + COMMON
-                        + services.getAmountMaxPeople() + COMMON + ((Villa) services).getTieuChuanPhong() +
-                        COMMON + ((Villa) services).getMoTaTienNghi()
-                        + COMMON + ((Villa) services).getDienTichHoBoi() + COMMON + ((Villa) services).getSoTang();
-                Input_Output.writeFile("E:/Villa.csv", lineVilla);
-            }
-        } else if (services instanceof House) {
+//        if (services instanceof Villa) {
+//            System.out.println("Nhập id");
+//            do {
+//                System.out.println("Nhập id Villa: (SVVl-YYYY)(Y is 0-9)");
+//                if (!validateVilla(input.nextLine()))
+//                    System.out.println("Hãy nhập lại");
+//                else
+//                    services.setId(input.nextLine());
+//            } while (!validateVilla(input.nextLine()));
+//
+//            System.out.println("Tên dịch vụ");
+//            services.setTenDichVu(input.nextLine());
+//            System.out.println("Kiểu thuê");
+//            services.setKieuThue(input.nextLine());
+//            System.out.println("Chi phí thuê");
+//            services.setChiPhiThue(input.nextInt());
+//            System.out.println("Số lượng người");
+//            services.setAmountMaxPeople(input.nextInt());
+//            //input.nextLine();
+//            System.out.println("Tiêu chuẩn phòng");
+//            ((Villa) services).setTieuChuanPhong(input.nextLine());
+//            System.out.println("Mô tả tiện nghi");
+//            ((Villa) services).setMoTaTienNghi(input.nextLine());
+//            System.out.println("Diện tích hồ bơi");
+//            ((Villa) services).setDienTichHoBoi(input.nextDouble());
+//            System.out.println("Số tầng");
+//            ((Villa) services).setSoTang(input.nextInt());
+//            //Them vao file Villa.csv
+//            List<Villa> villa = new ArrayList<>();
+//            villa.add((Villa) services);
+//            String lineVilla = null;
+//            for (Villa listVilla : villa) {
+//                lineVilla = services.getId() + COMMON + services.getTenDichVu() + COMMON + services.getKieuThue()
+//                        + COMMON + services.getChiPhiThue() + COMMON
+//                        + services.getAmountMaxPeople() + COMMON + ((Villa) services).getTieuChuanPhong() +
+//                        COMMON + ((Villa) services).getMoTaTienNghi()
+//                        + COMMON + ((Villa) services).getDienTichHoBoi() + COMMON + ((Villa) services).getSoTang();
+//                Input_Output.writeFile("E:/Villa.csv", lineVilla);
+//            }
+// }
+        if (services instanceof House) {
             input.nextLine();
             System.out.println("Tiêu chuẩn phòng");
             ((House) services).setTieuChuanPhong(input.nextLine());
@@ -144,6 +195,7 @@ class MainControllers {
             ((House) services).setMoTaTienNghi(input.nextLine());
             System.out.println("Số tầng");
             ((House) services).setSoTang(input.nextInt());
+            //Them vao file House.csv
             List<House> house = new ArrayList<>();
             house.add((House) services);
             String lineHouse = null;
@@ -163,6 +215,7 @@ class MainControllers {
             ((Room) services).setDonVi(input.nextLine());
             System.out.println("Nhập giá tiền");
             ((Room) services).setGiaTien(input.nextInt());
+            //Them vao file Room.csv
             List<Room> room = new ArrayList<>();
             room.add((Room) services);
             String lineRoom = null;
@@ -175,6 +228,7 @@ class MainControllers {
             }
         }
     }
+
     public static void addNewServies() {
         do {
             System.out.println("1. Add New Villa " + "\n" +
@@ -187,7 +241,7 @@ class MainControllers {
                 case 1:
                     System.out.println("Info Villa");
                     Villa villa1 = new Villa();
-                    inputTypeService(villa1);
+                    addNewVilla(villa1);
                     villa1.showInfor();
                     break;
                 case 2:

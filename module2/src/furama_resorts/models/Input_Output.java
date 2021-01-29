@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Input_Output {
+public  abstract  class Input_Output {
     public static void writeFile(String path, String line) {
         try {
             FileWriter fileWriter = new FileWriter(path, true);

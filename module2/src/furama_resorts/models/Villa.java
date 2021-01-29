@@ -1,6 +1,6 @@
 package furama_resorts.models;
 
-public class Villa extends Services {
+public  class Villa extends Services {
     private String tieuChuanPhong;
     private String moTaTienNghi;
     private double dienTichHoBoi;
