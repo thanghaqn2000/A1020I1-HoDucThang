@@ -9,14 +9,13 @@ public  class Villa extends Services {
     public Villa() {
     }
 
-    public Villa(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, String tieuChuanPhong, String moTaTienNghi, double dienTichHoBoi, int soTang) {
-        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople);
+    public Villa(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tieuChuanPhong, String moTaTienNghi, double dienTichHoBoi, int soTang) {
+        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghi = moTaTienNghi;
         this.dienTichHoBoi = dienTichHoBoi;
         this.soTang = soTang;
     }
-
     public String getTieuChuanPhong() {
         return tieuChuanPhong;
     }
@@ -49,15 +48,15 @@ public  class Villa extends Services {
         this.soTang = soTang;
     }
 
-
     @Override
     public void showInfor() {
         System.out.println("Villa{" +
                 "id= " + this.getId() + '\n' +
                 ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
                 ", kieuThue= " + this.getKieuThue() + '\n' +
                 ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getAmountMaxPeople() + '\n' +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
                 ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
                 ", moTaTienNghi= " + moTaTienNghi + '\n' +
                 ", dienTichHoBoi= " + dienTichHoBoi + '\n' +

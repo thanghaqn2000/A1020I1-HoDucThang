@@ -8,7 +8,12 @@ public class Main {
         shapes[2]=new Rectangle(5,7);
         for (Shape shape : shapes){
             if(shape instanceof Colorable){
-                //System.out.println("Diện tích hình tròn: "+((Square) shape).getArea());
+                if(shape instanceof Square)
+                    System.out.println("Diện tích hình vuông: "+((Square)shape).getArea());
+                else if(shape instanceof Circle)
+                    System.out.println("Diện tích hình tròn: "+((Circle)shape).getArea());
+                else if(shape instanceof Rectangle)
+                    System.out.println("Diện tích hình chữ nhật: "+((Rectangle)shape).getArea());
                Colorable colorable = (Colorable) shape;
                colorable.howToColor();
             }

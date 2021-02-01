@@ -8,12 +8,13 @@ public class House extends Services {
     public House() {
     }
 
-    public House(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, String tieuChuanPhong, String moTaTienNghi, int soTang) {
-        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople);
+    public House(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tieuChuanPhong, String moTaTienNghi, int soTang) {
+        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghi = moTaTienNghi;
         this.soTang = soTang;
     }
+
 
     public String getTieuChuanPhong() {
         return tieuChuanPhong;
@@ -44,9 +45,10 @@ public class House extends Services {
         System.out.println("Villa{" +
                 "id= " + this.getId() + '\n' +
                 ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
                 ", kieuThue= " + this.getKieuThue() + '\n' +
                 ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getAmountMaxPeople() + '\n' +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
                 ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
                 ", moTaTienNghi= " + moTaTienNghi + '\n' +
                 ", soTang= " + soTang +

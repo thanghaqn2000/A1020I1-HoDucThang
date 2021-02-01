@@ -5,17 +5,26 @@ public abstract class Services {
     private String tenDichVu;
     private String kieuThue;
     private int chiPhiThue;
-    private int amountMaxPeople;
-
+    private int soLuongNguoi;
+    private double dienTichSuDung;
     public Services() {
     }
 
-    public Services(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople) {
+    public Services(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed) {
         this.id = id;
         this.tenDichVu = tenDichVu;
         this.kieuThue = kieuThue;
         this.chiPhiThue = chiPhiThue;
-        this.amountMaxPeople = amountMaxPeople;
+        this.soLuongNguoi = amountMaxPeople;
+        this.dienTichSuDung = areUsed;
+    }
+
+    public double getDienTichSuDung() {
+        return dienTichSuDung;
+    }
+
+    public void setDienTichSuDung(double dienTichSuDung) {
+        this.dienTichSuDung = dienTichSuDung;
     }
 
     public String getId() {
@@ -50,12 +59,12 @@ public abstract class Services {
         this.chiPhiThue = chiPhiThue;
     }
 
-    public int getAmountMaxPeople() {
-        return amountMaxPeople;
+    public int getSoLuongNguoi() {
+        return soLuongNguoi;
     }
 
-    public void setAmountMaxPeople(int amountMaxPeople) {
-        this.amountMaxPeople = amountMaxPeople;
+    public void setSoLuongNguoi(int soLuongNguoi) {
+        this.soLuongNguoi = soLuongNguoi;
     }
 
     public abstract void showInfor();

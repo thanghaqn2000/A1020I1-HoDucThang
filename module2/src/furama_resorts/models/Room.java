@@ -8,13 +8,12 @@ public class Room extends Services {
     public Room() {
     }
 
-    public Room(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, String tenDVDiKem, String donVi, int giaTien) {
-        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople);
+    public Room(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tenDVDiKem, String donVi, int giaTien) {
+        super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tenDVDiKem = tenDVDiKem;
         this.donVi = donVi;
         this.giaTien = giaTien;
     }
-
     public String getTenDVDiKem() {
         return tenDVDiKem;
     }
@@ -44,9 +43,10 @@ public class Room extends Services {
         System.out.println("Room{" +
                 "id= " + this.getId() + '\n' +
                 ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
                 ", kieuThue= " + this.getKieuThue() + '\n' +
                 ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getAmountMaxPeople() + '\n' +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
                 ",tenDVDiKem='" + tenDVDiKem + '\'' +
                 ", donVi='" + donVi + '\'' +
                 ", giaTien=" + giaTien +
