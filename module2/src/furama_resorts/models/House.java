@@ -8,13 +8,12 @@ public class House extends Services {
     public House() {
     }
 
-    public House(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tieuChuanPhong, String moTaTienNghi, int soTang) {
+    public House(String id, String tenDichVu, String kieuThue,String tieuChuanPhong, String moTaTienNghi , int chiPhiThue, int amountMaxPeople, int soTang, double areUsed ) {
         super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghi = moTaTienNghi;
         this.soTang = soTang;
     }
-
 
     public String getTieuChuanPhong() {
         return tieuChuanPhong;
@@ -41,8 +40,23 @@ public class House extends Services {
     }
 
     @Override
+    public String toString() {
+        return "House{" +
+                "id= " + this.getId() + '\n' +
+                ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
+                ", kieuThue= " + this.getKieuThue() + '\n' +
+                ", chiPhiThue= " + this.getChiPhiThue() +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
+                ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
+                ", moTaTienNghi= " + moTaTienNghi + '\n' +
+                ", soTang= " + soTang +
+                '}';
+    }
+
+    @Override
     public void showInfor() {
-        System.out.println("Villa{" +
+        System.out.println("House{" +
                 "id= " + this.getId() + '\n' +
                 ", tenDichVu= " + this.getTenDichVu() + '\n' +
                 ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +

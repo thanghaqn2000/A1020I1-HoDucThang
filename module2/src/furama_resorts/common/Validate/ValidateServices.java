@@ -1,4 +1,4 @@
-package furama_resorts.exception;
+package furama_resorts.common.Validate;
 
 public class ValidateServices {
 

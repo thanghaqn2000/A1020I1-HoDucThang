@@ -1,21 +1,24 @@
 package furama_resorts.models;
 
-public  class Villa extends Services {
+public class Villa extends Services {
     private String tieuChuanPhong;
     private String moTaTienNghi;
     private double dienTichHoBoi;
     private int soTang;
-
     public Villa() {
     }
 
-    public Villa(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tieuChuanPhong, String moTaTienNghi, double dienTichHoBoi, int soTang) {
+    public Villa(String id, String tenDichVu, String kieuThue, String tieuChuanPhong, String moTaTienNghi, int chiPhiThue,
+                 int amountMaxPeople, int soTang, double areUsed, double dienTichHoBoi) {
         super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghi = moTaTienNghi;
         this.dienTichHoBoi = dienTichHoBoi;
         this.soTang = soTang;
     }
+
+
+
     public String getTieuChuanPhong() {
         return tieuChuanPhong;
     }
@@ -49,11 +52,27 @@ public  class Villa extends Services {
     }
 
     @Override
+    public String toString() {
+        return "Villa{" +
+                "id= " + this.getId() + '\n' +
+                ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung() + '\n' +
+                ", kieuThue= " + this.getKieuThue() + '\n' +
+                ", chiPhiThue= " + this.getChiPhiThue() +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
+                ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
+                ", moTaTienNghi= " + moTaTienNghi + '\n' +
+                ", dienTichHoBoi= " + dienTichHoBoi + '\n' +
+                ", soTang= " + soTang +
+                '}';
+    }
+
+    @Override
     public void showInfor() {
         System.out.println("Villa{" +
                 "id= " + this.getId() + '\n' +
                 ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung() + '\n' +
                 ", kieuThue= " + this.getKieuThue() + '\n' +
                 ", chiPhiThue= " + this.getChiPhiThue() +
                 ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +

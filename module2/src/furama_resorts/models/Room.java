@@ -8,7 +8,8 @@ public class Room extends Services {
     public Room() {
     }
 
-    public Room(String id, String tenDichVu, String kieuThue, int chiPhiThue, int amountMaxPeople, double areUsed, String tenDVDiKem, String donVi, int giaTien) {
+    public Room( String id, String tenDichVu, String kieuThue,String tenDVDiKem, String donVi,  int chiPhiThue,
+                 int amountMaxPeople,int giaTien ,double areUsed ) {
         super(id, tenDichVu, kieuThue, chiPhiThue, amountMaxPeople, areUsed);
         this.tenDVDiKem = tenDVDiKem;
         this.donVi = donVi;
@@ -36,6 +37,21 @@ public class Room extends Services {
 
     public void setGiaTien(int giaTien) {
         this.giaTien = giaTien;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id= " + this.getId() + '\n' +
+                ", tenDichVu= " + this.getTenDichVu() + '\n' +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
+                ", kieuThue= " + this.getKieuThue() + '\n' +
+                ", chiPhiThue= " + this.getChiPhiThue() +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
+                ",tenDVDiKem='" + tenDVDiKem + '\'' +
+                ", donVi='" + donVi + '\'' +
+                ", giaTien=" + giaTien +
+                '}';
     }
 
     @Override

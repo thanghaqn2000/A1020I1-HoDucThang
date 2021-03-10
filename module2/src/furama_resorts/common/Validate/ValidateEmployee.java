@@ -1,11 +1,11 @@
-package furama_resorts.common.exception;
+package furama_resorts.common.Validate;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValdateEmployee {
+public class ValidateEmployee {
     static String regexEmp = "";
     public static boolean emailExceptionEmp(String email) {
         regexEmp= "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"

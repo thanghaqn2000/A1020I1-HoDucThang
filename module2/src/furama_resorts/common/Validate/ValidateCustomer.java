@@ -1,4 +1,7 @@
-package furama_resorts.exception;
+package furama_resorts.common.Validate;
+
+import furama_resorts.common.exception.user_exception.EmailException;
+import furama_resorts.common.exception.user_exception.NameException;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -7,19 +10,19 @@ import java.util.regex.Pattern;
 
 public class ValidateCustomer {
     static String regex = "";
-    private static final String EMAIL_PATTERN =
-            "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-                    + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
-    public static boolean emailException(final String email) {
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+    public static boolean emailException( String email) {
+       regex="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+               + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+       return email.matches(regex);
     }
 
-    public static boolean nameExveption(String name) {
+    public static boolean nameExveption(String name) throws NameException {
         regex = "^[A-Z][a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+$";
-        return name.matches(regex);
+        if(!name.matches(regex))
+            throw new NameException();
+         else
+             return true;
     }
 
     public static boolean genderExeption(String gender) {
@@ -27,20 +30,14 @@ public class ValidateCustomer {
         return gender.toLowerCase().matches(regex);
     }
 
-    public static boolean idCardException(int idCard) {
-        int lengh = String.valueOf(idCard).length();
-        if (lengh != 9)
-            return false;
-        else
-            return true;
+    public static boolean idCardException(String idCard) {
+        regex = "^(\\d{9}$)";
+        return idCard.matches(regex);
     }
 
-    public static boolean numberTelException(int sdt) {
-        int lengh = String.valueOf(sdt).length();
-        if (lengh == 10 || lengh==11)
-            return true;
-        else
-            return false;
+    public static boolean numberTelException(String sdt) {
+        regex="^0?(\\d{10}$)";
+       return sdt.matches(regex);
     }
 
     public static boolean birthdayException(String dof) {

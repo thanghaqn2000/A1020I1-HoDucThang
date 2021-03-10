@@ -8,23 +8,24 @@ public class Customer implements Comparable<Customer> {
     private String typeCustomer;
     private String address;
     private Services services;
-    private int idCard;
-    private int numberPhone;
+    private String numberPhone;
+    private String idCard;
 
     public Customer() {
     }
 
-    public Customer(String nameOfCustomer, String dof, String gender, String email, String typeCustomer, String address, Services services, int idCard, int numberPhone) {
+    public Customer(String nameOfCustomer, String dof, String gender, String email, String typeCustomer, String address,
+                    String idCard, String numberPhone) {
         this.nameOfCustomer = nameOfCustomer;
         this.dof = dof;
         this.gender = gender;
         this.email = email;
         this.typeCustomer = typeCustomer;
         this.address = address;
-        this.services = services;
         this.idCard = idCard;
         this.numberPhone = numberPhone;
     }
+
 
     public String getNameOfCustomer() {
         return nameOfCustomer;
@@ -82,19 +83,19 @@ public class Customer implements Comparable<Customer> {
         this.services = services;
     }
 
-    public int getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(int numberPhone) {
+    public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
 
@@ -105,10 +106,10 @@ public class Customer implements Comparable<Customer> {
                 ", dof='" + dof + '\'' +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
-                ", typeCustomer='" + typeCustomer + '\'' +
+                ", typeCustomer='" + typeCustomer + '\n' +
                 ", address='" + address + '\'' +
                 ", services=" + services +
-                ", idCard=" + idCard +
+                ", idCard=" + idCard +'\'' +
                 ", numberPhone=" + numberPhone +
                 '}';
     }
@@ -119,27 +120,17 @@ public class Customer implements Comparable<Customer> {
                 ", dof='" + dof + '\'' +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
-                ", typeCustomer='" + typeCustomer + '\'' +
+                ", typeCustomer='" + typeCustomer + '\n' +
                 ", address='" + address + '\'' +
-                ", services=" + services +
-                ", idCard=" + idCard +
+                ", idCard=" + idCard +'\''+
                 ", numberPhone=" + numberPhone +
                 '}');
     }
-
     @Override
     public int compareTo(Customer o) {
-        if (this.nameOfCustomer == o.nameOfCustomer)
+        if (this.nameOfCustomer .equals(o.nameOfCustomer))
             return this.dof.compareTo(o.dof);
         return this.getNameOfCustomer().compareTo(o.getNameOfCustomer());
-
-//        if (this.getNameOfCustomer() > o.nameOfCustomer) {
-//            return 1;
-//        } else if (this.nameOfCustomer == o.nameOfCustomer) {
-//            return this.dof.compareTo(o.dof);
-//        } else {
-//            return -1;
-//        }
-        }
     }
+}
 
