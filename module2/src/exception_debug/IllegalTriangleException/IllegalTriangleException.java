@@ -1,9 +1,9 @@
-package ExceptionDebug.IllegalTriangleException;
+package exception_debug.IllegalTriangleException;
 
 public class IllegalTriangleException extends Exception {
 
     public IllegalTriangleException() {
-        super("Lỗi cạnh bé hơn 0");
+        super("");
     }
     public IllegalTriangleException(String msg) {
         super(msg);

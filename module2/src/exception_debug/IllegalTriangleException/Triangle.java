@@ -1,4 +1,4 @@
-package ExceptionDebug.IllegalTriangleException;
+package exception_debug.IllegalTriangleException;
 
 public class Triangle{
     double canh1;
@@ -13,11 +13,9 @@ public class Triangle{
         this.canh2 = canh2;
         this.canh3 = canh3;
         if(canh1<0||canh2<0||canh3<0){
-            throw new IllegalTriangleException();
+            throw new IllegalTriangleException("Lỗi cạnh bé hơn 0");
         }else if(canh1+canh2<canh3||canh1+canh3<canh2||canh2+canh3<canh1){
             throw new IllegalTriangleException("Tổng hai cạnh ko lớn hơn cạnh còn lại");
-        }else{
-            System.out.println("Chuẩn");
         }
     }
 
