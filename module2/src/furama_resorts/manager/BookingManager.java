@@ -3,8 +3,6 @@ package furama_resorts.manager;
 import furama_resorts.common.Input_Output;
 import furama_resorts.models.Booking;
 import furama_resorts.models.Customer;
-import furama_resorts.models.Services;
-import furama_resorts.models.Villa;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +13,7 @@ import static furama_resorts.common.Input_Output.*;
 import static furama_resorts.manager.HouseManager.*;
 import static furama_resorts.manager.RoomManager.*;
 import static furama_resorts.manager.VillaManager.*;
-import static furama_resorts.models.MainControllers.displayMainMenu;
+import static furama_resorts.controllers.MainControllers.displayMainMenu;
 
 public class BookingManager {
     static Scanner input = new Scanner(System.in);

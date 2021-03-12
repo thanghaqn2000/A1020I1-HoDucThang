@@ -1,6 +1,6 @@
 package furama_resorts.manager;
 
-import furama_resorts.common.exception.user_exception.NameException;
+import furama_resorts.common.exception.user_exception.*;
 import furama_resorts.models.Customer;
 import furama_resorts.common.Input_Output;
 
@@ -15,7 +15,7 @@ import static furama_resorts.common.Input_Output.*;
 public class CustomerManager {
     public static final String WRONG = "Enter incorrectly , please enter again";
     public static final String COMMON = ",";
-    static boolean check=true;
+    static boolean check;
     static Scanner input = new Scanner(System.in);
 
     public static void addNewCustomer(Customer customer) {
@@ -28,46 +28,56 @@ public class CustomerManager {
         String numberTelephone;
         String idCard;
         do {
+            check = true;
             try {
                 System.out.println("Enter your full name pls");
                 fullName = input.nextLine();
-                if (!nameExveption(fullName))
-                    System.out.println(WRONG);
-                else
-                    customer.setNameOfCustomer(fullName);
-                customer.getNameOfCustomer();
+                nameException(fullName);
+                customer.setNameOfCustomer(fullName);
             } catch (NameException e) {
                 System.out.println(e);
                 check = false;
             }
+
         } while (!check);
-
         do {
-            System.out.println("Enter your date of birth pls");
-            dateOfBirth = input.nextLine();
-            if (!birthdayException(dateOfBirth))
-                System.out.println(WRONG);
-            else
+            check = true;
+            try {
+                System.out.println("Enter your date of birth pls");
+                dateOfBirth = input.nextLine();
+                birthdayException(dateOfBirth);
                 customer.setDof(dateOfBirth);
-
-        } while (!birthdayException(dateOfBirth));
+            } catch (BirthdayException e) {
+                System.out.println(e);
+                check = false;
+            }
+        } while (!check);
         do {
-            System.out.println("Enter your gender pls");
-            gender = input.nextLine();
-            if (!genderExeption(gender))
-                System.out.println(WRONG);
-            else
+            check = true;
+            try {
+                System.out.println("Enter your gender pls");
+                gender = input.nextLine();
                 gender = gender.toLowerCase();
-            customer.setGender(uppercaseFirst(gender));
-        } while (!genderExeption(gender));
+                genderExeption(gender);
+                customer.setGender(uppercaseFirst(gender));
+            } catch (GenderException e) {
+                System.out.println(e);
+                check = false;
+            }
+
+        } while (!check);
         do {
-            System.out.println("Enter your email pls");
-            email = input.nextLine();
-            if (!emailException(email))
-                System.out.println(WRONG);
-            else
+            check = true;
+            try {
+                System.out.println("Enter your email pls");
+                email = input.nextLine();
+                emailException(email);
                 customer.setEmail(email);
-        } while (!emailException(email));
+            } catch (EmailException e) {
+                System.out.println(e);
+                check = false;
+            }
+        } while (!check);
         do {
             System.out.println("Enter your address pls");
             address = input.nextLine();
@@ -85,13 +95,17 @@ public class CustomerManager {
                 customer.setTypeCustomer(typeCustomer);
         } while (!onlyString(typeCustomer));
         do {
-            System.out.println("Enter your id card");
-            idCard = input.nextLine();
-            if (!idCardException(idCard))
-                System.out.println(WRONG);
-            else
+            check = true;
+            try {
+                System.out.println("Enter your id card");
+                idCard = input.nextLine();
+                idCardException(idCard);
                 customer.setIdCard(idCard);
-        } while (!idCardException(idCard));
+            } catch (IdCardException e) {
+                System.out.println(e);
+                check=false;
+            }
+        } while (!check);
         do {
             System.out.println("Enter your number phone");
             numberTelephone = input.nextLine();

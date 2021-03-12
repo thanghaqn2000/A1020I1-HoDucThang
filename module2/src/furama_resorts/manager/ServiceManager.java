@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static furama_resorts.manager.HouseManager.*;
 import static furama_resorts.manager.RoomManager.*;
 import static furama_resorts.manager.VillaManager.*;
-import static furama_resorts.models.MainControllers.displayMainMenu;
+import static furama_resorts.controllers.MainControllers.displayMainMenu;
 
 public class ServiceManager {
     static Scanner input = new Scanner(System.in);

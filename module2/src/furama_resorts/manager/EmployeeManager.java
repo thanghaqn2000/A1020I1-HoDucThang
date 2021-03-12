@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 import static furama_resorts.common.Input_Output.*;
 import static furama_resorts.common.Validate.ValidateEmployee.*;
-import static furama_resorts.models.MainControllers.displayMainMenu;
+import static furama_resorts.controllers.MainControllers.displayMainMenu;
 public class EmployeeManager {
     public static final String WRONG = "Enter incorrectly , please enter again";
     public static final String COMMON = ",";

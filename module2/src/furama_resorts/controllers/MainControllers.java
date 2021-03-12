@@ -1,7 +1,8 @@
-package furama_resorts.models;
+package furama_resorts.controllers;
 
 
 import furama_resorts.common.Input_Output;
+import furama_resorts.models.Customer;
 
 import java.util.*;
 
