@@ -17,6 +17,5 @@ public class ValidateSDT {
             if(yn.equalsIgnoreCase("n"))
                 check=false;
         }
-
     }
 }

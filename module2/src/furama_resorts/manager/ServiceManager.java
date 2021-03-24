@@ -13,87 +13,85 @@ import static furama_resorts.controllers.MainControllers.displayMainMenu;
 
 public class ServiceManager {
     static Scanner input = new Scanner(System.in);
-    static boolean check = true;
     static int choose = 0;
+
     public static void showServices() {
+        boolean check = false;
         do {
-            System.out.println("1.Show all Villa " + "\n" +
-                    "2.Show all House" + "\n" +
-                    "3.Show all Room" + "\n" +
-                    "4.Show All Name Villa Not Duplicate" + "\n" +
-                    "5.Show All Name House Not Duplicate" + "\n" +
-                    "6.Show All Name Room Not Duplicate" + "\n" +
-                    "7.Back to menu" + "\n" +
-                    "8.Exit" + "\n");
-            choose = input.nextInt();
-            switch (choose) {
-                case 1:
-                    showVilla();
-                    break;
-                case 2:
-                    showHouse();
-                    break;
-                case 3:
-                    showRoom();
-                    break;
-                case 4:
-                   showAllVillaNotDuplicated();
-                    break;
-                case 5:
-                    showAllHouseNotDuplicated();
-                    break;
-                case 6:
-                    showAllRoomNotDuplicated();
-                    break;
-                case 7:
-                    displayMainMenu();
-                    break;
-                case 8:
-                    check = false;
-                    break;
-                default:
-                    System.out.println("Không có trong menu , hãy nhập lại");
-                    break;
+            try {
+
+                System.out.println("1.Show all Villa " + "\n" +
+                        "2.Show all House" + "\n" +
+                        "3.Show all Room" + "\n" +
+                        "4.Show All Name Villa Not Duplicate" + "\n" +
+                        "5.Show All Name House Not Duplicate" + "\n" +
+                        "6.Show All Name Room Not Duplicate" + "\n" +
+                        "7.Back to main menu");
+                choose = Integer.parseInt(input.nextLine());
+                switch (choose) {
+                    case 1:
+                        showVilla();
+                        break;
+                    case 2:
+                        showHouse();
+                        break;
+                    case 3:
+                        showRoom();
+                        break;
+                    case 4:
+                        showAllVillaNotDuplicated();
+                        break;
+                    case 5:
+                        showAllHouseNotDuplicated();
+                        break;
+                    case 6:
+                        showAllRoomNotDuplicated();
+                        break;
+                    case 7:
+                        check = true;
+                        break;
+                    default:
+                        System.err.println("Our menu don't have your choice, enter again");
+                        break;
+                }
+            }catch (Exception e){
+                System.err.println("Wrong data type with regulations of system!");
             }
-        } while (check);
-    }
-    public static void addNewServies() {
-        do {
-            System.out.println("1. Add New Villa " + "\n" +
-                    "2. Add New House" + "\n" +
-                    "3. Add New Room" + "\n" +
-                    "4. Back to menu" + "\n" +
-                    "5. Exit" + "\n");
-            choose = input.nextInt();
-            switch (choose) {
-                case 1:
-                    System.out.println("Info Villa");
-                    Villa villa1 = new Villa();
-                    addNewVilla(villa1);
-                    villa1.showInfor();
-                    break;
-                case 2:
-                    System.out.println("Info House");
-                    House house1 = new House();
-                    addNewHouse(house1);
-                    house1.showInfor();
-                    break;
-                case 3:
-                    System.out.println("Info Room");
-                    Room room1 = new Room();
-                    addNewRoom(room1);
-                    room1.showInfor();
-                case 4:
-                    displayMainMenu();
-                    break;
-                case 5:
-                    check = false;
-                    break;
-                default:
-                    System.out.println("Không có trong menu , hãy nhập lại");
-                    break;
-            }
-        } while (check);
+        } while (!check);
     }
 
+    public static void addNewServies() {
+        boolean check = false;
+        do {
+            System.out.println("--MENU SERVIES--\n" +
+                    "1. Add New Villa " + "\n" +
+                    "2. Add New House" + "\n" +
+                    "3. Add New Room" + "\n" +
+                    "4. Back to menu" + "\n");
+            choose = Integer.parseInt(input.nextLine());
+            switch (choose) {
+                case 1:
+                    Villa villa = new Villa();
+                    addNewVilla(villa);
+                    break;
+                case 2:
+                    House house = new House();
+                    addNewHouse(house);
+                    break;
+                case 3:
+                    Room room = new Room();
+                    addNewRoom(room);
+                    break;
+                case 4:
+                    System.out.println("Hope to see u again!");
+                    check=true;
+                    break;
+                default:
+                    System.err.println("Our menu don't have your choice, enter again");
+                    break;
+            }
+        } while (!check);
+
+    }
 }
+

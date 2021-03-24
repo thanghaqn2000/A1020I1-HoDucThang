@@ -1,5 +1,7 @@
 package furama_resorts.models;
 
+import java.time.LocalDate;
+
 public class Customer implements Comparable<Customer> {
     private String nameOfCustomer;
     private String dof;
@@ -108,12 +110,15 @@ public class Customer implements Comparable<Customer> {
                 ", email='" + email + '\'' +
                 ", typeCustomer='" + typeCustomer + '\n' +
                 ", address='" + address + '\'' +
-                ", services=" + services +
                 ", idCard=" + idCard +'\'' +
                 ", numberPhone=" + numberPhone +
                 '}';
     }
-
+    public LocalDate getBirthdayToDate(){
+        String[] birthdayArr = this.dof.split("/");
+        LocalDate date = LocalDate.of(Integer.parseInt(birthdayArr[2]), Integer.parseInt(birthdayArr[1]), Integer.parseInt(birthdayArr[0]));
+        return date;
+    }
     public void showInfor() {
         System.out.println("Customer{" +
                 "nameOfCustomer='" + nameOfCustomer + '\'' +

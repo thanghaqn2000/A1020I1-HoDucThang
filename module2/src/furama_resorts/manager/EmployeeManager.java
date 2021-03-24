@@ -4,42 +4,41 @@ import furama_resorts.common.Input_Output;
 import furama_resorts.models.Employee;
 import furama_resorts.models.FilingCabinets;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 import static furama_resorts.common.Input_Output.*;
 import static furama_resorts.common.Validate.ValidateEmployee.*;
-import static furama_resorts.controllers.MainControllers.displayMainMenu;
 public class EmployeeManager {
     public static final String WRONG = "Enter incorrectly , please enter again";
     public static final String COMMON = ",";
     static Scanner input = new Scanner(System.in);
-
     public static void functionEmployee() {
-        boolean check = true;
+        boolean check=false;
         do {
-            System.out.println("1. Thêm nhân viên" + "\n" + "2. Hiển thị thông tin nhân viên" + "\n" +
-                    "3. Tủ hồ sơ" + "\n" + "4. Exit");
-            String choose = input.nextLine();
-
-            switch (choose) {
-                case "1":
-                    Employee employee = new Employee();
-                    addEmployee(employee);
-                    break;
-                case "2":
-                    showMapEmp();
-                    break;
-                case "3":
-                    searchFillingCaninetsEmp();
-                    break;
-                case "4":
-                    displayMainMenu();
-                    break;
-                default:
-                    System.out.println("Không tìm thấy chức năng");
+            try {
+                System.out.println("1. Add new employee" + "\n" + "2. Show employee's info" + "\n" +
+                        "3. Show filing cabinets" + "\n" + "4. Back to main menu");
+                int choose = Integer.parseInt(input.nextLine());
+                switch (choose) {
+                    case 1:
+                        Employee employee = new Employee();
+                        addEmployee(employee);
+                        break;
+                    case 2:
+                        showMapEmp();
+                        break;
+                    case 3:
+                        System.out.println("Hope to see u again!");
+                        searchFillingCaninetsEmp();
+                        break;
+                    case 4:
+                        check = true;
+                        break;
+                    default:
+                        System.err.println("Our menu don't have your choice, enter again");
+                }
+            }catch (Exception e){
+                System.err.println("Wrong data type with regulations of system!");
             }
         } while (!check);
     }
@@ -81,6 +80,7 @@ public class EmployeeManager {
         addressEmp = input.nextLine();
         employee.setAddressEmp(addressEmp);
 //        add cmnd nhân viên
+
         do {
             System.out.println("Enter your id card pls");
             idCardEmp = input.nextLine();
@@ -129,31 +129,37 @@ public class EmployeeManager {
         System.out.println("Enter your salary pls");
         salaryEmp = input.nextLine();
         employee.setSalaryEmp(salaryEmp);
-        writeFileEmp(employee);
+        System.err.printf("Add employee %s success! \n", employee.getNameEmp());
+        writeFileEmp(employee, true);
     }
-    public static void showMapEmp(){
+    public static void showMapEmp() {
+        int stt=0;
         List<Employee> listEmp = Input_Output.readEmployee(EMPLOYEE_PATH);
-        Map<String,Employee> mapEmp=new TreeMap<>();
-        for (int i = 0; i <listEmp.size() ; i++) {
-            mapEmp.put(listEmp.get(i).getIdEmp(),listEmp.get(i));
+        Map<String, Employee> mapEmp = new TreeMap<>();
+        for (int i = 0; i < listEmp.size(); i++) {
+            mapEmp.put(listEmp.get(i).getIdEmp(), listEmp.get(i));
         }
         for (Map.Entry<String, Employee> entry : mapEmp.entrySet()) {
-            System.out.println("Employee's id: " + entry.getKey() + "\n" + entry.getValue());
+            stt++;
+            System.out.println("STT:"+stt+"\n*Employee's id: " + entry.getKey() + "\n" + "-"+entry.getValue());
         }
     }
-    public static void searchFillingCaninetsEmp(){
+
+    public static void searchFillingCaninetsEmp() {
         List<Employee> listEmp = Input_Output.readEmployee(EMPLOYEE_PATH);
-        FilingCabinets profile=new FilingCabinets();
-        for (Employee emp:listEmp ) {
+        FilingCabinets profile = new FilingCabinets();
+        for (Employee emp : listEmp) {
             profile.add(emp);
         }
-        System.out.println("Enter name employee");
-        String name=input.nextLine();
-        Employee employee=profile.search(name);
-        if(profile.search(name)==null){
-            System.out.println("Can't found profile of: "+name);
-        }else{
-            System.out.println(employee);
+        System.out.println("Enter name employee to find");
+        String name = input.nextLine();
+        Queue<Employee> employee = profile.search(name);
+        if (employee == null) {
+            System.err.println("Can't found "+name+"'s profile");
+        } else {
+            for (Employee emp : employee) {
+                System.out.println(emp);
+            }
         }
     }
 }

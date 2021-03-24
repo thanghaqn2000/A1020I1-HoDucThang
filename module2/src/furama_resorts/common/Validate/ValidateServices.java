@@ -21,7 +21,7 @@ public class ValidateServices {
     }
 
     public static boolean checkNameServicesTypeRentStandard(String nameService) {
-        regex = "^[A-Z][a-z]{0,}([\\\\s][A-Z][a-z]{0,})*$";
+        regex = "[A-Z]([a-zA-Z]+\\s)*[a-zA-Z]+";
         return nameService.matches(regex);
     }
 
@@ -46,20 +46,8 @@ public class ValidateServices {
     }
 
     public static boolean checkFreeServices(String service) {
-        boolean check;
-        switch (service.toLowerCase()) {
-            case "massage":
-            case "karaoke":
-            case "food":
-            case "drink":
-            case "car":
-                check = true;
-                break;
-            default:
-                check = false;
-                break;
-        }
-        return check;
+        regex = "(massage|karaoke|food|drink|car)";
+        return service.matches(regex);
     }
 
 }

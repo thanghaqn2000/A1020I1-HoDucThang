@@ -65,7 +65,7 @@ public class Employee {
         return idCardEmp;
     }
 
-    public void setIdCardEmp(String cmndEmp) {
+    public void setIdCardEmp(String idCardEmp) {
         this.idCardEmp = idCardEmp;
     }
 

@@ -29,6 +29,7 @@ public class VillaManager {
         int amountPeople;
         int floor;
         //add id
+        System.out.println("Info Villa");
         do {
             System.out.println("Input id Villa: (SVVl-YYYY)(Y is 0-9)");
             id = input.nextLine();
@@ -104,7 +105,7 @@ public class VillaManager {
         } while (!checkFloor(floor));
         //add dien tich su dung
         do {
-            System.out.println("Enter area used");
+            System.out.println("Enter area used >30m2");
             areaUsed = input.nextDouble();
             if (areaUsed >= 30)
                 villa.setDienTichSuDung(areaUsed);
@@ -114,15 +115,16 @@ public class VillaManager {
 
         //add dien tich ho boi
         do {
-            System.out.println("Enter pool's area(dien tich ho boi)");
+            System.out.println("Enter pool's area(dien tich ho boi >30m2)");
             areaPool = input.nextDouble();
             if (!checkSwimingBoolArea(areaPool))
                 System.out.println(WRONG);
             else
                 villa.setDienTichHoBoi(areaPool);
         } while (!checkSwimingBoolArea(areaPool));
+        System.err.printf("Add villa %s success  \n",villa.getId());
         //Them vao file Villa.csv
-        writeFileVilla(villa);
+        writeFileVilla(villa,true);
     }
 
     public static void showVilla() {
@@ -131,36 +133,36 @@ public class VillaManager {
             System.out.println("STT: " + (i + 1) + " " + listVilla.get(i).toString());
         }
     }
-
     public static void bookingVilla(List<Booking> listBooking, List<Customer> listCus, Booking booking, int choice) {
         List<Villa> listVilla = Input_Output.readVilla(VILLA_PATH);
         for (int i = 0; i < listVilla.size(); i++) {
             System.out.println("STT: " + (i + 1) + " " + listVilla.get(i).toString());
         }
-        System.out.println("Chọn villa :");
+        System.out.println("Choose villa :");
         int chooseVilla = Integer.parseInt(input.nextLine());
         Villa villa = listVilla.get(chooseVilla - 1);
+//        booking.setIdService(listVilla.get(chooseVilla-1).getId());
         booking.setIdService(villa.getId());
         listBooking.add(booking);
         String lineBook;
         for (Booking itemBook : listBooking) {
             lineBook = booking.getIdCustomer() + COMMON + booking.getIdService();
-            Input_Output.writeFile(BOOKING_PATH, lineBook);
+            Input_Output.writeFile(BOOKING_PATH, lineBook,true);
         }
-        System.out.println("Đã book Villa: " + listVilla.get(chooseVilla - 1).getId() +
-                " thành công cho khách hàng: " + listCus.get(choice - 1).getNameOfCustomer());
+        System.out.println("Booked villa " + listVilla.get(chooseVilla - 1).getId() +
+                " success for customer " + listCus.get(choice - 1).getNameOfCustomer());
     }
-
     public static void showAllVillaNotDuplicated() {
         Set<String> villaNotDuplicated = new TreeSet<>();
         List<Villa> listVilla = Input_Output.readVilla(VILLA_PATH);
         for (int i = 0; i < listVilla.size(); i++) {
             villaNotDuplicated.add(listVilla.get(i).getTenDichVu());
         }
-        System.out.println("Danh sách tên các Villa không trùng nhau:");
+        System.out.println("List's villa not duplicate:");
+       int i =0;
         for (String nameVilla : villaNotDuplicated) {
-            System.out.println(nameVilla);
+            i++;
+            System.out.println("STT "+i+": "+nameVilla);
         }
-
     }
 }

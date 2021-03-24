@@ -42,16 +42,16 @@ public class House extends Services {
     @Override
     public String toString() {
         return "House{" +
-                "id= " + this.getId() + '\n' +
-                ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
-                ", kieuThue= " + this.getKieuThue() + '\n' +
-                ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
+                "id= " + this.getId() + " |" +
+                ", tenDichVu= " + this.getTenDichVu() + " |" +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+ " |" +
+                ", kieuThue= " + this.getKieuThue() + " |" +
+                ", chiPhiThue= " + this.getChiPhiThue() +" |"+
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + " |" +
                 ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
-                ", moTaTienNghi= " + moTaTienNghi + '\n' +
-                ", soTang= " + soTang +
-                '}';
+                ", moTaTienNghi= " + moTaTienNghi + " |" +
+                ", soTang= " + soTang +  '}'+ '\n' ;
+
     }
 
     @Override

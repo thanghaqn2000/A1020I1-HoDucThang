@@ -42,10 +42,10 @@ public class Room extends Services {
     @Override
     public String toString() {
         return "Room{" +
-                "id= " + this.getId() + '\n' +
-                ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
-                ", kieuThue= " + this.getKieuThue() + '\n' +
+                "id= " + this.getId() +
+                ", tenDichVu= " + this.getTenDichVu() +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+
+                ", kieuThue= " + this.getKieuThue() +
                 ", chiPhiThue= " + this.getChiPhiThue() +
                 ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
                 ",tenDVDiKem='" + tenDVDiKem + '\'' +
@@ -57,10 +57,10 @@ public class Room extends Services {
     @Override
     public void showInfor() {
         System.out.println("Room{" +
-                "id= " + this.getId() + '\n' +
-                ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung()+ '\n' +
-                ", kieuThue= " + this.getKieuThue() + '\n' +
+                "id= " + this.getId() +
+                ", tenDichVu= " + this.getTenDichVu() +
+                ", dienTichSuDung= " + this.getDienTichSuDung()+
+                ", kieuThue= " + this.getKieuThue() +
                 ", chiPhiThue= " + this.getChiPhiThue() +
                 ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
                 ",tenDVDiKem='" + tenDVDiKem + '\'' +

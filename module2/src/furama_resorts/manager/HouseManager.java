@@ -27,6 +27,7 @@ public class HouseManager {
         int amountPeople;
         int floor;
         double areaUsed;
+        System.out.println("Info House");
         do {
             System.out.println("Input id House: (SVHO-YYYY)(Y is 0-9)");
             id = input.nextLine();
@@ -104,22 +105,23 @@ public class HouseManager {
 
         //add dien tich su dung
         do {
-            System.out.println("Enter area used");
+            System.out.println("Enter area used >30m2");
             areaUsed = input.nextDouble();
             if (areaUsed >= 30)
                 house.setDienTichSuDung(areaUsed);
             else
                 System.out.println(WRONG);
         } while (areaUsed < 30);
+        System.err.printf("Add house %s success \n",house.getId());
         //Them vao file House.csv
-        writeFileHouse(house);
+        writeFileHouse(house,true);
     }
 
     public static void showHouse() {
-        List<String> listHouse =
-                Input_Output.readFile(HOUSE_PATH);
-        for (String house : listHouse)
-            System.out.println(house);
+        List<House> listHouse = Input_Output.readHouse(HOUSE_PATH);
+        for (int i = 0; i <listHouse.size() ; i++) {
+            System.out.printf("STT %d | %s",(i+1),listHouse.get(i).toString());
+        }
     }
 
     public static void bookingHouse(List<Booking> listBooking, List<Customer> listCus, Booking booking, int choice) {
@@ -135,7 +137,7 @@ public class HouseManager {
         String lineBook;
         for (Booking itemBook : listBooking) {
             lineBook = booking.getIdCustomer() + COMMON + booking.getIdService();
-            Input_Output.writeFile(BOOKING_PATH, lineBook);
+            Input_Output.writeFile(BOOKING_PATH, lineBook,true);
         }
         System.out.println("Đã book Villa: " + listHouse.get(chooseHouse - 1).getId() +
                 " thành công cho khách hàng: " + listCus.get(choice - 1).getNameOfCustomer());

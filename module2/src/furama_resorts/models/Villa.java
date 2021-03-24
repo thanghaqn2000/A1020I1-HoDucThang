@@ -54,15 +54,15 @@ public class Villa extends Services {
     @Override
     public String toString() {
         return "Villa{" +
-                "id= " + this.getId() + '\n' +
-                ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung() + '\n' +
-                ", kieuThue= " + this.getKieuThue() + '\n' +
+                "id= " + this.getId() + " |" +
+                ", tenDichVu= " + this.getTenDichVu() + " |" +
+                ", dienTichSuDung= " + this.getDienTichSuDung() + " |" +
+                ", kieuThue= " + this.getKieuThue() + " |" +
                 ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
-                ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
-                ", moTaTienNghi= " + moTaTienNghi + '\n' +
-                ", dienTichHoBoi= " + dienTichHoBoi + '\n' +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + " |" +
+                ",tieuChuanPhong= " + tieuChuanPhong + "\n" +
+                ", moTaTienNghi= " + moTaTienNghi + " |" +
+                ", dienTichHoBoi= " + dienTichHoBoi +
                 ", soTang= " + soTang +
                 '}';
     }
@@ -70,15 +70,15 @@ public class Villa extends Services {
     @Override
     public void showInfor() {
         System.out.println("Villa{" +
-                "id= " + this.getId() + '\n' +
-                ", tenDichVu= " + this.getTenDichVu() + '\n' +
-                ", dienTichSuDung= " + this.getDienTichSuDung() + '\n' +
-                ", kieuThue= " + this.getKieuThue() + '\n' +
+                "id= " + this.getId() + " |" +
+                ", tenDichVu= " + this.getTenDichVu() + " |" +
+                ", dienTichSuDung= " + this.getDienTichSuDung() + " |" +
+                ", kieuThue= " + this.getKieuThue() + " |" +
                 ", chiPhiThue= " + this.getChiPhiThue() +
-                ", amountMaxPeople= " + this.getSoLuongNguoi() + '\n' +
-                ",tieuChuanPhong= " + tieuChuanPhong + '\n' +
-                ", moTaTienNghi= " + moTaTienNghi + '\n' +
-                ", dienTichHoBoi= " + dienTichHoBoi + '\n' +
+                ", amountMaxPeople= " + this.getSoLuongNguoi() + " |" +
+                ",tieuChuanPhong= " + tieuChuanPhong + "\n" +
+                ", moTaTienNghi= " + moTaTienNghi + " |" +
+                ", dienTichHoBoi= " + dienTichHoBoi +
                 ", soTang= " + soTang +
                 '}');
     }

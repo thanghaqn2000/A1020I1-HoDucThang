@@ -24,12 +24,12 @@ public class BookingManager {
         List<Booking> listBooking = new ArrayList<>();
         Collections.sort(listCus);
         Booking booking = new Booking();
-        System.out.println("Danh sách khách hàng");
+        System.out.println("List's customer");
         for (int i = 0; i < listCus.size(); i++) {
             System.out.println("STT: " + (i + 1) + " " + listCus.get(i).getNameOfCustomer() + " " + listCus.get(i).getDof()
                     + " " + listCus.get(i).getIdCard());
         }
-        System.out.println("Chon khách hàng :");
+        System.out.println("Choose customer :");
         int chooseKH = Integer.parseInt(input.nextLine());
         Customer customer = listCus.get(chooseKH - 1);
         booking.setIdCustomer(customer.getIdCard());
@@ -53,7 +53,7 @@ public class BookingManager {
                     displayMainMenu();
                     break;
                 default:
-                    System.out.println("Không có trong menu , hãy nhập lại");
+                    System.err.println("Our menu don't have your choice, enter again");
             }
         } while (check);
     }

@@ -12,16 +12,16 @@ import java.util.List;
 import static furama_resorts.manager.EmployeeManager.COMMON;
 
 public abstract class Input_Output {
-    public  final static String VILLA_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Villa.csv";
-    public  final static String HOUSE_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\House.csv";
-    public  final static String ROOM_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Room.csv";
-    public  final static String CUSTOMER_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Customer.csv";
-    public  final static String BOOKING_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Booking.csv";
-    public  final static String EMPLOYEE_PATH="E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Employee.csv";
+    public final static String VILLA_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Villa.csv";
+    public final static String HOUSE_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\House.csv";
+    public final static String ROOM_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Room.csv";
+    public final static String CUSTOMER_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Customer.csv";
+    public final static String BOOKING_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Booking.csv";
+    public final static String EMPLOYEE_PATH = "E:\\GitHub\\A1020I1-HoDucThang\\module2\\src\\furama_resorts\\data\\Employee.csv";
 
-    public static void writeFile(String path, String line) {
+    public static void writeFile(String path, String line, boolean check) {
         try {
-            FileWriter fileWriter = new FileWriter(path, true);
+            FileWriter fileWriter = new FileWriter(path, check);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(line);
             bufferedWriter.newLine();
@@ -30,7 +30,8 @@ public abstract class Input_Output {
             e.printStackTrace();
         }
     }
-    public static void writeFileVilla(Villa villa){
+
+    public static void writeFileVilla(Villa villa, boolean check) {
         List<Villa> listVilla = new ArrayList<>();
         listVilla.add(villa);
         String lineVilla;
@@ -39,10 +40,11 @@ public abstract class Input_Output {
                     villa.getMoTaTienNghi() + COMMON + villa.getTieuChuanPhong() + COMMON + villa.getSoTang() + COMMON +
                     villa.getChiPhiThue() + COMMON + villa.getSoLuongNguoi() + COMMON + villa.getDienTichSuDung() + COMMON
                     + villa.getDienTichHoBoi();
-            Input_Output.writeFile(VILLA_PATH, lineVilla);
+            Input_Output.writeFile(VILLA_PATH, lineVilla, check);
         }
     }
-    public static void writeFileEmp(Employee employee){
+
+    public static void writeFileEmp(Employee employee, boolean check) {
         List<Employee> listEmp = new ArrayList<>();
         listEmp.add(employee);
         String lineEmp;
@@ -51,41 +53,53 @@ public abstract class Input_Output {
                     employee.getAddressEmp() + COMMON + employee.getIdCardEmp() + COMMON + employee.getNumberPhoneEmp() + COMMON +
                     employee.getEmailEmp() + COMMON + employee.getLevelEmp() + COMMON + employee.getPositonEmp() + COMMON
                     + employee.getSalaryEmp();
-            Input_Output.writeFile(EMPLOYEE_PATH, lineEmp);
+            Input_Output.writeFile(EMPLOYEE_PATH, lineEmp, check);
         }
     }
-    public static void writeFileRoom(Room room){
+
+    public static void writeFileRoom(Room room, boolean check) {
         List<Room> listRoom = new ArrayList<>();
         listRoom.add(room);
         String lineRoom;
         for (Room itemRoom : listRoom) {
-            lineRoom = room.getId() + COMMON + room.getTenDichVu() +  COMMON + room.getKieuThue()+
-                    COMMON + room.getTenDVDiKem()+ COMMON+ room.getDonVi()+ COMMON+ room.getGiaTien()
-                    + COMMON + room.getChiPhiThue() + COMMON + room.getSoLuongNguoi()+COMMON+room.getDienTichSuDung();
-            Input_Output.writeFile(ROOM_PATH, lineRoom);
+            lineRoom = room.getId() + COMMON + room.getTenDichVu() + COMMON + room.getKieuThue() +
+                    COMMON + room.getTenDVDiKem() + COMMON + room.getDonVi() + COMMON + room.getGiaTien()
+                    + COMMON + room.getChiPhiThue() + COMMON + room.getSoLuongNguoi() + COMMON + room.getDienTichSuDung();
+            Input_Output.writeFile(ROOM_PATH, lineRoom, check);
         }
     }
-     public static void writeFileHouse(House house){
-         List<House> listHouse = new ArrayList<>();
-         listHouse.add(house);
-         String lineHouse;
-         for (House itemHouse : listHouse) {
-             lineHouse = house.getId() + COMMON + house.getTenDichVu() + COMMON + house.getMoTaTienNghi() + COMMON +
-                     house.getTieuChuanPhong() + COMMON + house.getKieuThue() + COMMON + house.getSoTang() + COMMON
-                     + house.getChiPhiThue() + COMMON + house.getSoLuongNguoi() + COMMON + house.getDienTichSuDung();
-             Input_Output.writeFile(HOUSE_PATH, lineHouse);
-         }
-    }public static void writeFileCus(Customer customer){
-        List<Customer> listCustomer = new ArrayList<>();
-        listCustomer.add(customer);
-        String lineCustomer;
-        for (Customer itemCus : listCustomer) {
-            lineCustomer = customer.getNameOfCustomer() + COMMON + customer.getDof() + COMMON
-                    + customer.getGender() + COMMON + customer.getEmail() + COMMON + customer.getAddress() + COMMON +
-                    customer.getTypeCustomer() + COMMON + customer.getIdCard() + COMMON + customer.getNumberPhone();
-            Input_Output.writeFile(CUSTOMER_PATH, lineCustomer);
+
+    public static void writeFileHouse(House house, boolean check) {
+        List<House> listHouse = new ArrayList<>();
+        listHouse.add(house);
+        String lineHouse;
+        for (House itemHouse : listHouse) {
+            lineHouse = house.getId() + COMMON + house.getTenDichVu() + COMMON + house.getMoTaTienNghi() + COMMON +
+                    house.getTieuChuanPhong() + COMMON + house.getKieuThue() + COMMON + house.getSoTang() + COMMON
+                    + house.getChiPhiThue() + COMMON + house.getSoLuongNguoi() + COMMON + house.getDienTichSuDung();
+            Input_Output.writeFile(HOUSE_PATH, lineHouse, check);
         }
     }
+
+    public static void writeFileCus(List<Customer> listCustomer, boolean check) {
+        try {
+            FileWriter fileWriter = new FileWriter(CUSTOMER_PATH, check);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (Customer itemCus : listCustomer) {
+                String lineCustomer;
+                lineCustomer = itemCus.getNameOfCustomer() + COMMON + itemCus.getDof() + COMMON
+                        + itemCus.getGender() + COMMON + itemCus.getEmail() + COMMON + itemCus.getTypeCustomer() + COMMON +
+                        itemCus.getAddress() + COMMON + itemCus.getIdCard() + COMMON + itemCus.getNumberPhone();
+                bufferedWriter.write(lineCustomer);
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static List<String> readFile(String path) {
         List<String> list = new ArrayList<>();
         try {
@@ -100,6 +114,7 @@ public abstract class Input_Output {
         }
         return list;
     }
+
     public static List<Villa> readVilla(String path) {
         List<String> list = readFile(path);
         List<Villa> listVilla = new ArrayList<>();
@@ -108,11 +123,12 @@ public abstract class Input_Output {
             arrayVilla = i.split(",");
             Villa villa = new Villa(arrayVilla[0], arrayVilla[1], arrayVilla[2], arrayVilla[3],
                     arrayVilla[4], Integer.parseInt(arrayVilla[5]), Integer.parseInt(arrayVilla[6]),
-                    Integer.parseInt(arrayVilla[7]), Double.parseDouble(arrayVilla[8]),Double.parseDouble(arrayVilla[9]));
+                    Integer.parseInt(arrayVilla[7]), Double.parseDouble(arrayVilla[8]), Double.parseDouble(arrayVilla[9]));
             listVilla.add(villa);
         }
         return listVilla;
     }
+
     public static List<House> readHouse(String path) {
         List<String> list = readFile(path);
         List<House> listHouse = new ArrayList<>();
@@ -126,6 +142,7 @@ public abstract class Input_Output {
         }
         return listHouse;
     }
+
     public static List<Room> readRoom(String path) {
         List<String> list = readFile(path);
         List<Room> listRoom = new ArrayList<>();
@@ -139,6 +156,7 @@ public abstract class Input_Output {
         }
         return listRoom;
     }
+
     public static List<Customer> readCustomer(String path) {
         List<String> list = readFile(path);
         List<Customer> listCustomer = new ArrayList<>();
@@ -146,11 +164,12 @@ public abstract class Input_Output {
         for (String i : list) {
             arrayCus = i.split(",");
             Customer customer = new Customer(arrayCus[0], arrayCus[1], arrayCus[2], arrayCus[3], arrayCus[4], arrayCus[5],
-                   arrayCus[6], arrayCus[7]);
+                    arrayCus[6], arrayCus[7]);
             listCustomer.add(customer);
         }
         return listCustomer;
     }
+
     public static List<Employee> readEmployee(String path) {
         List<String> list = readFile(path);
         List<Employee> listEmployee = new ArrayList<>();
@@ -158,7 +177,7 @@ public abstract class Input_Output {
         for (String i : list) {
             arrayEmp = i.split(",");
             Employee employee = new Employee(arrayEmp[0], arrayEmp[1], arrayEmp[2], arrayEmp[3], arrayEmp[4], arrayEmp[5],
-                    arrayEmp[6], arrayEmp[7],arrayEmp[8],arrayEmp[9]);
+                    arrayEmp[6], arrayEmp[7], arrayEmp[8], arrayEmp[9]);
             listEmployee.add(employee);
         }
         return listEmployee;

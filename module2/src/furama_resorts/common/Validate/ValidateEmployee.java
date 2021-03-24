@@ -2,8 +2,6 @@ package furama_resorts.common.Validate;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ValidateEmployee {
     static String regexEmp = "";
@@ -17,11 +15,11 @@ public class ValidateEmployee {
         return name.matches(regexEmp);
     }
     public static boolean idCardExceptionEmp(String idCard) {
-        regexEmp = "^(\\d{9}$)";
+        regexEmp = "(\\d{9})";
         return idCard.matches(regexEmp);
     }
     public static boolean numberTelExceptionEmp(String sdt) {
-        regexEmp="^0?(\\d{10}$)";
+        regexEmp="0?(\\d{10})";
         return sdt.matches(regexEmp);
     }
     public static boolean birthdayExceptionEmp(String dof) {
@@ -50,35 +48,11 @@ public class ValidateEmployee {
         return check;
     }
     public static boolean checkLevelEmp(String levelEmp) {
-        boolean check;
-        switch (levelEmp.toLowerCase().trim()) {
-            case "trung cấp":
-            case "cao đẳng":
-            case "đại học":
-            case "sau đại học":
-                check = true;
-                break;
-            default:
-                check = false;
-                break;
-        }
-        return check;
+        regexEmp = "trung cấp|cao đẳng|đại học|sau đại học|";
+        return levelEmp.matches(regexEmp);
     }
     public static boolean checkPositionEmp(String position) {
-        boolean check;
-        switch (position.toLowerCase().trim()) {
-            case "lễ tân":
-            case "phục vụ":
-            case "chuyên viên":
-            case "giám sát":
-            case "quản lí":
-            case "giám đốc":
-                check = true;
-                break;
-            default:
-                check = false;
-                break;
-        }
-        return check;
+        regexEmp = "lễ tân|phục vụ|chuyên viên|giám sát|quản lí|giám đốc|";
+        return position.matches(regexEmp);
     }
 }
