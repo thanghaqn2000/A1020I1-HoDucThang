@@ -1,5 +1,5 @@
 #create database furama_resorts,
-use furama_resorts,
+use furama_resorts;
 create table dich_vu(
 id_dich_vu int primary key not null auto_increment,
 id_loai_dich_vu int,
@@ -102,9 +102,11 @@ tong_tien decimal(18,0),
 
 constraint fk_id_nhan_vien_hop_dong
 foreign key (id_nhan_vien) references nhan_vien(id_nhan_vien),
+-- on delete cascade,
 
 constraint fk_id_khach_hang_hop_dong
 foreign key (id_khach_hang) references khach_hang(id_khach_hang),
+-- on delete cascade,
 
 constraint fk_id_dich_vu_hop_dong
 foreign key (id_dich_vu) references dich_vu(id_dich_vu)
@@ -118,6 +120,7 @@ so_luong int,
 
 constraint fk_id_hop_dong_hop_dong_chi_tiet
 foreign key (id_hop_dong) references hop_dong(id_hop_dong),
+-- on delete cascade,
 
 constraint fk_id_dich_vu_di_kem_hop_dong_chi_tiet
 foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem)
