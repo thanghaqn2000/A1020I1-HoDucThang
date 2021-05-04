@@ -1,4 +1,5 @@
- contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Caculator </title>
@@ -35,8 +36,5 @@
         </table>
     </fieldset>
 </form>
-
-<span>Result: <%=request.getAttribute("tong")%> </span><br>
-<span>Error: <%= request.getAttribute("err")%></span>
 </body>
 </html>
