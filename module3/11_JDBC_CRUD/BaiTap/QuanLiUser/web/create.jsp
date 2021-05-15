@@ -12,6 +12,8 @@
     <title>Title</title>
 </head>
 <body>
+
+
 <form method="post">
     <label for="fname">Id user:</label><br>
     <input type="text" id="fid" name="id" disabled="disabled" value="<c:out value="${idAuto}"/>"><br>

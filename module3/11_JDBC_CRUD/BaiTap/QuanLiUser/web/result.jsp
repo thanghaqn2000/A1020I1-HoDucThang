@@ -10,6 +10,44 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        a.back {
+            background: #ff6a1b;
+            margin-left: 61px;
+            font-size: 18px;
+            width: 123px;
+            display: inline-block;
+            border-radius: 45%;
+            text-align: center;
+            height: 32px;
+            margin-top: 15px;
+            padding-top: 7px;
+        }
+    </style>
 </head>
 <body>
 <h1 style="text-align: center">Result User</h1>
@@ -36,7 +74,7 @@
             </tr>
         </c:forEach>
     </table>
-<%--    <label><c:out value="${msg}"/></label>--%>
+    <a href="/user" class="back">Back to index</a>
 </div>
 </body>
 </html>
