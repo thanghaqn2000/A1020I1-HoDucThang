@@ -60,7 +60,7 @@
         </tr>
     </c:forEach>
 </table>
-<a href="/product?actionProduct=search">Back to search</a>
+<a href="/product?actionProduct=search">Back to search</a><br>
 <a href="/product" class="view">Back to product list</a>
 </body>
 </html>

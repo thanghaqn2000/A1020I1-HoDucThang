@@ -3,8 +3,6 @@ package model.repository;
 import model.bean.Product;
 
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public interface ProductRepository {
         List<Product> findAll();

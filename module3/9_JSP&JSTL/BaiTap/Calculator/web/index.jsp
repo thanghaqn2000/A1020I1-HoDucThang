@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +11,7 @@
         <table>
             <tr>
                 <td>First operand:</td>
-                <td><input name="num_one" type="text" placeholder="Type first number here"/></td>
+                <td><input name="num_one" type="text" id="num1" placeholder="Type first number here"/></td>
             </tr>
             <tr>
                 <td>Operator:</td>
@@ -27,7 +26,7 @@
             </tr>
             <tr>
                 <td>Second operand:</td>
-                <td><input name="num_second" type="text" placeholder="Type second number here"/></td>
+                <td><input name="num_second" type="text" id="num2" placeholder="Type second number here"/></td>
             </tr>
             <tr>
                 <td></td>
@@ -36,5 +35,6 @@
         </table>
     </fieldset>
 </form>
+
 </body>
 </html>

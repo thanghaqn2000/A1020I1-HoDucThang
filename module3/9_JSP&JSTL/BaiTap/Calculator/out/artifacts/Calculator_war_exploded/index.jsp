@@ -12,7 +12,7 @@
         <table>
             <tr>
                 <td>First operand:</td>
-                <td><input name="num_one" type="text" placeholder="Type first number here"/></td>
+                <td><input name="num_one" type="text" id="num1" placeholder="Type first number here"/></td>
             </tr>
             <tr>
                 <td>Operator:</td>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>Second operand:</td>
-                <td><input name="num_second" type="text" placeholder="Type second number here"/></td>
+                <td><input name="num_second" type="text" id="num2"  placeholder="Type second number here"/></td>
             </tr>
             <tr>
                 <td></td>
@@ -35,6 +35,14 @@
             </tr>
         </table>
     </fieldset>
+    <script>
+        let num1=document.getElementById("num1").value;
+        let num2=document.getElementById("num2").value;
+        if(isNaN(num1) || isNaN(num2)){
+            alert("Nhập số đê")
+        }
+    </script>
 </form>
+
 </body>
 </html>

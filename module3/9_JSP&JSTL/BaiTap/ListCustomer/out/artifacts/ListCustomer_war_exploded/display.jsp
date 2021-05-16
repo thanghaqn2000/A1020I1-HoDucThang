@@ -22,7 +22,7 @@
                 <td><c:out value="${customer.name}"/></td>
                 <td><c:out value="${customer.dateOfBirth}"/></td>
                 <td><c:out value="${customer.address}"/></td>
-<%--                <td><img src="${pageContext.request.contextPath}${customer.img}/></td>--%>
+<%--                <td><img src="Images/anh3.jpg" style="width: 70px; height: 70px" alt=""></td>--%>
               <td> <img src="<c:out value="${customer.img}" />" width="180" height="180"/></td>
             </tr>
     </c:forEach>

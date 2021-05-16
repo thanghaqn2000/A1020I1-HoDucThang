@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3513b34e-44bf-4854-b389-cbc9d1dc3627" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../TimeHeThong/src/ServerTimeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../99_CaseStudy/Website/bootstrap/index_css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/A1020I1-HoDucThang.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/A1020I1-HoDucThang.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../demo/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../demo/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../demo/src/common/ReadWrite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../demo/src/common/ReadWrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../demo/src/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../demo/src/manager/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/Customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/Customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/Furama.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/Furama.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/Furama.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/Furama.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau4.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau5.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau6.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/YeuCau6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CaseStudy/Yeucau1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CaseStudy/Yeucau1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CauTrucLap2/luyen_Tap_Vong_Lap_1/bai_Tong_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CauTrucLap2/luyen_Tap_Vong_Lap_1/bai_Tong_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/CauTrucLap2/so_Nguyen_To_Dau_Tien.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/CauTrucLap2/so_Nguyen_To_Dau_Tien.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Function/feet_Change_Meters.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Function/feet_Change_Meters.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Function/so_Nguyen_To.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Function/so_Nguyen_To.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Function/su_Dung_ham_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Function/su_Dung_ham_01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Function/su_Dung_ham_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Function/su_Dung_ham_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Function/tu_Doi_Xung.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Function/tu_Doi_Xung.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Mang 2/ham_Co_San.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Mang 2/ham_Co_San.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Mang 2/luyen_Tap_Mang_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Mang 2/luyen_Tap_Mang_01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Mang 2/luyen_Tap_Mang_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Mang 2/luyen_Tap_Mang_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Mang 2/tu_Dien.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Mang 2/tu_Dien.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/Fibonacci.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/Fibonacci.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/MaxMinArray.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/MaxMinArray.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai5.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai6.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai7.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/bai8.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/bai8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/cannvas.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/cannvas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/quanlinhanvien.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/quanlinhanvien.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/OnTap/songuyento.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/OnTap/songuyento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Thi/Customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Thi/Customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Thi/bai4.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Thi/bai4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Thi/cau1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Thi/cau1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Thi/cau2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Thi/cau2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module1/Thi/cau3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module1/Thi/cau3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/common/Input_Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/common/Input_Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/common/Validate/ValidateEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/common/Validate/ValidateEmployee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/manager/CustomerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/furama_resorts/manager/CustomerManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/common/Input_Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/common/Input_Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/common/Validate/ValidateEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/common/Validate/ValidateEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/furama_resorts/manager/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BaiTap/ProductDiscountCalculator/out/artifacts/ProductDiscountCalculator_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../BaiTap/ProductDiscountCalculator/out/artifacts/ProductDiscountCalculator_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BaiTap/ProductDiscountCalculator/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../BaiTap/ProductDiscountCalculator/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../99_CaseStudy/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../99_CaseStudy/Website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ProductDiscountCalculator/src/HomeServlet.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1s1fnrGpz3oneKDL6JUrgFlM05F" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.211" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.211" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="untitled1:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/untitled1_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="untitled1:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3513b34e-44bf-4854-b389-cbc9d1dc3627" name="Default Changelist" comment="" />
+      <created>1620045185356</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620045185356</updated>
+      <workItem from="1620045188086" duration="94000" />
+      <workItem from="1620045377947" duration="129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1620045478470">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1620045478470" />
+    <state x="209" y="0" key="new project wizard" timestamp="1620045507073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1620045507073" />
+  </component>
+</project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/10_MVC_Model.iml" filepath="$PROJECT_DIR$/.idea/10_MVC_Model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BaiTap/BaiTap.iml" filepath="$PROJECT_DIR$/BaiTap/BaiTap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThucHanh/QuanLiKhachHang/QuanLiKhachHang.iml" filepath="$PROJECT_DIR$/ThucHanh/QuanLiKhachHang/QuanLiKhachHang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThucHanh/a10i-mvc/a10i-mvc.iml" filepath="$PROJECT_DIR$/ThucHanh/a10i-mvc/a10i-mvc.iml" />
+    </modules>
+  </component>
+</project>
