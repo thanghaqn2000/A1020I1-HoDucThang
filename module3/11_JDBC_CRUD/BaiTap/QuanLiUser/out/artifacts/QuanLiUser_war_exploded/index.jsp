@@ -55,10 +55,17 @@
 <body>
 <center>
 
+    <form class="example"  action="/user?actionUser=search" style="margin:auto;max-width:300px">
+        <input type="hidden" name="actionUser" value="search">
+        <input type="text" placeholder="Type user's name" name="searchName">
+        <input type="submit" value="Submit">
+    </form>
+
     <h1>User Management</h1>
     <div class="flex" style="display: flex;width: 50%;
   margin: 0 auto;justify-content: center;">
         <a class="create" href="/user?actionUser=create">Create</a>
+<%--        cách 2--%>
         <a class="search" href="/search">Search</a>
     </div>
 </center>

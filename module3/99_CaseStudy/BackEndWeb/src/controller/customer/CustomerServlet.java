@@ -36,9 +36,9 @@ public class CustomerServlet extends HttpServlet {
             case "view":
                 loadList(request, response);
                 break;
-            case "create":
-                request.getRequestDispatcher("createCustomer.jsp").forward(request, response);
-                break;
+//            case "create":
+//                request.getRequestDispatcher("createCustomer.jsp").forward(request, response);
+//                break;
             case "delete":
                 deleteCustomer(request, response);
                 break;

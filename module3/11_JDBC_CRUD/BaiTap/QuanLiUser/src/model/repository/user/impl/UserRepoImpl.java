@@ -28,7 +28,7 @@ public class UserRepoImpl implements UserRepo {
     private BaseRepository baseRepository = new BaseRepository();
 
     @Override
-    public boolean insertUser(User user) throws SQLException {
+    public boolean insertUser(User user)  {
         int row = 0;
         try {
             PreparedStatement preparedStatement = baseRepository.getConnection().prepareStatement
@@ -45,7 +45,6 @@ public class UserRepoImpl implements UserRepo {
 
     @Override
     public User selectUser(int id) {
-        System.out.println(id);
         User user = null;
         // Step 1: Establishing a Connection
         try {

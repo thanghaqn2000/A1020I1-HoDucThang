@@ -1,10 +1,9 @@
 package controller;
 
 import model.bean.User;
-import model.service.UserService;
-import model.service.impl.UserServiceImpl;
+import model.service.user.UserService;
+import model.service.user.impl.UserServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,9 +61,12 @@ public class UserServlet extends HttpServlet {
             case "edit":
                 showEditForm(request, response);
                 break;
-//            case "search":
-//                showSearchForm(request, response);
-//                break;
+            case "search":
+                String name=request.getParameter("searchName");
+                List<User> userList=name==""?userService.selectAllUsers():userService.findUser(name);
+                request.setAttribute("listUser",userList);
+                request.getRequestDispatcher("index.jsp").forward(request,response);
+                break;
         }
         loadList(request, response);
     }

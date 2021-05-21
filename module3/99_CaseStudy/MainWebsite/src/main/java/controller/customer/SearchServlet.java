@@ -1,10 +1,29 @@
-@javax.servlet.annotation.WebServlet(name = "SearchServlet")
-public class SearchServlet extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
+package controller.customer;
+
+import model.bean.Customer;
+import model.service.user.CustomerService;
+import model.service.user.impl.CustomerServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(name = "SearchServlet", urlPatterns = "/searchCustomer")
+public class SearchServlet extends HttpServlet {
+    CustomerService customerService = new CustomerServiceImpl();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("nameSearch");
+        List<Customer> listCustomer = name == "" ? customerService.selectAllCus() : customerService.findCus(name);
+        request.setAttribute("listCustomer",listCustomer);
+        request.getRequestDispatcher("jsp/user/displayCustomer.jsp").forward(request,response);
     }
 }

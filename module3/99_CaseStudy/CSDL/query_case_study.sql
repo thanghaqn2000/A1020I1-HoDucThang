@@ -279,8 +279,26 @@ begin
 end;
 // delimiter ;
 
+use furama_resorts;
 
+select kh.id_khach_hang,kh.ho_ten ,lk.ten_loai_khach, kh.ngay_sinh,kh.so_cmnd,kh.sdt,kh.email,kh.dia_chi
+from khach_hang kh 
+left join loai_khach lk on lk.id_loai_khach=kh.id_loai_khach;
 
+insert into khach_hang(id_loai_khach,ho_ten,ngay_sinh,so_cmnd,sdt,email,dia_chi)
+values  (3,'Duc Thang','2000/08/19','123456789','0916890776','thanghaqn2001@gmail.com','da nang');
+
+delete from khach_hang kh
+where id_khach_hang =12;
+
+update khach_hang
+set id_loai_khach=1,ho_ten='Đức Thiện',ngay_sinh='2019/02/03',so_cmnd='123456789',sdt='0916890776',email='thien@gmail.com',dia_chi='Thanh Tay'
+where id_khach_hang=39;
+
+select id_khach_hang,lk.id_loai_khach,lk.ten_loai_khach,ho_ten,ngay_sinh,so_cmnd,sdt,email,dia_chi
+ from khach_hang kh
+ left join loai_khach lk on lk.id_loai_khach=kh.id_loai_khach
+where ((ho_ten like '%Th%'));
 
 
 

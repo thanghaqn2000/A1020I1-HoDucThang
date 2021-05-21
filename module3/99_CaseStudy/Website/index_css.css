@@ -1,9 +1,33 @@
+
+
+
+.row-top{
+    height: 105px;
+}
+
 .row-head{
-    background: #046056;
+    /*background: #046056;*/
     height: 120px;
     position: fixed;
     width: 100%;
 }
-.mid-img{
-    width: 100%;
+.row-head .col-lg-8 .col-lg-2 .navbar li{
+    font-size: 20px;
+    font-family: segoe ui light;
+    font-weight: bold;
+    opacity: 0.8;
+}
+.row-head .col-lg-8 .col-lg-2 .navbar li a{
+
+}
+.row-head .col-lg-8 .col-lg-2 .navbar li:hover{
+    opacity: 1;
+    color: #259fff;
+}
+
+.icon-furama{
+   margin-left: 200px;
+}
+.back-img{
+    height: 700px;
 }
