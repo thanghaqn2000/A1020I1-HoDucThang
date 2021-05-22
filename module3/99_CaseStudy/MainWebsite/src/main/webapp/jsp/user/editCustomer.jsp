@@ -47,6 +47,8 @@
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Id customer</label>
                 <input type="text" disabled="disabled" class="form-control" value="${requestScope["customer"].getCustomer_Id()}" >
+                <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgName}"/>
+
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name customer</label>
@@ -64,7 +66,7 @@
         <div class="form-group">
             <label for="inputAddress2">Id Card</label>
             <input type="text" name="idCard" class="form-control" id="inputAddress2" value="${requestScope["customer"].getCustomer_Id_Card()}">
-            <label style="color: red"><c:out value="${msgIdCard}"/>
+            <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgIdCard}"/>
         </div>
         <div class="form-group">
             <label >Type Customer</label>
@@ -74,7 +76,7 @@
             <div class="form-group col-md-6">
                 <label for="inputCity">Phone</label>
                 <input type="number" name="phoneNumber" class="form-control" id="inputCity" value="${requestScope["customer"].getCustomer_Phone()}">
-                <label style="color: red"><c:out value="${msgPhone}"/>
+                <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgPhone}"/>
 
             </div>
             <div class="form-group col-md-4">
@@ -90,7 +92,7 @@
             <div class="form-group col-md-6">
                 <label for="inputZip">Email</label>
                 <input type="text" name="email" class="form-control" id="inputZip" value="${requestScope["customer"].getCustomer_Email()}">
-                <label style="color: red" ><c:out value="${msgEmail}"/>
+                <label style="color: #c6490e;font-weight: bold;" ><c:out value="${msgEmail}"/>
             </div>
         </div>
         <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to update?')">Update now</button>

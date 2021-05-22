@@ -55,13 +55,11 @@
                             <li class="nav-item dropdown p-1">
                                 <a class="nav-link dropdown-toggle a-menu" href="#" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false" >
-                                    Employee
+                                    Service
                                 </a>
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">New Surface </a>
-                                    <a class="dropdown-item" href="#">Surface Go</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7x</a>
+                                    <a class="dropdown-item" href="/service">Service Management</a>
+                                    <a class="dropdown-item" href="#">Create Service</a>
                                 </div>
                             </li>
                         </ul>
@@ -78,9 +76,8 @@
                                     Customer
                                 </a>
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/viewCustomer">Display Customer</a>
+                                    <a class="dropdown-item" href="/viewCustomer">Customer Management</a>
                                     <a class="dropdown-item" href="/createCustomer">Create customer</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7x</a>
                                 </div>
                             </li>
                         </ul>

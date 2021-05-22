@@ -2,8 +2,8 @@ package controller.customer;
 
 import common.Validate;
 import model.bean.Customer;
-import model.service.user.CustomerService;
-import model.service.user.impl.CustomerServiceImpl;
+import model.service.customer.CustomerService;
+import model.service.customer.impl.CustomerServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +31,10 @@ public class EditServlet extends HttpServlet {
         Customer customer = new Customer();
         Validate validate=new Validate();
         boolean check = true;
+        if(name.equals("")){
+            request.setAttribute("msgName","Enter incorrect name format");
+            check=false;
+        }
         if (!validate.checkIdCard(idCard)) {
             request.setAttribute("msgIdCard", "Enter incorrect Id Card format");
             check = false;

@@ -48,6 +48,7 @@
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name customer</label>
                 <input type="text" class="form-control" id="inputEmail4" placeholder="Name" name="name">
+                <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgName}"/>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Date of birth</label>
@@ -61,13 +62,13 @@
         <div class="form-group">
             <label for="inputAddress2">Id Card</label>
             <input type="text" name="idCard" class="form-control" id="inputAddress2" placeholder="XXXXXXXXX or XXXXXXXXX(0-9)">
-            <label style="color: red"><c:out value="${msgIdCard}"/>
+            <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgIdCard}"/>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCity">Phone</label>
                 <input type="number" name="phoneNumber" laceholder="091xxxxxxx or (84)+90xxxxxxx " class="form-control" id="inputCity">
-                <label style="color: red"><c:out value="${msgPhone}"/>
+                <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgPhone}"/>
             </div>
             <div class="form-group col-md-4">
                 <label for="inputState">Type Customer</label>
@@ -79,10 +80,10 @@
                     <option value="5" >Member</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <label for="inputZip">Email</label>
                 <input placeholder="Example: thang123@codegym.vn" type="text" name="email" class="form-control" id="inputZip">
-                <label style="color: red" ><c:out value="${msgEmail}"/>
+                <label style="color: #c6490e;font-weight: bold;" ><c:out value="${msgEmail}"/>
             </div>
         </div>
         <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to create this customer?')">Add now</button>

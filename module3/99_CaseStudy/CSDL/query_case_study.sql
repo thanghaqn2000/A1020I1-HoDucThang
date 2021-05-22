@@ -281,6 +281,7 @@ end;
 
 use furama_resorts;
 
+-- khach hang
 select kh.id_khach_hang,kh.ho_ten ,lk.ten_loai_khach, kh.ngay_sinh,kh.so_cmnd,kh.sdt,kh.email,kh.dia_chi
 from khach_hang kh 
 left join loai_khach lk on lk.id_loai_khach=kh.id_loai_khach;
@@ -299,6 +300,17 @@ select id_khach_hang,lk.id_loai_khach,lk.ten_loai_khach,ho_ten,ngay_sinh,so_cmnd
  from khach_hang kh
  left join loai_khach lk on lk.id_loai_khach=kh.id_loai_khach
 where ((ho_ten like '%Th%'));
+
+-- dich vu
+-- 1 select *
+select id_dich_vu,ten_loai_dich_vu,ten_kieu_thue,ten_dich_vu,dien_tich,so_tang,so_nguoi_toi_da,chi_phi_thue,trang_thai
+from dich_vu dv
+left join loai_dich_vu ldv on ldv.id_loai_dich_vu = dv.id_loai_dich_vu
+left join kieu_thue kt on kt.id_kieu_thue = dv.id_kieu_thue;
+
+-- 2 insert
+insert into dich_vu(id_loai_dich_vu,id_kieu_thue,ten_dich_vu,dien_tich,so_tang,so_nguoi_toi_da,chi_phi_thue,trang_thai)
+values (1,3,'Villa theo ngay',350,3,'15','150000000','Tệ');
 
 
 
