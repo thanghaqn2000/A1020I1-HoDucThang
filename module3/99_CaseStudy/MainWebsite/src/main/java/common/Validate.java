@@ -24,5 +24,4 @@ public class Validate {
     public boolean checkIdCard(String idCard){
         return idCard.matches(regexIdCard);
     }
-
 }

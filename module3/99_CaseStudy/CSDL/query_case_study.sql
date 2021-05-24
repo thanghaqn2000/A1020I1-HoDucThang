@@ -312,7 +312,22 @@ left join kieu_thue kt on kt.id_kieu_thue = dv.id_kieu_thue;
 insert into dich_vu(id_loai_dich_vu,id_kieu_thue,ten_dich_vu,dien_tich,so_tang,so_nguoi_toi_da,chi_phi_thue,trang_thai)
 values (1,3,'Villa theo ngay',350,3,'15','150000000','Tệ');
 
+-- nhan vien
+-- select *
+select id_nhan_vien,ten_vi_tri,ten_trinh_do,ten_bo_phan,ho_ten,ngay_sinh,cmnd,luong,sdt,email,dia_chi
+from nhan_vien nv
+left join vi_tri vt on vt.id_vi_tri=nv.id_vi_tri
+left join trinh_do td on td.id_trinh_do=nv.id_trinh_do
+left join bo_phan bp on bp.id_bo_phan=nv.id_bo_phan;
 
+-- insert
+
+insert into nhan_vien(id_vi_tri,id_trinh_do,id_bo_phan,ho_ten,ngay_sinh,cmnd,luong,sdt,email,dia_chi ) 
+values (5,3,4,'Bảo Ngọc','2010/09/11','123456789',6000000,'12345678999','vi@gmail.com','Hội An');
+
+-- delete
+delete from nhan_vien
+where id_nhan_vien=5;
 
 
 

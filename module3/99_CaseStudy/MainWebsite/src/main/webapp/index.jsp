@@ -91,13 +91,11 @@
                             <li class="nav-item dropdown p-1">
                                 <a class="nav-link dropdown-toggle a-menu" href="#" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false" >
-                                    Service
+                                    Employee
                                 </a>
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">New Surface </a>
-                                    <a class="dropdown-item" href="#">Surface Go</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7x</a>
+                                    <a class="dropdown-item" href="/employee">Employee Management </a>
+                                    <a class="dropdown-item" href="/createEmp">Create Employee</a>
                                 </div>
                             </li>
                         </ul>

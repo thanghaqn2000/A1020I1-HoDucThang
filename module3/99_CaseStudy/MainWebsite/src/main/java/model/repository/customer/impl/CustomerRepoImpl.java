@@ -22,11 +22,11 @@ public class CustomerRepoImpl implements CustomerRepo {
             "from khach_hang kh\n" +
             "\tleft join loai_khach lk on lk.id_loai_khach=kh.id_loai_khach;";
 
-    private static final String SELECT_AUTO_ID = "SELECT last_insert_id() FROM information_schema.tables " +
-            "WHERE table_name = 'users' and table_schema = 'demo';";
-
-    private static final String SELECT_AUTO_INCREMENT = "SELECT AUTO_INCREMENT FROM information_schema.tables " +
-            "WHERE table_name = 'users' and table_schema = 'demo';";
+//    private static final String SELECT_AUTO_ID = "SELECT last_insert_id() FROM information_schema.tables " +
+//            "WHERE table_name = 'users' and table_schema = 'demo';";
+//
+//    private static final String SELECT_AUTO_INCREMENT = "SELECT AUTO_INCREMENT FROM information_schema.tables " +
+//            "WHERE table_name = 'users' and table_schema = 'demo';";
 
     private static final String FIND_CUSTOMER_BY_NAME_SQL = "select id_khach_hang,lk.id_loai_khach,lk.ten_loai_khach,ho_ten,ngay_sinh,so_cmnd,sdt,email,dia_chi\n" +
             " from khach_hang kh\n" +

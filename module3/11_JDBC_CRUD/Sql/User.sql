@@ -42,5 +42,26 @@ CREATE PROCEDURE show_all_users ()
 END $$
 DELIMITER ;
 
-call show_all_users ()
+call show_all_users ();
 
+DELIMITER $$
+CREATE PROCEDURE edit_user (in `name_edit` varchar(120), in email_edit varchar(120),in country_edit varchar(120),in id_edit int(3))
+ BEGIN
+	update users 
+	set `name`=name_edit,  email=email_edit,  country=country_edit
+	where id=id_edit;
+END $$
+DELIMITER ;
+
+call edit_user("temo","temo@gmail.com","Viet Nam",9);
+
+
+DELIMITER $$
+CREATE PROCEDURE delete_user (in id_edit int(3))
+ BEGIN
+	delete from users 
+	where id=id_edit;
+END $$
+DELIMITER ;
+
+call delete_user(8)

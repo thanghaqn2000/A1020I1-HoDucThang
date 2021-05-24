@@ -67,7 +67,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputCity">Phone</label>
-                <input type="number" name="phoneNumber" laceholder="091xxxxxxx or (84)+90xxxxxxx " class="form-control" id="inputCity">
+                <input type="number" name="phoneNumber" placeholder="091xxxxxxx or (84)+90xxxxxxx " class="form-control" id="inputCity">
                 <label style="color: #c6490e;font-weight: bold;"><c:out value="${msgPhone}"/>
             </div>
             <div class="form-group col-md-4">
