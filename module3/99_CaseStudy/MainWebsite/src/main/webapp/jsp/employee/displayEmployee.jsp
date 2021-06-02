@@ -17,22 +17,10 @@
     <title></title>
     <style>
         a.create {
-            background: #ff6a1b;
             margin-left: 36px;
             font-size: 25px;
             width: 100px;
             display: inline-block;
-            border-radius: 45%;
-            text-align: center;
-            height: 40px;
-        }
-        a.back {
-            background: #ff6a1b;
-            margin-left: 61px;
-            font-size: 15px;
-            width: 100px;
-            display: inline-block;
-            border-radius: 45%;
             text-align: center;
             height: 40px;
         }
@@ -54,7 +42,7 @@
         <h1>Employee Management</h1>
         <div class="flex" style="display: flex;width: 50%;
   margin: 0 auto;justify-content: center;">
-            <a class="create" href="/createEmp">Create</a>
+            <a class="btn btn-primary create" href="/createEmp">Create</a>
         </div>
     </center>
     <div class="container">
@@ -85,7 +73,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <table id="tableStudent" class="table table-striped table-bordered" style="width:100%">
+                <table id="tableStudent" class="table table-striped table-bordered" style="width:100%;">
                     <thead>
                     <tr>
                         <th>ID Employee</th>
@@ -94,11 +82,8 @@
                         <th>Level</th>
                         <th>Department</th>
                         <th>Date of birth</th>
-                        <th>Id Card</th>
-                        <th>Salary</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Address</th>
+                        <th>Action</th>
+                        <th>Action</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -111,28 +96,66 @@
                             <td><c:out value="${employee.nameLevel}"/></td>
                             <td><c:out value="${employee.nameDepartment}"/></td>
                             <td><c:out value="${employee.dof}"/></td>
-                            <td><c:out value="${employee.id_Card}"/></td>
-                            <td><c:out value="${employee.salary}"/></td>
-                            <td><c:out value="${employee.phoneNumber}"/></td>
-                            <td><c:out value="${employee.email}"/></td>
-                            <td><c:out value="${employee.address}"/></td>
+
                             <td>
-                                <a href="/editEmp?id=${employee.id_Employee}">Edit</a>
-                                <a  href="/deleteEmp?id=${employee.id_Employee}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                                <a class="btn btn-primary" href="/editEmp?id=${employee.id_Employee}">Edit</a>
+<%--                                <a  href="/deleteEmp?id=${employee.id_Employee}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>--%>
                             </td>
+                            <td> <a style="color: white" class="btn btn-danger" onclick="empSetId('${employee.id_Employee}','${employee.name}')"
+                                    data-toggle="modal" data-target="#deleteModal">
+                                Delete
+                            </a></td>
+                            <td><a href="/detailEmp?id=${employee.id_Employee}" class="btn btn-primary">Detail</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" id="modelId" size="50" disabled style="border: none;background: white; color: red">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="submitDelete()">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <label><c:out value="${msg}"/></label>
-    <a class="back" href="/employee">Home Page</a>-->
+    <a class="btn btn-primary" href="/employee">Home Page</a>-->
 </div>
+<form action="/deleteEmp" id="deleteEmp">
+    <input type="hidden" name="action" value="delete">
+    <input type="hidden" name="idEmp" id="idEmp">
+</form>
+<script src="../../bootstrap/js/jquery-3.6.0.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.js"></script>
 <script src="../../jquery/jquery-3.5.1.min.js"></script>
 <script src="../../datatables/js/jquery.dataTables.min.js"></script>
 <script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    function empSetId(id, name) {
+        document.getElementById("idEmp").value = id;
+        document.getElementById("modelId").value = "Do you want delete employee name: " + name;
+    }
+
+    function submitDelete() {
+        <!-- để submit form delete  -->
+        document.getElementById("deleteEmp").submit();
+    }
+</script>
 <script>
     $(document).ready(function () {
         $('#tableStudent').dataTable({

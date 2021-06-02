@@ -89,22 +89,94 @@ public class EmployeeRepoImpl implements EmployeeRepo {
 
     @Override
     public boolean deleteEmp(int idEmp) {
-        return false;
+        int row=0;
+        try {
+            PreparedStatement preparedStatement=baseRepository.getConnection().prepareStatement(DELETE_EMP_BY_ID_SQL);
+            preparedStatement.setInt(1,idEmp);
+            row=preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return row>0;
     }
 
     @Override
     public boolean updateEmp(Employee employee) {
-        return false;
+        int row=0;
+        try {
+            PreparedStatement preparedStatement=baseRepository.getConnection().prepareStatement(UPDATE_EMP_BY_ID_SQL);
+            preparedStatement.setInt(1, employee.getId_Position());
+            preparedStatement.setInt(2, employee.getId_Level());
+            preparedStatement.setInt(3, employee.getId_Department());
+            preparedStatement.setString(4, employee.getName());
+            preparedStatement.setString(5, employee.getDof());
+            preparedStatement.setString(6, employee.getId_Card());
+            preparedStatement.setDouble(7, employee.getSalary());
+            preparedStatement.setString(8, employee.getPhoneNumber());
+            preparedStatement.setString(9, employee.getEmail());
+            preparedStatement.setString(10, employee.getAddress());
+            preparedStatement.setInt(11,employee.getId_Employee());
+            row=preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return row>0;
     }
 
     @Override
     public List<Employee> findEmp(String nameEmp) {
-        return null;
+        List<Employee> employeeList=new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement=baseRepository.getConnection().prepareStatement(FIND_EMP_BY_NAME_SQL);
+            preparedStatement.setString(1,"%" + nameEmp + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            Employee employee=null;
+            while (rs.next()){
+                employee=new Employee();
+                employee.setId_Employee(rs.getInt("id_nhan_vien"));
+                employee.setNamePosition(rs.getString("ten_vi_tri"));
+                employee.setNameLevel(rs.getString("ten_trinh_do"));
+                employee.setNameDepartment(rs.getString("ten_bo_phan"));
+                employee.setName(rs.getString("ho_ten"));
+                employee.setDof(rs.getString("ngay_sinh"));
+                employee.setId_Card(rs.getString("cmnd"));
+                employee.setSalary(rs.getDouble("luong"));
+                employee.setPhoneNumber(rs.getString("sdt"));
+                employee.setEmail(rs.getString("email"));
+                employee.setAddress(rs.getString("dia_chi"));
+                employeeList.add(employee);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return employeeList;
     }
 
     @Override
     public Employee selectEmp(int id) {
-        return null;
+        Employee employee=null;
+        try {
+            PreparedStatement preparedStatement=baseRepository.getConnection().prepareStatement(SELECT_EMP_BY_ID_SQL);
+            preparedStatement.setInt(1,id);
+            ResultSet rs=preparedStatement.executeQuery();
+            while (rs.next()){
+                employee=new Employee();
+                employee.setId_Employee(rs.getInt("id_nhan_vien"));
+                employee.setNamePosition(rs.getString("ten_vi_tri"));
+                employee.setNameLevel(rs.getString("ten_trinh_do"));
+                employee.setNameDepartment(rs.getString("ten_bo_phan"));
+                employee.setName(rs.getString("ho_ten"));
+                employee.setDof(rs.getString("ngay_sinh"));
+                employee.setId_Card(rs.getString("cmnd"));
+                employee.setSalary(rs.getDouble("luong"));
+                employee.setPhoneNumber(rs.getString("sdt"));
+                employee.setEmail(rs.getString("email"));
+                employee.setAddress(rs.getString("dia_chi"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return employee;
     }
 
     @Override

@@ -16,38 +16,7 @@
 
     <title></title>
     <style>
-        a.create {
-            background: #ff6a1b;
-            margin-left: 36px;
-            font-size: 25px;
-            width: 100px;
-            display: inline-block;
-            border-radius: 45%;
-            text-align: center;
-            height: 40px;
-        }
 
-        a.search {
-            background: #ff6a1b;
-            margin-left: 61px;
-            font-size: 25px;
-            width: 100px;
-            display: inline-block;
-            border-radius: 45%;
-            text-align: center;
-            height: 40px;
-        }
-
-        a.back {
-            background: #ff6a1b;
-            margin-left: 61px;
-            font-size: 15px;
-            width: 100px;
-            display: inline-block;
-            border-radius: 45%;
-            text-align: center;
-            height: 40px;
-        }
     </style>
 </head>
 <body>
@@ -66,7 +35,7 @@
         <h1>Customer Management</h1>
         <div class="flex" style="display: flex;width: 50%;
   margin: 0 auto;justify-content: center;">
-            <a class="create" href="/createCustomer">Create</a>
+            <a class="btn btn-primary create" href="/createCustomer">Create</a>
         </div>
     </center>
     <div class="container">
@@ -109,6 +78,7 @@
                         <th>Email</th>
                         <th>Address</th>
                         <th>Action</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -123,24 +93,64 @@
                             <td><c:out value="${customer.customer_Email}"/></td>
                             <td><c:out value="${customer.customer_Address}"/></td>
                             <td>
-                                <a href="/editCustomer?id=${customer.customer_Id}">Edit</a>
-                                <a  href="/deleteCustomer?id=${customer.customer_Id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                                <a class="btn btn-primary" href="/editCustomer?id=${customer.customer_Id}">Edit</a>
+
+<%--                                <a  href="/deleteCustomer?id=${customer.customer_Id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>--%>
                             </td>
+                            <td> <a style="color: white" class="btn btn-danger" onclick="customerSetId('${customer.customer_Id}','${customer.customer_Name}')"
+                                    data-toggle="modal" data-target="#deleteModal">
+                                Delete
+                            </a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" id="modelId" size="50" disabled style="border: none;background: white; color: red">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="submitDelete()">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <label><c:out value="${msg}"/></label>
-    <a class="back" href="/customer">Home Page</a>-->
+    <a class="btn btn-danger" href="/customer">Home Page</a>-->
 </div>
-
-
+<form action="/deleteCustomer" id="deleteCustomer">
+    <input type="hidden" name="action" value="delete">
+    <input type="hidden" name="idCustomer" id="idCustomer">
+</form>
+<script src="../../bootstrap/js/jquery-3.6.0.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.js"></script>
 <script src="../../jquery/jquery-3.5.1.min.js"></script>
 <script src="../../datatables/js/jquery.dataTables.min.js"></script>
 <script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    function customerSetId(id, name) {
+        document.getElementById("idCustomer").value = id;
+        document.getElementById("modelId").value = "Do you want delete customer name: " + name;
+    }
+
+    function submitDelete() {
+        <!-- để submit form delete  -->
+        document.getElementById("deleteCustomer").submit();
+    }
+</script>
 <script>
     $(document).ready(function () {
         $('#tableStudent').dataTable({

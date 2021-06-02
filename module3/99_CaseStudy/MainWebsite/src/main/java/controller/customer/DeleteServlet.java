@@ -22,7 +22,7 @@ public class DeleteServlet extends HttpServlet {
         deleteCustomer(request,response);
     }
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("idCustomer"));
         if (customerService.deleteCus(id)) {
             loadList(request, response);
         } else {

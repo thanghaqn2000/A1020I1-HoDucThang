@@ -20,7 +20,8 @@
 <body>
 <div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
-        <div class="media d-flex align-items-center"><img src="/img/avatar.JPG" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <div class="media d-flex align-items-center"><img src="/img/avatar.JPG" alt="..." width="65"
+                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm">
             <div class="media-body">
                 <h4 class="m-0">Call Me DT</h4>
                 <p class="font-weight-light text-muted mb-0">CodeGymer</p>
@@ -53,6 +54,12 @@
             <a href="/employee" class="nav-link text-dark font-italic">
                 <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
                 Employee
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/contract" class="nav-link text-dark font-italic">
+                <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                Contract
             </a>
         </li>
     </ul>
@@ -88,9 +95,9 @@
 </div>
 <!-- End vertical navbar -->
 <script>
-    $(function() {
+    $(function () {
         // Sidebar toggle behavior
-        $('#sidebarCollapse').on('click', function() {
+        $('#sidebarCollapse').on('click', function () {
             $('#sidebar, #content').toggleClass('active');
         });
     });

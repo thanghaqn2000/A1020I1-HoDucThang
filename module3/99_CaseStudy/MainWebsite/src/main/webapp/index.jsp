@@ -35,13 +35,13 @@
                             <li class="nav-item dropdown p-1">
                                 <a class="nav-link dropdown-toggle a-menu" href="#" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false" >
-                                    Home
+                                    Contract
                                 </a>
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">New Surface </a>
-                                    <a class="dropdown-item" href="#">Surface Go</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7</a>
-                                    <a class="dropdown-item" href="#">Surface Pro 7x</a>
+                                    <a class="dropdown-item" href="/contract">Contract Management </a>
+                                    <a class="dropdown-item" href="/createContract">Create Contract</a>
+                                    <a class="dropdown-item" href="#">Detail Contract</a>
+                                    <a class="dropdown-item" href="#">Create Detail Contract</a>
                                 </div>
                             </li>
                         </ul>
@@ -109,7 +109,7 @@
                             <li class="nav-item dropdown p-1">
                                 <a class="nav-link dropdown-toggle a-menu" href="#" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false" >
-                                    Contact
+                                    Detail Contract
                                 </a>
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">New Surface </a>
@@ -122,6 +122,7 @@
                     </div>
                 </nav>
             </div>
+
         </div>
         <!-- 2 -->
         <div class="_1cot phai">
@@ -241,7 +242,6 @@
                 consequuntur cumque dicta ducimus, eum explicabo impedit iure minus necessitatibus neque,
                 numquam recusandae rerum, similique velit. Aspernatur, eligendi?
             </p>
-
         </div>
     </div>
     <div class="col-lg-6 banner-foot-mid">

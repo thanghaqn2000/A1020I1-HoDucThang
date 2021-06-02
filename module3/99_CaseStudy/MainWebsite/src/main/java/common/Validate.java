@@ -3,7 +3,7 @@ package common;
 public class Validate {
     private String regex;
     private String regexEmail="^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$";
-    private String regexIdCard="^\\\\d{9}$|^\\\\d{12}$\"";
+    private String regexIdCard="^(\\d{9}|\\d{12}$)";
     private String regexPhone="^09[0-1]\\d{7}$|^\\(84\\)\\+9[0-1]\\d{7}$";
     public Validate() {
     }

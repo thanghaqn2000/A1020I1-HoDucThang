@@ -41,8 +41,7 @@
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 
     <!-- Demo content -->
-
-    <form method="post" style="width: 500px;margin-right: auto;margin-left: auto">
+    <form method="post"  id="updateCustomer" style="width: 500px;margin-right: auto;margin-left: auto">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Id customer</label>
@@ -95,14 +94,40 @@
                 <label style="color: #c6490e;font-weight: bold;" ><c:out value="${msgEmail}"/>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to update?')">Update now</button>
-        <a href="/viewCustomer" class="back" style="background: #ff505c">Back to list</a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Update!
+        </button>
+        <a href="/viewCustomer" class="btn btn-primary" >Back to list</a>
         <label><c:out value="${msg}"/>
     </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to update this customer?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitCreate()">Update now</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="../../bootstrap/js/jquery-3.6.0.min.js"></script>
 <script src="../../bootstrap/js/bootstrap.js"></script>
-
+<script>
+    function submitCreate() {
+        <!-- để submit form delete  -->
+        document.getElementById("updateCustomer").submit();
+    }
+</script>
 </body>
 </html>

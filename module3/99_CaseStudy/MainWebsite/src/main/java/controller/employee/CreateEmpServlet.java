@@ -24,9 +24,7 @@ public class CreateEmpServlet extends HttpServlet {
         request.getRequestDispatcher("jsp/employee/createEmployee.jsp").forward(request, response);
     }
     private void addEmp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Validate emailValidate = new Validate("^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$");
-        Validate phoneValidate = new Validate("^09[0-1]\\d{7}$|^\\(84\\)\\+9[0-1]\\d{7}$");
-        Validate idCardValidate = new Validate("^\\d{9}$|^\\d{12}$");
+      Validate validate=new Validate();
         int idPosition = Integer.parseInt(request.getParameter("position").trim());
         int idLevel = Integer.parseInt(request.getParameter("level").trim());
         int idDepartment = Integer.parseInt(request.getParameter("department").trim());
@@ -43,19 +41,19 @@ public class CreateEmpServlet extends HttpServlet {
             request.setAttribute("msgName", "Enter incorrect name format");
             check = false;
         }
-        if (!idCardValidate.checkRegex(idCard)) {
+        if (!validate.checkIdCard(idCard)) {
             request.setAttribute("msgIdCard", "Enter incorrect Id Card format");
             check = false;
         } else {
             employee.setId_Card(idCard);
         }
-        if (!emailValidate.checkRegex(email)) {
+        if (!validate.checkEmail(email)) {
             request.setAttribute("msgEmail", "Enter incorrect email format");
             check = false;
         } else {
             employee.setEmail(email);
         }
-        if (!phoneValidate.checkRegex(phone)) {
+        if (!validate.checkPhone(phone)) {
             request.setAttribute("msgPhone", "Enter incorrect phone format");
             check = false;
         } else {

@@ -120,14 +120,14 @@ public class CustomerRepoImpl implements CustomerRepo {
 
     @Override
     public List<Customer> findCus(String nameCus) {
-            List<Customer> customerList=new ArrayList<>();
+        List<Customer> customerList = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement=baseRepository.getConnection().prepareStatement(FIND_CUSTOMER_BY_NAME_SQL);
-            preparedStatement.setString(1,"%"+nameCus+"%");
-            ResultSet rs=preparedStatement.executeQuery();
-            Customer customer=null;
-            while (rs.next()){
-                customer=new Customer();
+            PreparedStatement preparedStatement = baseRepository.getConnection().prepareStatement(FIND_CUSTOMER_BY_NAME_SQL);
+            preparedStatement.setString(1, "%" + nameCus + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            Customer customer = null;
+            while (rs.next()) {
+                customer = new Customer();
                 customer.setCustomer_Id(rs.getInt("id_khach_hang"));
                 customer.setType_Customer(rs.getString("ten_loai_khach"));
                 customer.setCustomer_Name(rs.getString("ho_ten"));
@@ -148,8 +148,8 @@ public class CustomerRepoImpl implements CustomerRepo {
     public Customer selectCus(int id) {
         Customer customer = null;
         try {
-            PreparedStatement statement=baseRepository.getConnection().prepareStatement(SELECT_CUSTOMER_BY_ID_SQL);
-            statement.setInt(1,id);
+            PreparedStatement statement = baseRepository.getConnection().prepareStatement(SELECT_CUSTOMER_BY_ID_SQL);
+            statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 customer = new Customer();

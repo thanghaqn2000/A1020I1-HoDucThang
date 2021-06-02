@@ -43,7 +43,7 @@
 
     <!-- Demo content -->
 
-    <form method="post" style="width: 500px;margin-right: auto;margin-left: auto">
+    <form method="post" action="/createCustomer" id="createCustomer" style="width: 500px;margin-right: auto;margin-left: auto">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name customer</label>
@@ -86,13 +86,40 @@
                 <label style="color: #c6490e;font-weight: bold;" ><c:out value="${msgEmail}"/>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to create this customer?')">Add now</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Add customer
+        </button>
         <a href="/viewCustomer" class="back" style="background: #ff505c">Back to list</a>
     </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to add this customer?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitCreate()">Add now</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="../../bootstrap/js/jquery-3.6.0.min.js"></script>
 <script src="../../bootstrap/js/bootstrap.js"></script>
+<script>
 
+    function submitCreate() {
+        <!-- để submit form delete  -->
+        document.getElementById("createCustomer").submit();
+    }
+</script>
 </body>
 </html>
