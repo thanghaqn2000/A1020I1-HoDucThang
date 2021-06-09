@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let check=false;
+    while (!check){
+        let diem = parseInt(prompt("Nhập điểm của học sinh vào đây"));
+        if (diem < 0 || diem > 100) {
+            alert("Sai khoang diem");
+            check=false;
+        } else {
+            LamTron(diem);
+            check=true;
+        }
+    }
+    function LamTron(diem) {
+        for (let i = diem; i < 100; i++) {
+            if ((i % 5 === 0)) {
+                if (i - diem < 3) {
+                    diem = i;
+                }
+            }
+        }
+        if (diem < 50) {
+            alert(diem+ " Trượt")
+        } else {
+            alert("Sau khi làm tròn " + diem);
+        }
+    }
+</script>
 </body>
 </html>

@@ -98,11 +98,11 @@ class Customer {
         return this.typeRoom;
     }
     payTienPhong(){
-        if(this.typeService==="Villa"){
+        if(this.typeService.toLowerCase()==="villa"){
             return "Tiền phòng phải trả: "+500*this.rentDays*(1-(this.discount/100));
-        }else if(this.typeService==="House "){
+        }else if(this.typeService.toLowerCase()==="house "){
             return "Tiền phòng phải trả: "+300*this.rentDays*(1-(this.discount/100));
-        }else if(this.typeService==="Room"){
+        }else if(this.typeService.toLowerCase()==="room"){
             return "Tiền phòng phải trả: "+100*this.rentDays*(1-(this.discount/100));
         }else{
             return "Không có loại dịch vụ này! "+this.typeService;

@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.tong{
+    background-image:url('furama.jpg') ;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    position: relative;
+}
+
+.menungang{
+    list-style: none;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+ul.menungang li{
+    display: inline;
+    padding: 10px 30px;
+}
+.menungang a{
+    font-style: italic;
+    width: 100px;
+    /* background-color: rgb(101, 141, 141); */
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    font-family: segoe ui light;
+    text-transform: uppercase;
+    padding: 6px;
+    margin-top: 30px;
+    display: inline-block;
+    transition: 0.4s;
+}
+.menungang a:hover{
+    font-weight:bold ;
+    color: rgb(100, 147, 201);
+    background-color:#8cbb4a ;
+    padding-top: 3px;
+    padding-bottom: 9px;
+}
+.tong .chu{
+    color: rgb(144, 65, 235);
+    font-family: "Brush Script MT", cursive;
+    font-size: 70px;
+    position: relative;
+    margin-left: 310px;
+    margin-top: 250px;
+    transition: 0.6s;
+}
+.tong .chu:hover{
+    color: rgb(183, 193, 235);
+}

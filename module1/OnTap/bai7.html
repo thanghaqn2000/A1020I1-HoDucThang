@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--.Tính tổng và tích các chữ số của một số nguyên dương m cho trước(Ví dụ : m=234=> S=2+3+4=9, P=2*3*4=24)-->
+<script>
+    let kq = 0;
+    var tram=0;
+    let num = (prompt("nhap vao so can tinh"));
+    while (num > 0) {
+        tram= num % 10;
+        kq += tram;
+        num /= 10;
+    }
+    alert(parseInt(kq));
+</script>
 </body>
 </html>

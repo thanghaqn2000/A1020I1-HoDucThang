@@ -36,6 +36,7 @@
                 break;
         }
     }
+
     function addNewCustomer() {
         let regex_name = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
         do {
@@ -84,7 +85,7 @@
         do {
             var amount_Customer = parseInt(prompt("Nhập số lượng của bạn"));
             var rent_Days = parseInt(prompt("Nhập số ngày thuê của bạn"));
-            if (isNaN(amount_Customer) || isNaN(rent_Days)) {
+            if (isNaN(amount_Customer) || isNaN(rent_Days) || amount_Customer<1 || rent_Days<1) {
                 alert("hãy nhập chính xác");
                 check = false;
             } else
@@ -95,7 +96,7 @@
         let infoCustomer = {
             'name_Customer': name_Customer,
             'cmnd_Customer': cmnd_Customer,
-            'date_Of_Birth_Customer': date_Of_Birth_Customer,
+            'date_Of_Birth_Custo  mer': date_Of_Birth_Customer,
             'email_Customer': email_Customer,
             'address_Customer': address_Customer,
             'type_Customer': type_Customer,
@@ -229,7 +230,6 @@
                             alert("Failed");
                             break;
                     }
-
                 } while (flag);
 
             } else {
@@ -240,7 +240,6 @@
             alert("Dữ liệu không được rỗng");
         }
     }
-
     while (check) {
         displayMainMenu();
     }

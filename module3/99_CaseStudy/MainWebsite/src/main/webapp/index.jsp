@@ -60,6 +60,7 @@
                                 <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/service">Service Management</a>
                                     <a class="dropdown-item" href="#">Create Service</a>
+                                    <a class="dropdown-item" href="jsp/container/body.jsp">body</a>
                                 </div>
                             </li>
                         </ul>

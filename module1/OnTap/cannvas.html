@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<canvas id="canvasShape" width="1000" height="1000" style="border: 1px solid red;margin-bottom: 100px;"></canvas>
+<script>
+    let canvasObj = document.getElementById("canvasShape");
+    canvasObj.style.transform = "rotate(360deg)";         // or -90 depending on need , chu y xoay o day
+     let context = canvasObj.getContext("2d");
+    context.arc(100, 100, 50, 0, Math.PI);
+     context.stroke();
+    // context.fillStyle = "pink";
+     context.fill();
+    // C1
+    // context.rect(100, 200, 500, 500);
+    // context.stroke();
+    // context.fillStyle = "#79ff2c";
+    // context.fill();
+
+    // C2
+    context.fillStyle = "#79ff2c";
+    context.fillRect(100, 200, 300, 100);
+    context.font = "italic 58px Cambria";
+    context.fillText("C1120G1", 500, 100);
+
+</script>
 </body>
 </html>

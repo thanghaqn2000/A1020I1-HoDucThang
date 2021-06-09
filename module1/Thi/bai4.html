@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script src="Customer.js"></script>
 </head>
 <body>
-$END$
+<script>
+    let arrKH=[];
+    let idKh=prompt("Nhap vao id khach hang");
+    let nameKh=prompt("Nhap vao ten khach hang");
+    let sdtKh=prompt("Nhap vao so dien thoai khach hang");
+    let diaChiKh=prompt("Nhap vao dia chi khach hang");
+    let emailKH=prompt("Nhap vao email khach hang");
+    let kh1=new Customer();
+    kh1.setIdKH(idKh);
+    kh1.setNameKH(nameKh);
+    kh1.setSdtKH(sdtKh);
+    kh1.setAddressKH(diaChiKh);
+    kh1.setEmailKH(emailKH);
+    arrKH.push(kh1);
+    console.log(arrKH);
+    alert("Mã: " + arrKH[0].getIdKH() + "\n"
+        + "Tên : " + arrKH[0].getNameKH() + "\n"
+        + "Số điện thoại: " + arrKH[0].getSdtKH() + "\n"
+        + "Địa chỉ: " + arrKH[0].getAddressKH() + "\n"
+        + "Email: " + arrKH[0].getEmailKH() + "\n");
+
+
+</script>
 </body>
 </html>

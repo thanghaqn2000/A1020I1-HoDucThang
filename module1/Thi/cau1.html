@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let check = false;
+    let sum = 0;
+    let arrNumber = [];
+    while (!check) {
+        let amoutNum = parseInt(prompt("Muốn nhập vào bao nhiêu phần tử?"));
+        if (amoutNum > 20) {
+            alert("Không được nhập vượt quá 20 phần tử");
+            check = false;
+        } else {
+            for (let i = 0; i < amoutNum; i++) {
+                arrNumber[i] = parseInt(prompt("Nhập vào phần tử " + i));
+            }
+            for (let i = 0; i < arrNumber.length; i++) {
+                if (arrNumber[i] % 3 == 0 && arrNumber[i] % 5 == 0) {
+                    sum += arrNumber[i];
+                }
+            }
+            alert("Tổng các bội của 3 và 5 là: " + sum);
+            check = true;
+        }
+    }
+</script>
 </body>
 </html>

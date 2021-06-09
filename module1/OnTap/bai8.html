@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--UCLN va BCNN-->
+<script>
+    let a=parseInt(prompt("Nhap so thu 1"));
+    let b=parseInt(prompt("Nhap so thu 2"));
+    function UCLN(a,b) {
+            while (a!=b){
+                if(a>b){
+                    a=a-b;
+                }else{
+                    b=b-a;
+                }
+            }
+            return a;
+    }
+    function BCNN(a,b) {
+        let result=UCLN(a,b);
+        return a*b/result;
+    }
+    alert("Ước chung lớn nhát là "+UCLN(a,b)
+    +"\n"+"Bội chung nhỏ nhất là "+BCNN(a,b));
+</script>
 </body>
 </html>

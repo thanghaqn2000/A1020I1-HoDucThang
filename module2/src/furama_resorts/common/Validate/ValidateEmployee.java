@@ -19,7 +19,7 @@ public class ValidateEmployee {
         return idCard.matches(regexEmp);
     }
     public static boolean numberTelExceptionEmp(String sdt) {
-        regexEmp="0?(\\d{10})";
+        regexEmp="0(\\d{9})";
         return sdt.matches(regexEmp);
     }
     public static boolean birthdayExceptionEmp(String dof) {

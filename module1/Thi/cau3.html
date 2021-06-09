@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let ketQua=0;
+    let arrNumber = [];
+    let amountNumber = parseInt(prompt("Nhập vào số lượng của mảng"));
+    if (amountNumber > 50) {
+        alert("Không được nhập quá 50 phần tử");
+    } else {
+        for (let i = 0; i < amountNumber; i++) {
+            arrNumber[i] = prompt("Nhập vào số thứ " + i);
+        }
+        console.log(arrNumber);
+        let k = parseInt(prompt("Nhập vào số k"));
+        for (let i = 0; i < arrNumber.length; i++) {
+            for (let j = (i+1); j < arrNumber.length; j++) {
+                if ((parseInt(arrNumber[i]) + parseInt(arrNumber[j])) % k === 0) {
+                    ketQua++
+                }
+            }
+        }
+        alert("Co "+ketQua+" cap so chia het cho "+k);
+    }
+
+</script>
 </body>
 </html>

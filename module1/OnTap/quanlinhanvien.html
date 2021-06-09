@@ -5,18 +5,19 @@
     <title>Quản lí nhân viên</title>
 </head>
 <body>
-
 <input type="text" id="search" placeholder="Nhập vào tên cần thêm">
 <input type="button" value="Thêm" onclick="them()">
 <p id="result"></p>
 <script>
     let listArrnv = [];
+
     function them() {
         let nv = document.getElementById("search").value;
         listArrnv.push(nv);
         console.log(listArrnv);
         show();
     }
+
     function show() {
         let kq = '<table border="1">\n' +
             '    <tr>\n' +
@@ -27,20 +28,22 @@
             '    </tr>';
         for (let i = 0; i < listArrnv.length; i++) {
             kq += '<tr>\n' +
-                '        <td>' + (i + 1) + '</td>\n' +
-                '        <td>' + listArrnv[i] + '</td>\n' +
-                '        <td> <input type="button" value="Sửa" onclick="sua(' + i + ')"></td>\n' +
-                '        <td> <input type="button" value="Xóa" onclick="xoa(' + i + ')"></td>\n' +
-                '    </tr>'
+                '<td>' + (i + 1) + '</td>\n' +
+                '<td>' + listArrnv[i] + '</td>' +
+                '<td>' + '<input type="button"  value="Sửa" onclick="sua(' + i + ')">' + '</td>' +
+                '<td>' + '<input type="button"  value="Xóa" onclick="xoa(' + i + ')">' + '</td>' +
+                '</tr>'
         }
         kq += '</table>';
         document.getElementById("result").innerHTML = kq;
     }
+
     function sua(i) {
         let fix = prompt("Nhap ten can sua");
         listArrnv[i] = fix;
         show();
     }
+
     function xoa(i) {
         listArrnv.splice(i, 1);
         show();

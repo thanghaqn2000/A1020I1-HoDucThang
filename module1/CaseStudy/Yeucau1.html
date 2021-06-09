@@ -22,8 +22,8 @@
     } while (!check);
     do {
         var regex_date = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
-        var date_Of_Birth_Emp = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của nhân viên vào đây");
-        if (regex_date.test(date_Of_Birth_Emp)) {
+        var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của nhân viên vào đây");
+        if (regex_date.test(date_Of_Birth_Customer)) {
             check = true;
         } else {
             alert("Nhập sai kiểu dữ liệu!");
@@ -56,7 +56,6 @@
     } while (!check);
     let type_Service = prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room)");
     let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
-
     switch (type_Service.toLowerCase()) {
         case "villa":
             total_Pay = 500 * rent_Days * (1 - (discount / 100));
@@ -72,19 +71,17 @@
     }
 
     alert("Name: " + name_Customer + "\n"
-        + "CMND: " + parseInt(cmnd_Customer) + "\n"
-        + "Ngày sinh: " + date_Of_Birth_Customer + "\n"
-        + "Email: " + email_Customer + "\n"
-        + "Địa chỉ: " + address_Customer + "\n"
-        + "Loại khách hàng: " + type_Customer + "\n"
+         + "CMND: " + (cmnd_Customer) + "\n"
+         + "Ngày sinh: " + date_Of_Birth_Customer + "\n"
+         + "Email: " + email_Customer + "\n"
+         + "Địa chỉ: " + address_Customer + "\n"
+         + "Loại khách hàng: " + type_Customer + "\n"
         + "Giảm giá: " + discount + "\n"
         + "Số lượng: " + amount_Customer + "\n"
         + "Số ngày thuê: " + rent_Days + "\n"
         + "Loại dịch vụ thuê: " + type_Service + "\n"
         + "Loại phòng thuê: " + type_Room + "\n"
-        + "Tổng tiền phải trả là: " + total_Pay + "\n");
-
-
+         + "Tổng tiền phải trả là: " + total_Pay + "\n");
 </script>
 </body>
 </html>

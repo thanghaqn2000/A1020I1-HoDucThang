@@ -80,7 +80,6 @@ public class CustomerManager {
                 nameException(fullName);
                 customer.setNameOfCustomer(fullName);
             } catch (NameException e) {
-                System.out.println(e);
                 check = false;
             }
 
@@ -256,7 +255,6 @@ public class CustomerManager {
             } else
                 break;
         } while (check);
-
     }
     public static void updateCus() {
         boolean check=false;

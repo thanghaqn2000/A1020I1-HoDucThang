@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    let check=true;
+    let check = true;
     let name_Customer = prompt("Nhập tên của bạn vào đây");
     do {
         var cmnd_Customer = prompt("Nhập số CMND của bạn vào đây");
@@ -19,8 +19,8 @@
     } while (!check);
     do {
         var regex_date = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
-        var date_Of_Birth_Emp = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của nhân viên vào đây");
-        if (regex_date.test(date_Of_Birth_Emp)) {
+        var date_Of_Birth_Customer = prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) của nhân viên vào đây");
+        if (regex_date.test(date_Of_Birth_Customer)) {
             check = true;
         } else {
             alert("Nhập sai kiểu dữ liệu!");
@@ -45,7 +45,7 @@
     do {
         var amount_Customer = parseInt(prompt("Nhập số lượng của bạn"));
         var rent_Days = parseInt(prompt("Nhập số ngày thuê của bạn"));
-        if (isNaN(amount_Customer) || isNaN(rent_Days)) {
+        if (isNaN(amount_Customer) || isNaN(rent_Days) || rent_Days<1 || amount_Customer<1) {
             alert("hãy nhập chính xác");
             check = false;
         } else
@@ -53,6 +53,7 @@
     } while (!check);
     let type_Service = prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room)");
     let type_Room = prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal)");
+    alert("Thêm thành công");
     let salePay;
     let total_Pay;
 
@@ -240,14 +241,16 @@
             default:
                 total_Pay = "Chưa nhập đúng dữ liệu";
         }
-        alert("Số tiền phải trả: " + total_Pay + "\n"
-            + "Số tiền được giảm giá: " + salePay);
+        return "Tổng tiền cần trả: " + total_Pay + "\n" + "Tiền giảm giá: " + salePay;
     }
+
+    (showTotalPay(address_Customer, type_Customer, rent_Days));
     let flag = true;
     do {
         let choose = parseInt(prompt("1.Show Information Customer." + "\n"
             + "2.Edit Information Customer.." + "\n"
-            + "3.Show the amount to be paid after discount" + "\n"));
+            + "3.Show the amount to be paid after discount" + "\n"
+            + "4. Exit"));
         switch (choose) {
             case 1:
                 alert("Name: " + name_Customer + "\n"
@@ -312,7 +315,10 @@
                 }
                 break;
             case 3:
-                (showTotalPay(address_Customer, type_Customer, rent_Days));
+                alert((showTotalPay(address_Customer, type_Customer, rent_Days)));
+                break;
+            case 4:
+                flag = false;
                 break;
             default:
                 alert("Chưa chọn đúng loại có trong danh mục");

@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Fibonacci</title>
 </head>
 <body>
-$END$
+<script>
+    // let num1=0;
+    // let num2=1;
+    // let num3=0;
+    // let kq=num1+" "+num2+" ";
+    // let amountFibonacci=parseInt(prompt("Nhap vao so luong fibonacci can in"));
+    // for (let i=0;i<amountFibonacci-2;i++){
+    //     num3=num1+num2;
+    //     kq+=num3+" ";
+    //     num1=num2;
+    //     num2=num3;
+    // }
+    // document.write(kq);
+
+    let num=parseInt(prompt("nhap so can kiem tra"));
+    isFibonacci(num);
+    function isFibonacci(number) {
+        let num1=0;
+        let num2=1;
+        let num3=0;
+        while (num3<number){
+            num3=num1+num2;
+            num1=num2;
+            num2=num3;
+        }
+        if(num3===number){
+            alert(number+" La so fibonacci");
+        }else{
+            alert(number+" K phai la so fibonacci");
+        }
+    }
+</script>
 </body>
 </html>

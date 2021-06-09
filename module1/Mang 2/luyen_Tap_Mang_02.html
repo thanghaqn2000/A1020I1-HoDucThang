@@ -29,12 +29,23 @@
 <p id="ket_qua_6"></p>
 <input type="button" value="Thực hiện" onclick="bai6()">
 <hr>
+<!--Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau-->
+<!--Ví dụ mảng sau:-->
+<!--Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược. Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"-->
+
+<!--Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng.-->
+
+<!--Bài 4: Viết một chương trình để đếm số từ trong một chuỗi-->
+
+<!--Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.-->
+
+<!--Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )-->
 <script>
     function bai1(){
         let a = [
             [1, 2, 1, 24],
             [8, 11, 9, 4]
-        ]
+        ];
         let output="";
         for (let i = 0; i < a.length; i++) {
             output+="row "+i+"<br>";
@@ -51,6 +62,7 @@
         arr_reverse=arr.reverse();
         document.getElementById("ket_qua_2").innerHTML="Mảng đã đảo ngược "+arr_reverse.join("");
     }
+
     function bai3() {
         let kitu=[];
         let count=0;
@@ -61,7 +73,7 @@
         }
         for (let i=0;i<kitu.length;i++){
             if(!isNaN(parseInt(kitu[i]))){
-                count++
+                count++;
                 temp+=kitu[i]+","
             }
         }
@@ -69,7 +81,7 @@
 
     }
     function bai4() {
-        let s = prompt("Nhập chuỗi")
+        let s = prompt("Nhập chuỗi");
         document.getElementById("ket_qua_4").innerHTML = "Có " + s.trim().split(/\s+/).length+" từ" ;
     }
     function bai5() {
@@ -81,7 +93,6 @@
             document.getElementById("ket_qua_5").innerHTML = "Hai chuỗi giống nhau: " + a[0];
         } else {
             document.getElementById("ket_qua_5").innerHTML = "Hai chuỗi khác nhau: " + a[0] + " và " + b[0];
-
         }
     }
         function bai6() {

@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>So nguyen to</title>
 </head>
 <body>
-$END$
+<script>
+let amountPrime=parseInt(prompt("Nhap vao so can in ra"));
+let countPrime=0;
+let num=2;
+let kq="";
+while (countPrime<amountPrime){
+    if(isPrime(num)===1){
+        kq+=" "+num;
+        countPrime++;
+    }
+    num++
+}
+document.write(kq);
+function isPrime(number) {
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0 || number === 1) {
+            return 0;
+        }
+    }
+    return 1;
+}
+</script>
 </body>
 </html>

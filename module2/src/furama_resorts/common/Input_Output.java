@@ -98,8 +98,6 @@ public abstract class Input_Output {
             e.printStackTrace();
         }
     }
-
-
     public static List<String> readFile(String path) {
         List<String> list = new ArrayList<>();
         try {

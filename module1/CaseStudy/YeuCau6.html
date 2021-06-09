@@ -108,7 +108,7 @@
             var discount = parseInt(prompt("Nhập mức độ giảm giá"));
             var amount_Customer = parseInt(prompt("Nhập số lượng của bạn"));
             var rent_Days = parseInt(prompt("Nhập số ngày thuê của bạn"));
-            if (isNaN(amount_Customer) || isNaN(rent_Days) || isNaN(discount)) {
+            if (isNaN(amount_Customer) || isNaN(rent_Days) || isNaN(discount) || amount_Customer<1||discount<1||rent_Days<1) {
                 alert("hãy nhập chính xác kiểu dữ liệu");
                 check = false;
             } else
@@ -132,96 +132,125 @@
     }
 
     function Displayinforcustomer() {
+        let checkKH=true;
         let result = "";
         for (let i = 0; i < listCustomers.length; i++) {
             result += i + " " + listCustomers[i].getName() + "\n";
         }
         let choose = parseInt(prompt(result));
-        alert("Tên: " + listCustomers[choose].getName() + "\n"
-            + "CMND: " + listCustomers[choose].getCmnd() + "\n"
-            + "Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
-            + "Email: " + listCustomers[choose].getEmail() + "\n"
-            + "Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
-            + "Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
-            + "Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
-            + "Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
-            + "Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
-            + "Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
-            + "Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n"
-        );
+        for(let i=0;i<listCustomers.length;i++){
+            if(i!==choose){
+                checkKH=false;
+            }
+        }
+        if(checkKH){
+            alert("Tên: " + listCustomers[choose].getName() + "\n"
+                + "CMND: " + listCustomers[choose].getCmnd() + "\n"
+                + "Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
+                + "Email: " + listCustomers[choose].getEmail() + "\n"
+                + "Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
+                + "Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
+                + "Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
+                + "Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
+                + "Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
+                + "Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
+                + "Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n");
+        }else{
+            alert("Không tìm thấy khách hàng!");
+        }
     }
 
     function Display_total_pay_of_customer() {
+        let checkKH=true;
         let result = "";
         for (let i = 0; i < listCustomers.length; i++) {
             result += i + " " + listCustomers[i].getName() + "\n";
         }
         let choose = parseInt(prompt(result));
-        alert(listCustomers[choose].payTienPhong());
+        for(let i=0;i<listCustomers.length;i++){
+            if(i!==choose){
+                checkKH=false;
+            }
+        }
+        if(checkKH){
+            alert(listCustomers[choose].payTienPhong());
+        }else {
+            alert("Không tìm thấy khách hàng cần in")
+        }
     }
     function editCustomer() {
+        let checkKH=true;
         let result = "Chọn khách hàng muốn chỉnh sửa:" + "\n";
         for (let i = 0; i < listCustomers.length; i++) {
             result += i + " " + listCustomers[i].getName() + "\n";
         }
         let choose = parseInt(prompt(result));
-
-        let flag=true;
-        do{
-            let edit = parseInt(prompt("1.Tên: " + listCustomers[choose].getName() + "\n"
-                + "2.CMND: " + listCustomers[choose].getCmnd() + "\n"
-                + "3.Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
-                + "4.Email: " + listCustomers[choose].getEmail() + "\n"
-                + "5.Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
-                + "6.Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
-                + "7.Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
-                + "8.Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
-                + "9.Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
-                + "10.Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
-                + "11.Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n"
-                + "12.Exit:"));
-            switch (edit) {
-                case 1:
-                    listCustomers[choose].setName(prompt("Nhập tên cần sửa vào đây"));
-                    break;
-                case 2:
-                    listCustomers[(choose)].setCmnd(prompt("Nhập số CMND của bạn vào đây"));
-                    break;
-                case 3:
-                    listCustomers[(choose)].setDOF(prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) cần sửa vào đây"));
-                    break;
-                case 4:
-                    listCustomers[(choose)].setEmail(prompt("Nhập email cần sửa vào đây"));
-                    break;
-                case 5:
-                    listCustomers[(choose)].setAddress(prompt("Nhập địa chỉ cần sửa vào đây"));
-                    break;
-                case 6:
-                    listCustomers[(choose)].setTypeCustomer(prompt("Nhập loại khách hàng cần sửa(Diamond, Platinum, Gold, Silver, Member)"));
-                    break;
-                case 7:
-                    listCustomers[(choose)].setDiscount(prompt("Nhập mức độ giảm giá cần sửa"));
-                    break;
-                case 8:
-                    listCustomers[(choose)].setAmount(parseInt(prompt("Nhập số lượng cần sửa")));
-                    break;
-                case 9:
-                    listCustomers[(choose)].setRentDays(parseInt(prompt("Nhập số ngày thuê cần sửa")));
-                    break;
-                case 10:
-                    listCustomers[(choose)].setTypeService(prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room) cần sửa"));
-                    break;
-                case 11:
-                    listCustomers[(choose)].setTypeRoom(prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal) cần sửa"));
-                    break;
-                case 12:
-                    flag=false;
-                    break;
-                default:
-                    alert("Failed");
-                    break;
+        for(let i=0;i<listCustomers.length;i++){
+            if(i!==choose){
+                checkKH=false;
             }
-        }while (flag);
+        }
+        if(!checkKH){
+            alert("Không tìm thấy khách hàng cần chỉnh sửa");
+        }else {
+            let flag=true;
+            do{
+                let edit = parseInt(prompt("1.Tên: " + listCustomers[choose].getName() + "\n"
+                    + "2.CMND: " + listCustomers[choose].getCmnd() + "\n"
+                    + "3.Ngày sinh: " + listCustomers[choose].getDOF() + "\n"
+                    + "4.Email: " + listCustomers[choose].getEmail() + "\n"
+                    + "5.Địa chỉ: " + listCustomers[choose].getAddress() + "\n"
+                    + "6.Loại khách hàng: " + listCustomers[choose].getTypeCustomer() + "\n"
+                    + "7.Giảm giá: " + listCustomers[choose].getDiscount() + "\n"
+                    + "8.Số lượng khách hàng: " + listCustomers[choose].getAmount() + "\n"
+                    + "9.Ngày thuê: " + listCustomers[choose].getRentDays() + "\n"
+                    + "10.Loại dịch vụ: " + listCustomers[choose].getTypeService() + "\n"
+                    + "11.Loại phòng: " + listCustomers[choose].getTypeRoom() + "\n"
+                    + "12.Exit:"));
+                switch (edit) {
+                    case 1:
+                        listCustomers[choose].setName(prompt("Nhập tên cần sửa vào đây"));
+                        break;
+                    case 2:
+                        listCustomers[(choose)].setCmnd(prompt("Nhập số CMND của bạn vào đây"));
+                        break;
+                    case 3:
+                        listCustomers[(choose)].setDOF(prompt("Nhập ngày tháng năm sinh(dd/mm/yyy) cần sửa vào đây"));
+                        break;
+                    case 4:
+                        listCustomers[(choose)].setEmail(prompt("Nhập email cần sửa vào đây"));
+                        break;
+                    case 5:
+                        listCustomers[(choose)].setAddress(prompt("Nhập địa chỉ cần sửa vào đây"));
+                        break;
+                    case 6:
+                        listCustomers[(choose)].setTypeCustomer(prompt("Nhập loại khách hàng cần sửa(Diamond, Platinum, Gold, Silver, Member)"));
+                        break;
+                    case 7:
+                        listCustomers[(choose)].setDiscount(prompt("Nhập mức độ giảm giá cần sửa"));
+                        break;
+                    case 8:
+                        listCustomers[(choose)].setAmount(parseInt(prompt("Nhập số lượng cần sửa")));
+                        break;
+                    case 9:
+                        listCustomers[(choose)].setRentDays(parseInt(prompt("Nhập số ngày thuê cần sửa")));
+                        break;
+                    case 10:
+                        listCustomers[(choose)].setTypeService(prompt("Nhập loại dịch vụ cần thuê(Villa, House, Room) cần sửa"));
+                        break;
+                    case 11:
+                        listCustomers[(choose)].setTypeRoom(prompt("Nhập loại phòng cần thuê(Vip, Business,  Normal) cần sửa"));
+                        break;
+                    case 12:
+                        flag=false;
+                        break;
+                    default:
+                        alert("Failed");
+                        break;
+                }
+            }while (flag);
+        }
+
     }
     function deleteCustomer() {
         let result = "Chọn Stt khách hàng muốn xóa:" + "\n";
@@ -245,7 +274,6 @@
             //deleteCustomer();
         }
     }
-
     function addNewEmployee() {
         let regex_name = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
         do {
@@ -308,28 +336,47 @@
         listEmployee.push(emp);
     }
     function displayInfoEmp() {
+        let checkEmp=true;
         let result = "Chọn nhân viên muốn in" + "\n";
         for (let i = 0; i < listEmployee.length; i++) {
             result += i + " " + listEmployee[i].getNameEmp() + "\n";
         }
         let choose = parseInt(prompt(result));
-        alert("Tên nhân viên: " + listEmployee[choose].getNameEmp() + "\n" +
-            "Cmnd nhân viên : " + listEmployee[choose].getCmndEmp() + "\n" +
-            "Email nhân viên : " + listEmployee[choose].getEmailEmp() + "\n" +
-            "Level nhân viên : " + listEmployee[choose].getLevelEmp() + "\n" +
-            "Vị trí nhân viên : " + listEmployee[choose].getPositionEmp() + "\n" +
-            "Sdt nhân viên : " + listEmployee[choose].getSdtEmp() + "\n" +
-            listEmployee[choose].workingPartsEmp() + "\n"
-        );
+        for(let i=0;i<listEmployee.length;i++){
+            if(i!==choose){
+                checkEmp=false;
+            }
+        }
+        if(!checkEmp){
+            alert("Không tìm thấy nhân viên cần hiển thị");
+        }else{
+            alert("Tên nhân viên: " + listEmployee[choose].getNameEmp() + "\n" +
+                "Cmnd nhân viên : " + listEmployee[choose].getCmndEmp() + "\n" +
+                "Email nhân viên : " + listEmployee[choose].getEmailEmp() + "\n" +
+                "Level nhân viên : " + listEmployee[choose].getLevelEmp() + "\n" +
+                "Vị trí nhân viên : " + listEmployee[choose].getPositionEmp() + "\n" +
+                "Sdt nhân viên : " + listEmployee[choose].getSdtEmp() + "\n" +
+                listEmployee[choose].workingPartsEmp() + "\n"
+            );
+        }
     }
-
     function salaryOfEmployee() {
+        let checkEmp=true;
         let result = "Chọn nhân viên muốn hiển thị lương" + "\n";
         for (let i = 0; i < listEmployee.length; i++) {
             result += i + " " + listEmployee[i].getNameEmp() + "\n";
         }
         let choose = parseInt(prompt(result));
-        alert("Tiền lương của nhân viên: " + listEmployee[choose].salaryOfEmp())
+        for(let i=0;i<listEmployee.length;i++){
+            if(i!==choose){
+                checkEmp=false;
+            }
+        }
+        if(checkEmp){
+            alert("Tiền lương của nhân viên: " + listEmployee[choose].salaryOfEmp());
+        }else{
+            alert("Không tìm thấy nhân viên cần hiển thị");
+        }
     }
 </script>
 </body>

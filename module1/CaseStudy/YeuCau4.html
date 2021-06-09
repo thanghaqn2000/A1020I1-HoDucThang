@@ -69,7 +69,7 @@
             do {
                 var amount_Customer = parseInt(prompt("Nhập số lượng của khách hàng thứ: "+parseInt(i + 1)));
                 var rent_Days = parseInt(prompt("Nhập số ngày thuê của khách hàng thứ: "+parseInt(i + 1)));
-                if (isNaN(amount_Customer) || isNaN(rent_Days)) {
+                if (isNaN(amount_Customer) || isNaN(rent_Days)||rent_Days<1 || amount_Customer<0) {
                     alert("hãy nhập chính xác");
                     check = false;
                 } else

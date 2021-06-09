@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--5.Viết chương trình tính  :S=1+1/3!+1/5!+.....+1/(2n-1)!-->
+<script>
+    let n=parseInt(prompt("Nhap so"));
+    let kq=0;
+    let temp=1;
+    function gth(num) {
+        let kq=1;
+        for(let i=1;i<=num;i++){
+            kq*=i;
+        }
+        return kq;
+    }
+    for(let i=1;i<=n;i++){
+        temp= gth(2*i-1);
+        kq+=1/temp;
+    }
+    document.write(kq);
+</script>
 </body>
 </html>
