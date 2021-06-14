@@ -18,4 +18,14 @@ public class EmailServiceImpl implements EmailService {
     public void addEmail(Email email) {
         emailRepo.addEmail(email);
     }
+
+    @Override
+    public List<String> listLanguage() {
+        return emailRepo.listLanguage();
+    }
+
+    @Override
+    public List<Integer> listPage() {
+        return emailRepo.listPage();
+    }
 }

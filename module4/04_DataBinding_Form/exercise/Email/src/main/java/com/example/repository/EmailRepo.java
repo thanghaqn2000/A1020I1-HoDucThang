@@ -7,4 +7,6 @@ import java.util.List;
 public interface EmailRepo {
     List<Email> showAll();
     void addEmail(Email email);
+    List<String> listLanguage();
+    List<Integer> listPage();
 }
