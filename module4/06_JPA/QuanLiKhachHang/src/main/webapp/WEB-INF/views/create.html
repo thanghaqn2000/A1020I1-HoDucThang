@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${customer}" action="/create" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-4" hidden="hidden">
+            <label for="inputEmail4">Id</label>
+            <input type="number" class="form-control" th:field="*{id}" id="inputEmail4" placeholder="id">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputEmail66">First Name</label>
+            <input type="text" class="form-control" th:field="*{firstName}"  id="inputEmail66" placeholder="Name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputEmail6">Last Name</label>
+            <input type="text" class="form-control" th:field="*{lastName}"  id="inputEmail6" placeholder="Name">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add now</button>
+</form>
+
+<footer th:replace="layout:: footer"></footer>
+</body>
+</html>

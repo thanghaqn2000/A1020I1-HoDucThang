@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:if="${successMsg}" th:text="${successMsg}" style="color: red"></h3>
+<a href="/customer/create" class="btn btn-info">Create</a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col" colspan="3">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer:${customerList}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td><a th:href="@{/customer/edit/{id}(id=${customer.id})}" class="btn btn-primary">Edit</a></td>
+        <td><a th:href="@{/customer/edit/__${customer.id}__}" class="btn btn-primary">Edit 2</a></td>
+        <td><a th:href="@{/customer/delete/{id}(id=${customer.id})}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="~{/layout:: footer}"></footer>
+</body>
+</html>
