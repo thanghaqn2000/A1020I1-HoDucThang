@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="720a0039-d150-4562-8942-4e6e651d48d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../module3/100_FinalModule3/src/main/java/model/repository/impl/GroundRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/100_FinalModule3/src/main/java/model/repository/impl/GroundRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/10_MVC_Model/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/10_MVC_Model/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/99_CaseStudy/CSDL/query_case_study.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/99_CaseStudy/CSDL/query_case_study.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../01_TongQuanSpring/exercise/Dictionary/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../01_TongQuanSpring/exercise/Dictionary/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../01_TongQuanSpring/exercise/Dictionary/src/main/java/com/example/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../01_TongQuanSpring/exercise/Dictionary/src/main/java/com/example/controller/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/repository/CalculatorRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/repository/CalculatorRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/service/CalculatorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/service/CalculatorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/libs/MyCaculator-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/build/libs/MyCaculator-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/controller/CalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/repository/CalculatorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/repository/CalculatorRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/service/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../02_SpringController/exercise/MyCaculator/src/main/java/com/example/service/CalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/build/libs/ManagerDataCustomer-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/build/libs/ManagerDataCustomer-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/src/main/webapp/WEB-INF/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../03_Views_Thymeleaf/exercise/ManagerProduct/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../05_ORM/QuanLiKhachHang_practise/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../05_ORM/QuanLiKhachHang_practise/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../05_ORM/QuanLiKhachHang_practise/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../05_ORM/QuanLiKhachHang_practise/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../17_pringBoot/demo_springboot_gradle/src/main/java/ducthang/com/demo_springboot_gradle/controller/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../17_pringBoot/demo_springboot_gradle/src/main/java/ducthang/com/demo_springboot_gradle/controller/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../17_pringBoot/demo_springboot_gradle/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../17_pringBoot/demo_springboot_gradle/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/css/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/brand6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/crossword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/h4-slide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/h4-slide2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/h4-slide3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/h4-slide4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/h4-slide7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-thumb-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-thumb-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-thumb-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/img/product-thumb-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/bxslider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/jquery.easing.1.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/jquery.sticky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/js/script.slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/single-product.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/ucommerce-screen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/ustora.jpg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1uRNcusxu02JtrcBAlZw5blvC2f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Temp/QuanLiTinh" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\A1020I1-HoDucThang\module4\07_SpringDataRepository\ThucHanh\QuanLiTinh\src\main\resources\templates\province" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\A1020I1-HoDucThang\module4\07_SpringDataRepository\ThucHanh\QuanLiTinh\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.codegym.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="720a0039-d150-4562-8942-4e6e651d48d1" name="Default Changelist" comment="" />
+      <created>1624624524539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624624524539</updated>
+      <workItem from="1624624528839" duration="1016000" />
+      <workItem from="1624877574333" duration="7998000" />
+      <workItem from="1624888900718" duration="23000" />
+      <workItem from="1624889576547" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1624878657641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1624878657641" />
+    <state x="590" y="337" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1624878315355">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="590" y="337" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1624878315355" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1624889586560">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1624889586560" />
+    <state width="1478" height="208" key="GridCell.Tab.0.bottom" timestamp="1624888866171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624888866171" />
+    <state width="1478" height="208" key="GridCell.Tab.0.center" timestamp="1624888866170">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624888866170" />
+    <state width="1478" height="208" key="GridCell.Tab.0.left" timestamp="1624888866169">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624888866169" />
+    <state width="1478" height="208" key="GridCell.Tab.0.right" timestamp="1624888866170">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624888866170" />
+    <state width="1478" height="208" key="GridCell.Tab.1.bottom" timestamp="1624888866172">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624888866172" />
+    <state width="1478" height="208" key="GridCell.Tab.1.center" timestamp="1624888866171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1624888866171" />
+    <state width="1478" height="208" key="GridCell.Tab.1.left" timestamp="1624888866171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1624888866171" />
+    <state width="1478" height="208" key="GridCell.Tab.1.right" timestamp="1624888866172">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1478" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1624888866172" />
+  </component>
+</project>
