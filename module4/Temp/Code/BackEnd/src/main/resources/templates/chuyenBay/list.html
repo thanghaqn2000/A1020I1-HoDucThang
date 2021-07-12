@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:text="${msg}"></h3>
+<a href="/showCreate" class="btn btn-info">Create</a>
+<form action="/search" method="get">
+    <input type="text" name="name" placeholder="Nhập tiêu đề vào đây">
+    <input type="submit" value="Tìm kiếm">
+</form>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Số hiệu</th>
+        <th scope="col">Tuyến bay</th>
+        <th scope="col" colspan="3">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="chuyenBay:${listCB}">
+        <td th:text="${chuyenBay.id}"></td>
+        <td><a th:href="@{/detail/{id}(id=${chuyenBay.id})}" th:text="${chuyenBay.soHieu.getSoHieu()}" ></a></td>
+        <td th:text="${chuyenBay.tuyenBay.tenTuyenBay}"></td>
+        <td><a th:href="@{/detail/{id}(id=${chuyenBay.id})}" class="btn btn-primary">Detail</a></td>
+        <td><a th:href="@{/edit/__${chuyenBay.id}__}" class="btn btn-primary">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${chuyenBay.id})}" onclick="return confirm('Are you sure to delete?')"
+               class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

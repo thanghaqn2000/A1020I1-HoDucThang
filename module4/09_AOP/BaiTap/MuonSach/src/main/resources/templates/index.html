@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:if="${msg}" th:text="${msg}" style="color: red"></h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col" colspan="3">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book:${listBook}">
+        <td th:text="${book.id}"></td>
+        <td><a th:href="@{/detail/{id}(id=${book.id})}" th:text="${book.name}" ></a></td>
+        <td th:text="${book.author}"></td>
+        <td><a th:href="@{/detail/{id}(id=${book.id})}" class="btn btn-primary">Detail</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
