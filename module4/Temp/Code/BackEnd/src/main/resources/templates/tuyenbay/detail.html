@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+</head>
+<body>
+<div th:replace="~{/layout::body}">
+    <!-- left -->
+</div>
+<div class="page-content p-5" id="content">
+    <!-- Toggle button -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+            class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+
+    <form method="post" action="/tuyenbay/update" id="update" th:object="${tuyenBay}"
+          style="text-align:center;width: 680px;margin-right: auto;margin-left: auto">
+        <input type="hidden" name="id" th:field="*{id}"/>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Tên tuyến bay</label>
+                <input type="text" th:field="*{tenTuyenBay}" class="form-control" id="inputEmail4"
+                       name="name">
+                <span style="color: red" th:if="${msg}" th:text="${msg}"></span>
+                <span style="color:red;" th:if="${#fields.hasErrors('tenTuyenBay')}"
+                      th:errors="*{tenTuyenBay}">Name Error</span><br>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail5">Loại tuyến bay</label>
+                <select style="height: 40px; margin-top: 7px;" th:field="*{loaiTuyenBay.id}"
+                        id="inputEmail5" class="form-control">
+                    <option value="1">Trong nước</option>
+                    <option value="2">Quốc tế</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState10">Nơi đi</label>
+                <select th:field="*{noiDi}" name="tuyenBay" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="inputState10">
+                    <option th:each="tuyenbay : ${listNB}" th:value="${tuyenbay}"
+                            th:text="${tuyenbay}"></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputState">Nơi đến</label>
+                <select th:field="*{noiDen}" name="tuyenBay" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="inputState">
+                    <option th:each="tuyenbay : ${listNB}" th:value="${tuyenbay}"
+                            th:text="${tuyenbay}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sbdi">Sân bay đi</label>
+                <select th:field="*{sanBayDi}" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="sbdi">
+
+                    <option th:each="sanbay : ${listSB}" th:value="${sanbay}"
+                            th:text="${sanbay}"></option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="sb">Sân bay đến</label>
+                <select th:field="*{sanBayDen}" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="sb">
+                    <option th:each="sanbay : ${listSB}" th:value="${sanbay}"
+                            th:text="${sanbay}"></option>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Update
+        </button>
+        <a href="/tuyenbay/list" class="btn btn-danger" style="background: #ff505c">Back to list</a>
+    </form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to update this flight route?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitCreate()">Update now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function submitCreate() {
+        <!-- để submit form  -->
+        document.getElementById("update").submit();
+    }
+</script>
+</body>
+</html>

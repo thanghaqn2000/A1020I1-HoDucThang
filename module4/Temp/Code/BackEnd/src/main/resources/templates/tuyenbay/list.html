@@ -1,0 +1,164 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+</head>
+<body>
+<div th:replace="~{/layout::body}">
+    <!-- left -->
+</div>
+<div class="page-content p-5" id="content">
+    <!-- Toggle button -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+            class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+
+    <div class="alert alert-danger alert-dismissible" th:if="${msg}">
+        <p th:if="${msg}" th:text="${msg}"></p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+
+    <div class="form-row" style="margin-top: 30px;
+    margin-left: 215px;
+    height: 303px;
+    width: 100%;">
+        <div class="form-group col-md-8 border border-secondary">
+            <h3 style="color: #ea3c3c;text-align: center">Lọc tuyến bay</h3>
+            <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist" style="margin-top: 25px">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active"
+                       id="ex3-tab-1"
+                       data-mdb-toggle="tab"
+                       href="#ex3-tabs-1"
+                       role="tab"
+                       aria-controls="ex3-tabs-1"
+                       aria-selected="true">Quốc tế</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="ex3-tab-2"
+                       data-mdb-toggle="tab"
+                       href="#ex3-tabs-2"
+                       role="tab"
+                       aria-controls="ex3-tabs-2"
+                       aria-selected="false">Trong nước</a>
+                </li>
+            </ul>
+            <!-- Tabs navs -->
+
+            <!-- Tabs content -->
+            <div class="tab-content" id="ex2-content">
+                <div class="tab-pane fade show active"
+                     id="ex3-tabs-1"
+                     role="tabpanel"
+                     aria-labelledby="ex3-tab-1">
+                    <form action="/tuyenbay/filter" method="get"
+                          style="width: 100%;text-align: center;margin-top: 15px">
+                        <input name="loaiTuyenBay" value="Quốc tế" hidden="hidden">
+                        <div class="form-row col-md-12">
+                            <div class="form-group col-md-6">
+                                <label for="sanbaydi">Sân bay đi</label>
+                                <select name="sanBayDi" class="form-control" id="sanbaydi">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Changi">Changi</option>
+                                    <option value="Seoul">Seoul</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="sanbayden">Sân bay đến</label>
+                                <select name="sanBayDen" class="form-control" id="sanbayden">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Changi">Changi</option>
+                                    <option value="Seoul">Seoul</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/tuyenbay/list" class="btn btn-primary">Hiển thị toàn bộ</a>
+                            <button class="btn btn-success" type="submit">Lọc</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade"
+                     id="ex3-tabs-2"
+                     role="tabpanel"
+                     aria-labelledby="ex3-tab-2">
+                    <form action="/tuyenbay/filter" method="get"
+                          style="width: 100%;text-align: center;margin-top: 15px">
+                        <input name="loaiTuyenBay" value="Trong nước" hidden="hidden">
+                        <div class="form-row col-md-12">
+                            <div class="form-group col-md-6">
+                                <label for="sanbaydii">Sân bay đi</label>
+                                <select class="form-control" name="sanBayDi" id="sanbaydii">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Nội Bài">Nội Bài</option>
+                                    <option value="Tân Sơn Nhất">Tân Sơn Nhất</option>
+                                    <option value="Đà Lạt">Đà Lạt</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="sanbaydenn">Sân bay đến</label>
+                                <select class="form-control" name="sanBayDen" id="sanbaydenn">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Nội Bài">Nội Bài</option>
+                                    <option value="Tân Sơn Nhất">Tân Sơn Nhất</option>
+                                    <option value="Đà Lạt">Đà Lạt</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/tuyenbay/list" class="btn btn-primary">Hiển thị toàn bộ</a>
+                            <button class="btn btn-success" type="submit">Lọc</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/tuyenbay/showCreate" class="btn btn-primary">Create</a>
+    <table class="table table-striped" style="margin-left: auto;
+                margin-right: auto;margin-top: 50px">
+        <thead>
+        <tr>
+            <th scope="col">Mã tuyến bay</th>
+            <th scope="col">Tên tuyến bay</th>
+            <th scope="col">Loại tuyến bay</th>
+            <th scope="col">Sân bay đi</th>
+            <th scope="col">Sân bay đến</th>
+            <th scope="col" colspan="2">Chức năng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tuyenbay:${listTB}">
+            <td th:text="${tuyenbay.id}"></td>
+            <td><a th:href="@{/chuyenbay/detail/{id}(id=${tuyenbay.id})}"
+                   th:text="${tuyenbay.tenTuyenBay}"></a></td>
+            <td th:text="${tuyenbay.loaiTuyenBay.tenLoaiTuyenBay}"></td>
+            <td th:text="${tuyenbay.sanBayDi}"></td>
+            <td th:text="${tuyenbay.sanBayDen}"></td>
+            <td><a th:href="@{/tuyenbay/detail/{id}(id=${tuyenbay.id})}" class="btn btn-primary">Update</a></td>
+            <td><a th:href="@{/tuyenbay/delete/{id}(id=${tuyenbay.id})}"
+                   onclick="return confirm('Are you sure you want delete this flight route?')" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="pageList" style="text-align: center">
+        <a class="btn btn-primary" th:href="@{'/tuyenbay/list'(page=${listTB.number - 1})}"
+           th:if="${listTB.hasPrevious()}">Previous</a>
+        <a class="btn btn-success" th:text="${listTB.number+1 }"
+           th:href="@{'/tuyenbay/list'(page=${listTB.number+1})}">/</a>
+        <a class="btn btn-success" th:text="${listTB.totalPages}"
+           th:href="@{'/tuyenbay/list'(page=${listTB.totalPages - 1})}"></a>
+        <a class="btn btn-danger" th:href="@{'/tuyenbay/list'(page=${listTB.number + 1})}"
+           th:if="${listTB.hasNext()}">Next</a>
+    </div>
+</div>
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+></script>
+
+</body>
+</html>

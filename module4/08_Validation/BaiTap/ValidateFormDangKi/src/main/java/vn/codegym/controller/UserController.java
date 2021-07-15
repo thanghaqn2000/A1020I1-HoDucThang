@@ -33,7 +33,7 @@ public class UserController {
 
     @PostMapping("/create")
     public String create(@Valid @Validated @ModelAttribute("user") User user, BindingResult bindingResult) {
-        new User().validate(user, bindingResult);
+        //new User().validate(user, bindingResult);
         if (bindingResult.hasFieldErrors()) {
             return "create";
         }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:text="${msg}"></h3>
+<a href="/province/create-province" class="btn btn-info">Create</a>
+<form action="/search" method="get">
+    <input type="text" name="name" placeholder="Nhập tiêu đề vào đây">
+    <input type="submit" value="Tìm kiếm">
+</form>
+<a href="/create-province">Create new province</a>
+<h1>Provinces</h1>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="province : ${provinces}">
+        <tr>
+            <td th:text="${province.name}"></td>
+            <td><a th:href="@{/province/edit-province/__${province.id}__ }">Edit</a></td>
+            <td><a th:href="@{/province/delete-province/__${province.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

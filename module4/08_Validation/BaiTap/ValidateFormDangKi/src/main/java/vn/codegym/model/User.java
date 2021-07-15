@@ -3,6 +3,7 @@ package vn.codegym.model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import vn.codegym.validation.PhoneNumber;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,19 +15,20 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-public class User implements Validator {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Size(min = 3,max = 45,message = "The length must be >=3 and <=45")
+    @Size(min = 3, max = 45, message = "The length must be >=3 and <=45")
     private String firstName;
-    @Size(min = 3,max = 45,message = "The length must be >=3 and <=45")
+    @Size(min = 3, max = 45, message = "The length must be >=3 and <=45")
     private String lastName;
-   @Pattern(regexp ="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-           + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",message = "Must be like: thangit123@gmail.com")
+    @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Must be like: thangit123@gmail.com")
     private String email;
-    @Pattern(regexp = "[0-9]{10}",message = "The length must be equal 10")
+    //@Pattern(regexp = "[0-9]{10}",message = "The length must be equal 10")
+    @PhoneNumber
     private String phoneNumber;
 
     @Min(18)
@@ -83,16 +85,18 @@ public class User implements Validator {
         this.age = age;
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return User.class.isAssignableFrom(clazz);
+//    @Override
+//    public boolean supports(Class<?> clazz) {
+//        return User.class.isAssignableFrom(clazz);
+//    }
+//
+//    @Override
+//    public void validate(Object target, Errors errors) {
+//        User user = (User) target;
+//        String number = user.getPhoneNumber();
+//        if (!number.startsWith("0")) {
+//            errors.rejectValue("phoneNumber", "number.startsWith", "must be start with 020");
+//        }
     }
-    @Override
-    public void validate(Object target, Errors errors) {
-        User user = (User) target;
-        String number = user.getPhoneNumber();
-        if (!number.startsWith("0")){
-            errors.rejectValue("phoneNumber", "number.startsWith","must be start with 0");
-        }
-    }
-}
+
+

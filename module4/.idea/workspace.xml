@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c652dd42-a525-4fb1-ac36-258cc1d36e99" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../module3/100_FinalModule3/src/main/java/model/repository/impl/GroundRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module3/100_FinalModule3/src/main/java/model/repository/impl/GroundRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module3/10_MVC_Model/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module3/10_MVC_Model/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01_TongQuanSpring/exercise/Dictionary/src/main/java/com/example/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/01_TongQuanSpring/exercise/Dictionary/src/main/java/com/example/controller/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/repository/CalculatorRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/repository/CalculatorRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/service/CalculatorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/classes/java/main/com/example/service/CalculatorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/libs/MyCaculator-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/build/libs/MyCaculator-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/controller/CalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/repository/CalculatorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/repository/CalculatorRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/service/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/02_SpringController/exercise/MyCaculator/src/main/java/com/example/service/CalculatorService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1tw7BQXwMEnO6622hQftFf8y7KU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/04_DataBinding_Form/exercise/Email" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c652dd42-a525-4fb1-ac36-258cc1d36e99" name="Default Changelist" comment="" />
+      <created>1623668161677</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623668161677</updated>
+      <workItem from="1623668163124" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623668198294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623668198294" />
+  </component>
+</project>

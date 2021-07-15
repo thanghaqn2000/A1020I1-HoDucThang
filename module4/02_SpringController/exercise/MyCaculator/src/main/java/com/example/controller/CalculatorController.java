@@ -10,13 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class CalculatorController {
-
     @GetMapping("/")
     public ModelAndView homePage() {
         return new ModelAndView("index");
     }
-   @Autowired
+
+    @Autowired
     CalculatorService calculatorService;
+
     @GetMapping("/calculator")
     public ModelAndView plus(@RequestParam Integer number1, @RequestParam Integer number2, @RequestParam String operator) {
         ModelAndView modelAndView = new ModelAndView("index");

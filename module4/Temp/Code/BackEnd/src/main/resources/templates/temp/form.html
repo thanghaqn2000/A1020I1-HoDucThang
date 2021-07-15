@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-row col-md-12">
+    <input name="loaiTuyenBay" value="Quốc tế" hidden="hidden">
+    <div class="form-group col-md-6">
+        <label for="inputEmail56">Tuyến bay</label>
+        <select name="tuyenBay" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="inputEmail56">
+            <option th:value="rong" selected th:text="Selected"></option>
+            <option th:each="tuyenbay : ${tuyenBayList}" th:value="${tuyenbay.tenTuyenBay}"
+                    th:text="${tuyenbay.tenTuyenBay}"></option>
+        </select>
+    </div>
+</div>
+<div class="form-row col-md-12">
+    <div class="form-group col-md-4">
+        <label for="inputEmail">Tình trạng</label>
+        <select name="tinhTrang" class="form-control" id="inputEmail">
+            <option th:value="rong" selected th:text="Selected"></option>
+            <option value="Bình thường">Bình thường</option>
+            <option value="Khẩn cấp">Khẩn cấp</option>
+            <option value="Mất tín hiệu">Mất tín hiệu</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="dateDi">Ngày đi</label>
+        <input type="date" class="form-control" id="dateDi"
+               name="ngayDi">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="dateDi">Ngày đến</label>
+        <input type="date" class="form-control" id="dateDen"
+               name="ngayDen">
+    </div>
+</div>
+<div>
+    <a href="/chuyenbay/home" class="btn btn-primary">Hiển thị toàn bộ</a>
+    <button class="btn btn-success" type="submit">Lọc</button>
+</div>
+</body>
+</html>

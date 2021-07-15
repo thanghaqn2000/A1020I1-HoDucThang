@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Da Nang Airport International</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="index/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="index/css/furama.css">
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="index/css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div id="menu">
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Diễn đàn</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Hỏi đáp</a></li>
+                        <li><a href="#">Sự kiện</a></li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <h1 id="cb">TÌM KIẾM CHUYẾN BAY </h1>
+                </div>
+
+                <div class="col-md-7 col-md-offset-1">
+                    <div class="booking-form">
+                        <form action="/search">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Nơi Đi </span>
+                                        <select class="form-control" name="NoiDi">
+                                            <option value="Đà Nẵng">Đà Nẵng</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <span class="form-label">Nơi Đến</span>
+                                    <select class="form-control" name="NoiDen">
+                                        <option th:each="tuyenbay : ${listTB}" th:value="${tuyenbay.sanBayDen}"
+                                                th:text="${tuyenbay.sanBayDen}"></option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Ngày Đi</span>
+                                        <input class="form-control" id="date-input" type="date" name="NgayDi">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Ngày Đến</span>
+                                        <input class="form-control" id="date-input" type="date" name="NgayDen">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label" name="tentuyenbay">Tên Tuyến Bay</span>
+                                        <select name="tenTuyenBay" class="form-control">
+                                            <option th:each="tuyenbay : ${listTB}" th:value="${tuyenbay.tenTuyenBay}"
+                                                    th:text="${tuyenbay.tenTuyenBay}"></option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-btn">
+                                <button class="submit-btn">TÌM KIẾM</button>
+                            </div>
+                        </form>
+                        <table class="table-fill">
+                            <thead>
+                            <tr>
+
+                                <th class="text-left">Tên Tuyến Bay</th>
+                                <th class="text-left">Ngày Đi</th>
+                                <th class="text-left">Ngày Đến</th>
+                                <th class="text-left">Thời Gian Đi</th>
+                                <th class="text-left">Thời Gian Đến</th>
+                                <th class="text-left">Tình Trạng</th>
+                            </tr>
+                            </thead>
+                            <tbody class="table-hover">
+                            <tr th:each="chuyenBay:${listCB}">
+                                <td th:text="${chuyenBay.tuyenBay.tenTuyenBay}"></td>
+                                <td th:text="${chuyenBay.ngayDi}"></td>
+                                <td th:text="${chuyenBay.ngayDen}"></td>
+                                <td th:text="${chuyenBay.timeDi}"></td>
+                                <td th:text="${chuyenBay.timeDen}"></td>
+                                <td th:text="${chuyenBay.tinhTrangChuyenBay}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end banner mid  -->
+<div class="bannergiua">
+    <div class="nenden">
+        <div class="menu">
+            <ul>
+                <li><a href="" class="menucon">Ưu đãi tháng 7</a></li>
+                <li><a href="" class="menucon">Giờ vàng quà sốc</a></li>
+                <li><a href="" class="menucon">Tặng vé trẻ em</a></li>
+                <li><a href="" class="menucon">Gom chung thắng lớn</a></li>
+                <li><a href="" class="menucon">Thẻ bay không giới hạn</a></li>
+                <li><a href="" class="menucon">Đà Nẵng holidays</a></li>
+                <li><a href="" class="menucon">Giải trí</a></li>
+            </ul>
+        </div>
+        <div class="anhto">
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://baolongantourist.com/wp-content/uploads/2020/04/cau-rong-binh-minh.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>Đà Nẵng-Chỉ từ 99.000đ</h1>
+            </div>
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://owa.bestprice.vn/images/articles/uploads/du-lich-han-quoc-can-bao-nhieu-tien-5e8d3b5942b01.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>Hàn Quốc-Chỉ từ 599.000đ</h1>
+            </div>
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://image.thanhnien.vn/1024/uploaded/quochung.qc/2020_02_14/nhonhoinewcity/baipr12020hinh1_fylk.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>Qui Nhơn-Chỉ từ 99.000đ</h1>
+            </div>
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://iflr.com/Media/images/iflr/may-2020/bangkok.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>Thailand-Chỉ từ 499.000đ</h1>
+            </div>
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://new7wonders.com/app/uploads/sites/5/2016/10/ho-chi-minh-city-1348092-1920x1280.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>TP Hồ Chí Minh-Chỉ từ 199.000đ</h1>
+            </div>
+            <div class="anhlon">
+                <div class="trang"></div>
+                <img src="https://img.nhandan.com.vn/Files/Images/2020/10/01/sing-1601536609660.jpg
+                    " alt="" class="anhnho">
+
+                <div class="chubo"><div class="chuto"><a href="">Đặt vé ngay</a></div></div>
+
+                <h1>Singapore-Chỉ từ 899.000đ</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <ul class="footer-links">
+                    <li><a>Contact Center for calls within Vietnam (24/7): 1900 1100 </a></li>
+                    <li><a>For Lotusmiles members: 1900 1800</a></li>
+                    <li><a>For calls from outside Vietnam (24/7): +84 24 38320320</a></li>
+                    <li><a>Email: Telesales@vietnamairlines.com</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Support</h6>
+                <ul class="footer-links">
+                    <li><a>Web Accessibility</a></li>
+                    <li><a>Customer Service Plan</a></li>
+                    <li><a>Customer Care</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Useful Information</h6>
+                <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/about/">Baggage Fees</a></li>
+                    <li><a href="http://scanfcode.com/contact/">Optional & Special Service Charges</a></li>
+                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Taxes, Fees, Charges & Surcharges</a>
+                    </li>
+                    <li><a href="http://scanfcode.com/privacy-policy/">Traveling During Covid</a></li>
+                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2021 By Team Đồ Án 1
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<script src="index/js/manager.js" type="text/javascript"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
