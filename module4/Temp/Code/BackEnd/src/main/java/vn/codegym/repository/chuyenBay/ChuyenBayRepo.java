@@ -9,6 +9,9 @@ import vn.codegym.model.bean.ChuyenBay;
 import vn.codegym.model.bean.TuyenBay;
 import vn.codegym.model.bean.LoaiTuyenBay;
 
+import java.util.List;
+import java.util.Set;
+
 public interface ChuyenBayRepo extends JpaRepository<ChuyenBay, Integer> {
     @Query("select c from ChuyenBay c where c.soHieu.soHieu like %:soHieu%")
     Page<ChuyenBay> findSoHieu(Pageable pageable, @Param("soHieu") String soHieu);
@@ -44,5 +47,24 @@ public interface ChuyenBayRepo extends JpaRepository<ChuyenBay, Integer> {
     Page<ChuyenBay> filterAll(Pageable pageable, @Param("tuyenBay") String tuyenBay,
                               @Param("loaiTuyenBay") String loaiTuyenBay, @Param("tinhTrang") String tinhTrang,
                               @Param("ngayDi") String ngayDi, @Param("ngayDen") String ngayDen);
+
+
+    @Query(value = "SELECT * FROM chuyen_bay join tuyen_bay on chuyen_bay.id_tuyenbay = tuyen_bay.id " +
+            "join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id" +
+            " where loai_tuyen_bay.ten_loai_tuyen_bay = :loaiTuyenBay and chuyen_bay.tinh_trang_chuyen_bay = :tinhTrang" +
+            " and chuyen_bay.ngay_di = :ngayDi " +
+            "and chuyen_bay.ngay_den = :ngayDen and tuyen_bay.san_bay_di = :sanBayDi and tuyen_bay.san_bay_den = :sanBayDen", nativeQuery = true)
+    Page<ChuyenBay> thongke(Pageable pageable,@Param("loaiTuyenBay") String loaiTuyenBay, @Param("tinhTrang") String tinhTrang,
+                            @Param("ngayDi") String ngayDi, @Param("ngayDen") String ngayDen,@Param("sanBayDi") String sanBayDi,
+                            @Param("sanBayDen") String sanBayDen);
+
+
+    @Query(value = "SELECT * FROM chuyen_bay join tuyen_bay on chuyen_bay.id_tuyenbay = tuyen_bay.id " +
+            "join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id" +
+            " where loai_tuyen_bay.ten_loai_tuyen_bay = :loaiTuyenBay " +
+            "and (chuyen_bay.tinh_trang_chuyen_bay = :tinhTrang and chuyen_bay.ngay_di = :ngayDi " +
+            "and chuyen_bay.ngay_den = :ngayDen or loai_tuyen_bay.ten_loai_tuyen_bay = :loaiTuyenBay) ", nativeQuery = true)
+    List<ChuyenBay> thongkeList(@Param("loaiTuyenBay") String loaiTuyenBay, @Param("tinhTrang") String tinhTrang,
+                                @Param("ngayDi") String ngayDi, @Param("ngayDen") String ngayDen);
 
 }

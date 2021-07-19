@@ -20,4 +20,9 @@ public interface ChuyenBayService {
     Page<ChuyenBay> filterNgayDi_NgayDen(String ngayDi,String ngayDen,String loaiTuyenBay,Pageable page);
     Page<ChuyenBay> filterAll(Pageable pageable,String tenLoaiTB,String tenTB,String tinhTrang,String ngayDi,String ngayDen);
 
+    Page<ChuyenBay> thongKe(Pageable pageable,String tenLoaiTB,String tinhTrang,String ngayDi,String ngayDen,String sanBayDi,
+                            String sanBayDen);
+
+    List<ChuyenBay> thongKeList(String tenLoaiTB,String tinhTrang,String ngayDi,String ngayDen);
+
 }

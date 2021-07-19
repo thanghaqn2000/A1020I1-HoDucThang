@@ -8,7 +8,9 @@ import vn.codegym.model.bean.TuyenBay;
 import vn.codegym.repository.tuyenBay.TuyenBayRepo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TuyenBayServiceImpl implements TuyenBayService {
@@ -78,5 +80,27 @@ public class TuyenBayServiceImpl implements TuyenBayService {
     @Override
     public Page<TuyenBay> filterTuyenBay(Pageable pageable, String loaiTuyenBay) {
         return tuyenBayRepo.boLocTuyenBay(pageable,loaiTuyenBay);
+    }
+
+    @Override
+    public Set<String> quocTe() {
+        Set<TuyenBay> listSB_2=tuyenBayRepo.sanBayQuocTe();
+        Set<String> quocTe=new HashSet<>();
+        for (TuyenBay i:listSB_2) {
+            quocTe.add(i.getSanBayDi());
+            quocTe.add(i.getSanBayDen());
+        }
+        return quocTe;
+    }
+
+    @Override
+    public Set<String> trongNuoc() {
+        Set<TuyenBay> listSB_1=tuyenBayRepo.sanBayTrongNuoc();
+        Set<String> trongNuoc=new HashSet<>();
+        for (TuyenBay i:listSB_1) {
+            trongNuoc.add(i.getSanBayDi());
+            trongNuoc.add(i.getSanBayDen());
+        }
+        return trongNuoc;
     }
 }

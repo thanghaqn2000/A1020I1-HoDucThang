@@ -60,7 +60,7 @@
                                 <select name="tenTuyenBay" style="height: 50px;
                             margin-top: 8px;" class="form-control" id="inputEmail57">
                                     <option th:value="rong" selected th:text="Selected"></option>
-                                    <option th:each="tuyenbay : ${tuyenBayList}" th:value="${tuyenbay.tenTuyenBay}"
+                                    <option  th:each="tuyenbay : ${tuyenBayList}" th:value="${tuyenbay.tenTuyenBay}"
                                             th:text="${tuyenbay.tenTuyenBay}"></option>
                                 </select>
                             </div>
@@ -91,6 +91,8 @@
                             <a href="/chuyenbay/list" class="btn btn-primary">Hiển thị toàn bộ</a>
                             <button class="btn btn-success" type="submit">Lọc</button>
                             <a href="/chuyenbay/quocTe" class="btn btn-danger">Hiển thị theo loại</a>
+                            <button class="btn btn-danger" onclick="exportTableToExcel('tblData','listCB')">Xuất
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -138,6 +140,8 @@
                             <a href="/chuyenbay/list" class="btn btn-primary">Hiển thị toàn bộ</a>
                             <button class="btn btn-success" type="submit">Lọc</button>
                             <a href="/chuyenbay/trongNuoc" class="btn btn-danger">Hiển thị theo loại</a>
+                            <button class="btn btn-danger" onclick="exportTableToExcel('tblData','listCB')">Xuất
+                            </button>
 
                         </div>
                     </form>
@@ -146,15 +150,25 @@
         </div>
     </div>
 
-    <table class="table table-striped" style="width: 600px;margin-left: auto;
+    <table class="table table-striped" id="tblData" style="width: 600px;margin-left: auto;
                 margin-right: auto;margin-top: 50px">
         <thead>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Số hiệu</th>
             <th scope="col">Tuyến bay</th>
-            <th scope="col">Mô tả</th>
-            <th scope="col" colspan="2">Chức năng</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col">Ngày đi dự kiến</th>
+            <th scope="col">Ngày đến dự kiến</th>
+            <th scope="col">Ngày đi</th>
+            <th scope="col">Ngày đến</th>
+            <th scope="col">Giờ đi dự kiến</th>
+            <th scope="col">Giờ đến dự kiến</th>
+            <th scope="col">Giờ đi</th>
+            <th scope="col">Giờ đến</th>
+
+            <th scope="col">Mô tả nguyên nhân</th>
+            <th scope="col" >Chức năng</th>
         </tr>
         </thead>
         <tbody>
@@ -164,6 +178,15 @@
                    th:text="${chuyenBay.soHieu.getSoHieu()}"></a></td>
             <td th:text="${chuyenBay.tuyenBay.tenTuyenBay}"></td>
             <td th:text="${chuyenBay.tinhTrangChuyenBay}"></td>
+            <td th:text="${chuyenBay.ngayDiDuKien}"></td>
+            <td th:text="${chuyenBay.ngayDenDuKien}"></td>
+            <td th:text="${chuyenBay.ngayDi}"></td>
+            <td th:text="${chuyenBay.ngayDen}"></td>
+            <td th:text="${chuyenBay.timeDiDuKien}"></td>
+            <td th:text="${chuyenBay.timeDenDuKien}"></td>
+            <td th:text="${chuyenBay.timeDi}"></td>
+            <td th:text="${chuyenBay.timeDen}"></td>
+            <td th:text="${chuyenBay.moTaNguyenNhan}"></td>
             <td><a th:href="@{/chuyenbay/detail/{id}(id=${chuyenBay.id})}" class="btn btn-primary">Thay đổi</a></td>
         </tr>
         </tbody>
@@ -183,5 +206,99 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
 ></script>
+<script>
+    function exportTableToExcel(tableID, filename = '') {
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+    function exportData(tableID, filename = ''){
+        /* Get the HTML data using Element by Id */
+        var table = document.getElementById(tableID);
+
+        /* Declaring array variable */
+        var rows =[];
+
+        //iterate through rows of table
+        for(var i=0,row; row = table.rows[i];i++){
+            //rows would be accessed using the "row" variable assigned in the for loop
+            //Get each cell value/column from the row
+            column1 = row.cells[0].innerText;
+            column2 = row.cells[1].innerText;
+            column3 = row.cells[2].innerText;
+            column4 = row.cells[3].innerText;
+            column5 = row.cells[4].innerText;
+            column6 = row.cells[5].innerText;
+            // column7 = row.cells[6].innerText;
+            // column8 = row.cells[7].innerText;
+            // column9 = row.cells[8].innerText;
+            // column10 = row.cells[9].innerText;
+            // column11 = row.cells[10].innerText;
+            // column12 = row.cells[11].innerText;
+            // column13 = row.cells[12].innerText;
+
+            /* add a new records in the array */
+            rows.push(
+                [
+                    column1,
+                    column2,
+                    column3,
+                    column4,
+                    column5,
+                    column6,
+                    // column7,
+                    // column8,
+                    // column9,
+                    // column10,
+                    // column11,
+                    // column12,
+                    // column13,
+
+                ]
+            );
+
+        }
+        csvContent = "data:text/csv;charset=utf-8,";
+        /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+        rows.forEach(function(rowArray){
+            row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+
+        /* create a hidden <a> DOM node and set its download attribute */
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", filename+".csv");
+        document.body.appendChild(link);
+        /* download the data file named "Stock_Price_Report.csv" */
+        link.click();
+    }
+</script>
 </body>
 </html>

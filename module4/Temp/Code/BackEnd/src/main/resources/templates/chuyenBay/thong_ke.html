@@ -1,10 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: head">
 </head>
 <body>
-$END$
+<div th:replace="~{/layout::body}">
+    <!-- left -->
+</div>
+<div class="page-content p-5" id="content">
+    <!-- Toggle button -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+            class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+    <div class="alert alert-danger alert-dismissible" th:if="${msg}" >
+        <p th:if="${msg}" th:text="${msg}"></p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <div class="form-row" style="margin-top: 30px;height: 343px">
+        <div class="form-group col-md-4 border border-secondary">
+            <form action="/thongke/search" method="get" style="margin-left: 29px; width: 300px; text-align: center;
+            margin-top: 16px;">
+                <label for="soHieu">Tìm kiếm số hiệu</label>
+                <input type="text" name="soHieu" id="soHieu" placeholder="Nhập số hiệu">
+                <button style="text-align: center" type="submit" class="btn btn-success">Tìm kiếm</button>
+            </form>
+        </div>
+        <div class="form-group col-md-8 border border-secondary">
+            <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist" style="margin-top: 50px">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active"
+                       id="ex3-tab-1"
+                       data-mdb-toggle="tab"
+                       href="#ex3-tabs-1"
+                       role="tab"
+                       aria-controls="ex3-tabs-1"
+                       aria-selected="true">Quốc tế</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="ex3-tab-2"
+                       data-mdb-toggle="tab"
+                       href="#ex3-tabs-2"
+                       role="tab"
+                       aria-controls="ex3-tabs-2"
+                       aria-selected="false">Trong nước</a>
+                </li>
+            </ul>
+            <!-- Tabs navs -->
+
+            <!-- Tabs content -->
+            <div class="tab-content" id="ex2-content">
+                <div class="tab-pane fade show active"
+                     id="ex3-tabs-1"
+                     role="tabpanel"
+                     aria-labelledby="ex3-tab-1">
+                    <form action="/chuyenbay/thong_ke" method="get"
+                          style="width: 100%;text-align: center;margin-top: 15px">
+                        <div class="form-row col-md-12">
+                            <input name="loaiTuyenBay" value="Quốc tế" hidden="hidden">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail57">Tuyến bay</label>
+                                <select name="tenTuyenBay" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="inputEmail57">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option  th:each="tuyenbay : ${tuyenBayList}" th:value="${tuyenbay.tenTuyenBay}"
+                                             th:text="${tuyenbay.tenTuyenBay}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row col-md-12">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail11">Tình trạng</label>
+                                <select name="tinhTrang" class="form-control" id="inputEmail11">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Bình thường">Bình thường</option>
+                                    <option value="Delay">Delay</option>
+                                    <option value="Khẩn cấp">Khẩn cấp</option>
+                                    <option value="Mất tín hiệu">Mất tín hiệu</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="dateDi1">Ngày đi</label>
+                                <input type="date" class="form-control" id="dateDi1"
+                                       name="ngayDi">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="dateDi1">Ngày đến</label>
+                                <input type="date" class="form-control" id="dateDen1"
+                                       name="ngay_Den">
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/chuyenbay/thongke/all" class="btn btn-primary">Hiển thị toàn bộ</a>
+                            <button class="btn btn-success" type="submit">Lọc</button>
+                            <a href="/chuyenbay/thongke/quocTe" class="btn btn-danger">Hiển thị theo loại</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade"
+                     id="ex3-tabs-2"
+                     role="tabpanel"
+                     aria-labelledby="ex3-tab-2">
+                    <form action="/chuyenbay/thong_ke" method="get"
+                          style="width: 100%;text-align: center;margin-top: 15px">
+                        <div class="form-row col-md-12">
+                            <input name="loaiTuyenBay" value="Trong nước" hidden="hidden">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail2">Tuyến bay</label>
+                                <select name="tenTuyenBay" style="height: 50px;
+                            margin-top: 8px;" class="form-control" id="inputEmail2">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option th:each="tuyenbay : ${tuyenBayList}" th:value="${tuyenbay.tenTuyenBay}"
+                                            th:text="${tuyenbay.tenTuyenBay}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row col-md-12">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail21">Tình trạng</label>
+                                <select name="tinhTrang" class="form-control" id="inputEmail21">
+                                    <option th:value="rong" selected th:text="Selected"></option>
+                                    <option value="Bình thường">Bình thường</option>
+                                    <option value="Delay">Delay</option>
+                                    <option value="Khẩn cấp">Khẩn cấp</option>
+                                    <option value="Mất tín hiệu">Mất tín hiệu</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="dateDi">Ngày đi</label>
+                                <input type="date" class="form-control" id="dateDi"
+                                       name="ngayDi">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="dateDi">Ngày đến</label>
+                                <input type="date" class="form-control" id="dateDen"
+                                       name="ngay_Den">
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/chuyenbay/thongke/all" class="btn btn-primary">Hiển thị toàn bộ</a>
+                            <button class="btn btn-success" type="submit">Lọc</button>
+                            <a href="/chuyenbay/thongke/trongNuoc" class="btn btn-danger">Hiển thị theo loại</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-warning" style="margin-top: 40px" onclick="exportTableToExcel('tblData','listCB')">Xuất
+    </button>
+    <table class="table table-striped" id="tblData" style="width: 600px;margin-left: auto;
+                margin-right: auto;">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Số hiệu</th>
+            <th scope="col">Tuyến bay</th>
+            <th scope="col">Ngày đi dự kiến</th>
+            <th scope="col">Ngày đến dự kiến</th>
+            <th scope="col">Ngày đi</th>
+            <th scope="col">Ngày đến</th>
+            <th scope="col">Giờ đi dự kiến</th>
+            <th scope="col">Giờ đến dự kiến</th>
+            <th scope="col">Giờ đi</th>
+            <th scope="col">Giờ đến</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col">Mô tả nguyên nhân</th>
+            <th scope="col" >Chức năng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="chuyenBay:${listCB}">
+            <td th:text="${chuyenBay.id}"></td>
+            <td><a th:href="@{/chuyenbay/detail/{id}(id=${chuyenBay.id})}"
+                   th:text="${chuyenBay.soHieu.getSoHieu()}"></a></td>
+            <td th:text="${chuyenBay.tuyenBay.tenTuyenBay}"></td>
+            <td th:text="${chuyenBay.ngayDiDuKien}"></td>
+            <td th:text="${chuyenBay.ngayDenDuKien}"></td>
+            <td th:text="${chuyenBay.ngayDi}"></td>
+            <td th:text="${chuyenBay.ngayDen}"></td>
+            <td th:text="${chuyenBay.timeDiDuKien}"></td>
+            <td th:text="${chuyenBay.timeDenDuKien}"></td>
+            <td th:text="${chuyenBay.timeDi}"></td>
+            <td th:text="${chuyenBay.timeDen}"></td>
+            <td th:text="${chuyenBay.tinhTrangChuyenBay}"></td>
+            <td th:text="${chuyenBay.moTaNguyenNhan}"></td>
+            <td><a th:href="@{/chuyenbay/detail/{id}(id=${chuyenBay.id})}" class="btn btn-primary">Thay đổi</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+></script>
+<script>
+    function exportTableToExcel(tableID, filename = '') {
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+
+</script>
 </body>
 </html>

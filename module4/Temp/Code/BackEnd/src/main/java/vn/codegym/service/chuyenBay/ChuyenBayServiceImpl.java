@@ -36,16 +36,16 @@ public class ChuyenBayServiceImpl implements ChuyenBayService {
 
     @Override
     public Page<ChuyenBay> findSoHieu(Pageable pageable, String soHieu) {
-        return chuyenBayRepo.findSoHieu(pageable,soHieu);
+        return chuyenBayRepo.findSoHieu(pageable, soHieu);
     }
 
     @Override
-    public Page<ChuyenBay> filter(Pageable pageable,String loaiTuyenBay) {
-        return chuyenBayRepo.findByTuyenBay_LoaiTuyenBayTenLoaiTuyenBay(pageable,loaiTuyenBay);
+    public Page<ChuyenBay> filter(Pageable pageable, String loaiTuyenBay) {
+        return chuyenBayRepo.findByTuyenBay_LoaiTuyenBayTenLoaiTuyenBay(pageable, loaiTuyenBay);
     }
 
     @Override
-    public Page<ChuyenBay> filterTinhTrang(String tinhTrang,String loaiTuyenBay,  Pageable page) {
+    public Page<ChuyenBay> filterTinhTrang(String tinhTrang, String loaiTuyenBay, Pageable page) {
         return chuyenBayRepo.findByTinhTrangChuyenBayAndTuyenBay_LoaiTuyenBayTenLoaiTuyenBay(tinhTrang, loaiTuyenBay, page);
 
     }
@@ -56,18 +56,29 @@ public class ChuyenBayServiceImpl implements ChuyenBayService {
     }
 
     @Override
-    public Page<ChuyenBay> filterTenTB_TinhTrang(String tenTB,String tinhTrang ,String loaiTuyenBay, Pageable page) {
+    public Page<ChuyenBay> filterTenTB_TinhTrang(String tenTB, String tinhTrang, String loaiTuyenBay, Pageable page) {
         return chuyenBayRepo.findByTuyenBayTenTuyenBayAndTinhTrangChuyenBayAndTuyenBay_LoaiTuyenBayTenLoaiTuyenBay(tenTB, tinhTrang, loaiTuyenBay, page);
     }
 
     @Override
-    public Page<ChuyenBay> filterNgayDi_NgayDen(String ngayDi, String ngayDen,String loaiTuyenBay, Pageable page) {
-        return chuyenBayRepo.filterNgayDiNgayDen(loaiTuyenBay, ngayDi,ngayDen, page);
+    public Page<ChuyenBay> filterNgayDi_NgayDen(String ngayDi, String ngayDen, String loaiTuyenBay, Pageable page) {
+        return chuyenBayRepo.filterNgayDiNgayDen(loaiTuyenBay, ngayDi, ngayDen, page);
     }
 
     @Override
     public Page<ChuyenBay> filterAll(Pageable pageable, String tenLoaiTB, String tenTB, String tinhTrang, String ngayDi, String ngayDen) {
-        return chuyenBayRepo.filterAll(pageable,tenTB, tenLoaiTB,  tinhTrang, ngayDi, ngayDen);
+        return chuyenBayRepo.filterAll(pageable, tenTB, tenLoaiTB, tinhTrang, ngayDi, ngayDen);
+    }
+
+    @Override
+    public Page<ChuyenBay> thongKe(Pageable pageable, String tenLoaiTB, String tinhTrang, String ngayDi, String ngayDen, String sanBayDi,
+                                   String sanBayDen) {
+        return chuyenBayRepo.thongke(pageable, tenLoaiTB, tinhTrang, ngayDi, ngayDen, sanBayDi, sanBayDen);
+    }
+
+    @Override
+    public List<ChuyenBay> thongKeList(String tenLoaiTB, String tinhTrang, String ngayDi, String ngayDen) {
+        return chuyenBayRepo.thongkeList(tenLoaiTB, tinhTrang, ngayDi, ngayDen);
     }
 
 

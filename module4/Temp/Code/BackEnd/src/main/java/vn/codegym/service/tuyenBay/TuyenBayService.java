@@ -6,6 +6,7 @@ import vn.codegym.model.bean.ChuyenBay;
 import vn.codegym.model.bean.TuyenBay;
 
 import java.util.List;
+import java.util.Set;
 
 public interface TuyenBayService {
     List<TuyenBay> findAll();
@@ -18,5 +19,7 @@ public interface TuyenBayService {
     List<String> listSanBay();
     Page<TuyenBay> filter(Pageable pageable,String LoaiTuyenBay,String sanBayDi,String sanBayDen);
     Page<TuyenBay> filterTuyenBay(Pageable pageable,String loaiTuyenBay);
+    Set<String> quocTe();
+    Set<String> trongNuoc();
 
 }

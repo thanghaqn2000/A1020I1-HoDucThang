@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import vn.codegym.model.bean.ChuyenBay;
 import vn.codegym.model.bean.TuyenBay;
 
+import java.util.Set;
+
 public interface TuyenBayRepo extends JpaRepository<TuyenBay, Integer> {
 
     @Query(value = "SELECT * FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
@@ -19,5 +21,15 @@ public interface TuyenBayRepo extends JpaRepository<TuyenBay, Integer> {
     @Query(value = "SELECT * FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
             " where loai_tuyen_bay.ten_loai_tuyen_bay = :loaiTuyenBay ", nativeQuery = true)
     Page<TuyenBay> boLocTuyenBay(Pageable pageable, @Param("loaiTuyenBay") String loaiTuyenBay);
+
+    @Query(value = "SELECT tuyen_bay.id,san_bay_di,san_bay_den FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
+            " where loai_tuyen_bay.id = 2", nativeQuery = true)
+    Set<TuyenBay> sanBayQuocTe();
+
+    @Query(value = "SELECT tuyen_bay.id,san_bay_di,san_bay_den FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
+            " where loai_tuyen_bay.id = 1", nativeQuery = true)
+    Set<TuyenBay> sanBayTrongNuoc();
+
+
 
 }
