@@ -26,6 +26,8 @@ public class TuyenBayController {
     @GetMapping("/list")
     public ModelAndView modelAndView(@PageableDefault(value = 3) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("tuyenbay/list");
+        modelAndView.addObject("sanBayQuocTe",tuyenBayService.quocTe());
+        modelAndView.addObject("sanBayTrongNuoc",tuyenBayService.trongNuoc());
         modelAndView.addObject("listTB", tuyenBayService.findAllPage(pageable));
         return modelAndView;
     }
@@ -89,6 +91,8 @@ public class TuyenBayController {
                                @RequestParam String loaiTuyenBay,
                                @RequestParam String sanBayDi, @RequestParam String sanBayDen) {
         ModelAndView modelAndView = new ModelAndView("tuyenbay/list");
+        modelAndView.addObject("sanBayQuocTe",tuyenBayService.quocTe());
+        modelAndView.addObject("sanBayTrongNuoc",tuyenBayService.trongNuoc());
         if (sanBayDi.equals("rong") || sanBayDen.equals("rong")) {
             modelAndView.addObject("listTB", tuyenBayService.filterTuyenBay(pageable, loaiTuyenBay));
             return modelAndView;

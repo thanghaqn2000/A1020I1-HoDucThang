@@ -116,10 +116,11 @@ public class ChuyenBayController {
         modelAndView.addObject("tuyenBayList", tuyenBayService.findAll());
         return modelAndView;
     }
+
     @GetMapping("/thong_ke")
     public ModelAndView thongKeDieuKien(@PageableDefault(value = 20) Pageable pageable,
-                               @RequestParam String tenTuyenBay, @RequestParam String loaiTuyenBay,
-                               @RequestParam String tinhTrang, @RequestParam String ngayDi, @RequestParam String ngay_Den) {
+                                        @RequestParam String tenTuyenBay, @RequestParam String loaiTuyenBay,
+                                        @RequestParam String tinhTrang, @RequestParam String ngayDi, @RequestParam String ngay_Den) {
         ModelAndView modelAndView = new ModelAndView("chuyenBay/thong_ke");
         if (ngay_Den.equals("") && ngayDi.equals("")) {
             if (tenTuyenBay.equals("rong")) {
@@ -150,6 +151,7 @@ public class ChuyenBayController {
         modelAndView.addObject("tuyenBayList", tuyenBayService.findAll());
         return modelAndView;
     }
+
     @GetMapping("/thongke/quocTe")
     public ModelAndView thongKe_quocTe(@PageableDefault(value = 20) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("chuyenBay/thong_ke");
@@ -157,6 +159,7 @@ public class ChuyenBayController {
         modelAndView.addObject("tuyenBayList", tuyenBayService.findAll());
         return modelAndView;
     }
+
     @GetMapping("thongke/trongNuoc")
     public ModelAndView thongke_trongNuoc(@PageableDefault(value = 20) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("chuyenBay/thong_ke");
@@ -164,6 +167,7 @@ public class ChuyenBayController {
         modelAndView.addObject("tuyenBayList", tuyenBayService.findAll());
         return modelAndView;
     }
+
     @GetMapping("/thongke/all")
     public ModelAndView thongKeAll(@PageableDefault(value = 20) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("chuyenBay/thong_ke");
@@ -171,6 +175,7 @@ public class ChuyenBayController {
         modelAndView.addObject("listCB", chuyenBayService.findAllPage(pageable));
         return modelAndView;
     }
+
     @GetMapping("thongke/search")
     public ModelAndView thongkeSearch(@PageableDefault(value = 20) Pageable pageable, @RequestParam String soHieu) {
         ModelAndView modelAndView = new ModelAndView("chuyenBay/thong_ke");

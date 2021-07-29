@@ -27,7 +27,7 @@ public class User {
     @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Must be like: thangit123@gmail.com")
     private String email;
-    //@Pattern(regexp = "[0-9]{10}",message = "The length must be equal 10")
+    @Pattern(regexp = "[0-9]{10}",message = "The length must be equal 10")
     @PhoneNumber
     private String phoneNumber;
 

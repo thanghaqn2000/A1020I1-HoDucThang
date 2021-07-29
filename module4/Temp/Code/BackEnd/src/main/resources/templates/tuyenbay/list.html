@@ -57,18 +57,16 @@
                                 <label for="sanbaydi">Sân bay đi</label>
                                 <select name="sanBayDi" class="form-control" id="sanbaydi">
                                     <option th:value="rong" selected th:text="Selected"></option>
-                                    <option value="Đà Nẵng">Đà Nẵng</option>
-                                    <option value="Changi">Changi</option>
-                                    <option value="Seoul">Seoul</option>
+                                    <option th:each="sanBay : ${sanBayQuocTe}" th:value="${sanBay}"
+                                    th:text="${sanBay}"></option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="sanbayden">Sân bay đến</label>
                                 <select name="sanBayDen" class="form-control" id="sanbayden">
                                     <option th:value="rong" selected th:text="Selected"></option>
-                                    <option value="Đà Nẵng">Đà Nẵng</option>
-                                    <option value="Changi">Changi</option>
-                                    <option value="Seoul">Seoul</option>
+                                    <option th:each="sanBay : ${sanBayQuocTe}" th:value="${sanBay}"
+                                            th:text="${sanBay}"></option>
                                 </select>
                             </div>
                         </div>
@@ -90,20 +88,16 @@
                                 <label for="sanbaydii">Sân bay đi</label>
                                 <select class="form-control" name="sanBayDi" id="sanbaydii">
                                     <option th:value="rong" selected th:text="Selected"></option>
-                                    <option value="Đà Nẵng">Đà Nẵng</option>
-                                    <option value="Nội Bài">Nội Bài</option>
-                                    <option value="Tân Sơn Nhất">Tân Sơn Nhất</option>
-                                    <option value="Đà Lạt">Đà Lạt</option>
+                                    <option th:each="sanBay : ${sanBayTrongNuoc}" th:value="${sanBay}"
+                                            th:text="${sanBay}"></option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="sanbaydenn">Sân bay đến</label>
                                 <select class="form-control" name="sanBayDen" id="sanbaydenn">
                                     <option th:value="rong" selected th:text="Selected"></option>
-                                    <option value="Đà Nẵng">Đà Nẵng</option>
-                                    <option value="Nội Bài">Nội Bài</option>
-                                    <option value="Tân Sơn Nhất">Tân Sơn Nhất</option>
-                                    <option value="Đà Lạt">Đà Lạt</option>
+                                    <option th:each="sanBay : ${sanBayTrongNuoc}" th:value="${sanBay}"
+                                            th:text="${sanBay}"></option>
                                 </select>
                             </div>
                         </div>
@@ -132,7 +126,7 @@
         <tbody>
         <tr th:each="tuyenbay:${listTB}">
             <td th:text="${tuyenbay.id}"></td>
-            <td><a th:href="@{/chuyenbay/detail/{id}(id=${tuyenbay.id})}"
+            <td><a th:href="@{/tuyenbay/detail/{id}(id=${tuyenbay.id})}"
                    th:text="${tuyenbay.tenTuyenBay}"></a></td>
             <td th:text="${tuyenbay.loaiTuyenBay.tenLoaiTuyenBay}"></td>
             <td th:text="${tuyenbay.sanBayDi}"></td>
@@ -159,6 +153,5 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
 ></script>
-
 </body>
 </html>

@@ -23,7 +23,7 @@ public class HomeController {
         modelAndView.addObject("listTB",tuyenBayService.findAll());
        return modelAndView;
     }
-    @GetMapping("/search")
+    @GetMapping("/searchHome")
     public ModelAndView timKiem(@PageableDefault(value = 3) Pageable pageable,@RequestParam String NoiDen,
                                 @RequestParam String NgayDi , @RequestParam String NgayDen,
                                 @RequestParam String tenTuyenBay){

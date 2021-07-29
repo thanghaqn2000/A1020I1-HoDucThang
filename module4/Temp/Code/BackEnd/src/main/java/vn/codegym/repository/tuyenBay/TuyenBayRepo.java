@@ -22,14 +22,6 @@ public interface TuyenBayRepo extends JpaRepository<TuyenBay, Integer> {
             " where loai_tuyen_bay.ten_loai_tuyen_bay = :loaiTuyenBay ", nativeQuery = true)
     Page<TuyenBay> boLocTuyenBay(Pageable pageable, @Param("loaiTuyenBay") String loaiTuyenBay);
 
-    @Query(value = "SELECT tuyen_bay.id,san_bay_di,san_bay_den FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
-            " where loai_tuyen_bay.id = 2", nativeQuery = true)
-    Set<TuyenBay> sanBayQuocTe();
-
-    @Query(value = "SELECT tuyen_bay.id,san_bay_di,san_bay_den FROM tuyen_bay join loai_tuyen_bay on tuyen_bay.id_loai_tuyen_bay = loai_tuyen_bay.id " +
-            " where loai_tuyen_bay.id = 1", nativeQuery = true)
-    Set<TuyenBay> sanBayTrongNuoc();
-
-
+    Set<TuyenBay> findTuyenBayByLoaiTuyenBay_Id(int id);
 
 }

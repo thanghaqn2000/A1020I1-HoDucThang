@@ -84,7 +84,7 @@ public class TuyenBayServiceImpl implements TuyenBayService {
 
     @Override
     public Set<String> quocTe() {
-        Set<TuyenBay> listSB_2=tuyenBayRepo.sanBayQuocTe();
+        Set<TuyenBay> listSB_2=tuyenBayRepo.findTuyenBayByLoaiTuyenBay_Id(2);
         Set<String> quocTe=new HashSet<>();
         for (TuyenBay i:listSB_2) {
             quocTe.add(i.getSanBayDi());
@@ -95,7 +95,7 @@ public class TuyenBayServiceImpl implements TuyenBayService {
 
     @Override
     public Set<String> trongNuoc() {
-        Set<TuyenBay> listSB_1=tuyenBayRepo.sanBayTrongNuoc();
+        Set<TuyenBay> listSB_1=tuyenBayRepo.findTuyenBayByLoaiTuyenBay_Id(1);
         Set<String> trongNuoc=new HashSet<>();
         for (TuyenBay i:listSB_1) {
             trongNuoc.add(i.getSanBayDi());

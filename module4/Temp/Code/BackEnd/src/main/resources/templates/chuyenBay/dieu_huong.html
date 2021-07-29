@@ -158,13 +158,13 @@
         </tbody>
     </table>
     <div class="pageList" style="text-align: center">
-        <a class="btn btn-primary" th:href="@{'/chuyenbay/list'(page=${listCB.number - 1})}"
+        <a class="btn btn-primary" th:href="@{'/dieuhuong/list'(page=${listCB.number - 1})}"
            th:if="${listCB.hasPrevious()}">Previous</a>
         <a class="btn btn-success" th:text="${listCB.number+1 }"
-           th:href="@{'/chuyenbay/list'(page=${listCB.number+1})}">/</a>
+           th:href="@{'/dieuhuong/list'(page=${listCB.number+1})}">/</a>
         <a class="btn btn-success" th:text="${listCB.totalPages}"
-           th:href="@{'/chuyenbay/list'(page=${listCB.totalPages - 1})}"></a>
-        <a class="btn btn-danger" th:href="@{'/chuyenbay/list'(page=${listCB.number + 1})}"
+           th:href="@{'/dieuhuong/list'(page=${listCB.totalPages - 1})}"></a>
+        <a class="btn btn-danger" th:href="@{'/dieuhuong/list'(page=${listCB.number + 1})}"
            th:if="${listCB.hasNext()}">Next</a>
     </div>
 </div>

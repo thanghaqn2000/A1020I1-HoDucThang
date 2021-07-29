@@ -19,6 +19,7 @@ public class NhanVien {
     @ManyToMany(mappedBy = "nhanViens")
     private Set<ChuyenBay> chuyenBays;
 
+
     public Set<ChuyenBay> getChuyenBays() {
         return chuyenBays;
     }
@@ -29,8 +30,6 @@ public class NhanVien {
 
     public NhanVien() {
     }
-
-
 
     public int getId() {
         return id;
