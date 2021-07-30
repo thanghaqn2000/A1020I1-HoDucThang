@@ -1,5 +1,7 @@
 package vn.codegym.model.bean;
 
+import vn.codegym.validation.DateOfBirth;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
@@ -14,6 +16,7 @@ public class Customer {
     private String customerId;
     @NotBlank(message = "Must be not empty")
     private String customerName;
+    @DateOfBirth
     private String customerBirthday;
     private String customerGender;
     @Pattern(regexp = "(\\d{9}|\\d{11}$)",message = "The length must be 9 or 11 number")

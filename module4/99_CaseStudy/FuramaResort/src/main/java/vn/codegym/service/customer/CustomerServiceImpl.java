@@ -41,4 +41,13 @@ public class CustomerServiceImpl implements CustomerService {
     public void delete(String id) {
         customerRepo.deleteById(id);
     }
+
+    @Override
+    public boolean checkId(String id) {
+//        for (Customer customer : customerRepo.findAll()) {
+//            if (id.equals(customer.getCustomerId()))
+//                return false;
+//        }
+        return customerRepo.existsById(id);
+    }
 }

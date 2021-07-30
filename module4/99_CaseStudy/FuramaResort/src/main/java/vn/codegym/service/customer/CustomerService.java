@@ -11,4 +11,5 @@ public interface CustomerService {
     void create(Customer customer);
     void update(Customer customer);
     void delete(String id);
+    boolean checkId(String id);
 }
