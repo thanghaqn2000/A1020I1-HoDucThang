@@ -25,6 +25,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<Customer> findAll() {
+        return customerRepo.findAll();
+    }
+
+    @Override
     public Page<Customer> findAllSort(int pageNum,int pageSize) {
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize,Sort.by("customerName").and(Sort.by("customerAddress").descending()));
         return customerRepo.findAll(pageable);

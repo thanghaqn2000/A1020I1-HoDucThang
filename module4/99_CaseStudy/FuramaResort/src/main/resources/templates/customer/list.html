@@ -47,42 +47,32 @@
                     <td th:text="${customer.customerBirthday}"></td>
                     <td><a th:href="@{/customer/detail/{id}(id=${customer.customerId})}" class="btn ">
                         <i class="far fa-edit" style="color: #0869f6"></i></a></td>
-                    <td><a class="btn deleteBtn"> <i class="far fa-trash-alt" style="color: #0869f6"></i></a>
+                    <td><a class="btn deleteBtn" style="color: #0869f6"> <i class="far fa-trash-alt" style="color: #0869f6"></i></a>
                         <input type="hidden" th:value="${customer.customerId}"/>
                     </td>
-
                 </tr>
                 </tbody>
-                <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content" style="width: 570px">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span class="closeBtn" aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure to delete this customer?
-                            </div>
+            </table>
+            <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="width: 570px">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="closeBtn" aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to delete this customer?
                         </div>
                     </div>
                 </div>
-            </table>
-
+            </div>
         </main>
         <div th:if="${totalPages > 1}">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-<!--                    <li class="page-item">-->
-<!--                        <a class="page-link" th:if="${currentPage < totalPages}"-->
-<!--                           th:href="@{'/customer/list/page/' + ${currentPage - 1}}">Previous</a>-->
-<!--                        <li class="page-item disabled">-->
-<!--                            <a tabindex="-1" class="page-link" th:unless="${currentPage > totalPages}">Previous</a> &nbsp;-->
-<!--                            &nbsp;-->
-<!--                        </li>-->
-<!--                    </li>-->
                     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
                         <li class="page-item">
                             <a class="page-link" th:if="${currentPage != i}"
@@ -105,7 +95,7 @@
                            th:href="@{'/customer/list/page/' + ${totalPages}}">Last</a>
                         <li class="page-item disabled">
                             <a tabindex="-1" class="page-link" th:unless="${currentPage < totalPages}">Last</a> &nbsp;
-                            &nbsp;
+                            &nbsp
                         </li>
                     </li>
                 </ul>
@@ -160,6 +150,7 @@
 
     $(".viewBtn").click(function () {
         let id = $(this).next().val();
+        console.log(id)
         $.ajax({
             url: "/customer/view/" + id,
             type: "GET",

@@ -9,6 +9,7 @@ import java.util.Set;
 
 public interface CustomerService {
     Page<Customer> findAll(Pageable pageable);
+    List<Customer> findAll();
     Page<Customer> findAllSort(int pageNum,int pageSize);
     Page<Customer> findByName(String name,Pageable pageable);
     Set<String> selectName(String name);

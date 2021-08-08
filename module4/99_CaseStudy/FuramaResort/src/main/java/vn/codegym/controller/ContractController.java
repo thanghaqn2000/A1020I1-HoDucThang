@@ -11,15 +11,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import vn.codegym.model.bean.Contract;
-import vn.codegym.model.bean.Customer;
-import vn.codegym.model.bean.CustomerType;
+import vn.codegym.model.bean.*;
 import vn.codegym.repository.contract.ContractRepo;
 import vn.codegym.repository.customer.CustomerTypeRepo;
+import vn.codegym.repository.service.ServiceRepo;
 import vn.codegym.service.contract.ContractService;
 import vn.codegym.service.customer.CustomerService;
+import vn.codegym.service.employee.EmployeeService;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Set;
@@ -31,6 +32,25 @@ public class ContractController {
     CustomerService customerService;
     @Autowired
     ContractService contractService;
+    @Autowired
+    EmployeeService employeeService;
+    @Autowired
+    ServiceRepo serviceRepo;
+
+    @ModelAttribute("listCus")
+    public List<Customer> getCustomer() {
+        return customerService.findAll();
+    }
+
+    @ModelAttribute("listService")
+    public List<Service> getService() {
+        return serviceRepo.findAll();
+    }
+
+    @ModelAttribute("listEmp")
+    public List<Employee> getEmployee() {
+        return employeeService.findAll();
+    }
 
     @GetMapping("/list")
     public String list(Model model) {
@@ -40,7 +60,7 @@ public class ContractController {
     @GetMapping("/list/page/{pageNum}")
     public String viewPage(Model model,
                            @PathVariable(name = "pageNum") int pageNum) {
-        int pageSize=3;
+        int pageSize = 3;
         Page<Contract> page = contractService.findAllSort(pageNum, pageSize);
 
         List<Contract> listContract = page.getContent();
@@ -55,54 +75,62 @@ public class ContractController {
 
     @GetMapping("/createGet")
     public ModelAndView showCreate() {
-        ModelAndView modelAndView = new ModelAndView("/customer/create");
-        modelAndView.addObject("customer", new Customer());
+        ModelAndView modelAndView = new ModelAndView("/contract/create");
+        modelAndView.addObject("contract", new Contract());
         return modelAndView;
     }
 
     @PostMapping("/create")
-    public String create(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
+    public String create(@Valid @ModelAttribute Contract contract, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
         if (bindingResult.hasFieldErrors()) {
-            return "customer/create";
+            return "contract/create";
         }
-        if (customerService.checkId(customer.getCustomerId())) {
-            bindingResult.addError(new FieldError("customer", "customerId", "Customer's Id already exists!"));
-            return "customer/create";
+        LocalDate startDate = LocalDate.parse(contract.getContractStartDate());
+        LocalDate endDate = LocalDate.parse(contract.getContractEndDate());
+        if (ChronoUnit.DAYS.between(startDate, endDate) < 1) {
+            bindingResult.addError(new FieldError("contract", "contractEndDate", "End date must be greater than start date"));
+            return "contract/create";
         }
-        attributes.addFlashAttribute("msg", "Create customer: " + customer.getCustomerName() + " successful!");
-        customerService.create(customer);
-        return "redirect:/customer/list";
+        attributes.addFlashAttribute("msg", "Create contract: " + contract.getContractId() + " successful!");
+        contractService.create(contract);
+        return "redirect:/contract/list";
     }
 
     @GetMapping("/detail/{id}")
-    public ModelAndView showDetail(@PathVariable String id) {
-        ModelAndView modelAndView = new ModelAndView("/customer/detail");
-        modelAndView.addObject("customer", customerService.findById(id));
+    public ModelAndView showDetail(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("/contract/detail");
+        modelAndView.addObject("contract", contractService.findById(id));
         return modelAndView;
     }
 
     @GetMapping("/view/{id}")
-    public ModelAndView showView(@PathVariable String id) {
-        ModelAndView modelAndView = new ModelAndView("/customer/view");
-        modelAndView.addObject("customer", customerService.findById(id));
+    public ModelAndView showView(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("/contract/view");
+        modelAndView.addObject("contract", contractService.findById(id));
         return modelAndView;
     }
 
     @PostMapping("/update")
-    public String update(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
+    public String update(@Valid @ModelAttribute Contract contract, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
         if (bindingResult.hasFieldErrors()) {
-            return "/customer/detail";
+            return "/contract/detail";
         }
-        attributes.addFlashAttribute("msg", "Update customer: " + customer.getCustomerName() + " successful!");
-        customerService.update(customer);
-        return "redirect:/customer/list";
+        LocalDate startDate = LocalDate.parse(contract.getContractStartDate());
+        LocalDate endDate = LocalDate.parse(contract.getContractEndDate());
+        if (ChronoUnit.DAYS.between(startDate, endDate) < 1) {
+            bindingResult.addError(new FieldError("contract", "contractEndDate", "End date must be greater than start date"));
+            return "contract/create";
+        }
+        attributes.addFlashAttribute("msg", "Update contract successful!");
+        contractService.update(contract);
+        return "redirect:/contract/list";
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable String id, RedirectAttributes attributes) {
-        attributes.addFlashAttribute("msg", "Delete customer: " + customerService.findById(id).getCustomerName() + " successful!");
-        customerService.delete(id);
-        return "redirect:/customer/list";
+    public String delete(@PathVariable int id, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("msg", "Delete contract successful!");
+        contractService.delete(id);
+        return "redirect:/contract/list";
     }
 
     @GetMapping("/search")

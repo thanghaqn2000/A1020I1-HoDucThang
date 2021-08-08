@@ -1,6 +1,9 @@
 package vn.codegym.model.bean;
 
 import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 @Entity
@@ -8,18 +11,22 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int contractId;
+    @NotBlank
     private String contractStartDate;
+    @NotBlank
     private String contractEndDate;
+    @Positive
     private double contractDeposit;
+    @Positive
     private double contractTotalMoney;
     @ManyToOne(targetEntity = Employee.class)
-    @JoinColumn(name = "employeeId",referencedColumnName ="employeeId" )
+    @JoinColumn(name = "employeeId", referencedColumnName = "employeeId")
     private Employee employee;
     @ManyToOne(targetEntity = Customer.class)
-    @JoinColumn(name = "customerId",referencedColumnName = "customerId")
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     private Customer customer;
     @ManyToOne(targetEntity = Service.class)
-    @JoinColumn(name = "serviceId",referencedColumnName = "serviceId")
+    @JoinColumn(name = "serviceId", referencedColumnName = "serviceId")
     private Service service;
     @OneToOne(mappedBy = "contract")
     private ContractDetail contractDetail;

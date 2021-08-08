@@ -10,6 +10,7 @@ import java.util.Set;
 
 public interface EmployeeService {
     Page<Employee> findAll(Pageable pageable);
+    List<Employee> findAll();
     Page<Employee> findByName(String name,Pageable pageable);
     Set<String> selectName(String name);
     boolean existById(int id);

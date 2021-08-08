@@ -10,7 +10,6 @@
 <div id="list">
     <div id="layoutSidenav_content" style="margin-left: 250px;margin-top: 80px;">
         <h1 style="color:#e20d0d; text-align: center">Contract Management</h1>
-
         <div class="alert alert-danger alert-dismissible" th:if="${msg}">
             <p th:if="${msg}" th:text="${msg}"></p>
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -22,7 +21,7 @@
             <button id="submitSearch" type="submit" class="btn btn-success">Search</button>
         </div>
         <br><br>
-        <a href="/customer/createGet" class="btn btn-primary">Create</a>
+        <a href="/contract/createGet" class="btn btn-primary">Create</a>
         <main>
             <table class="table table-striped resultTable" style="margin-left: auto;
                 margin-right: auto;">
@@ -40,7 +39,7 @@
                 <tr th:each="contract:${listContract}">
                     <td th:text="${contract.contractId}"></td>
                     <td><a style="cursor: pointer" class="viewBtn" th:text="${contract.customer.customerName}"></a>
-<!--                        <input type="hidden" th:value="${contract.customerId}"/>-->
+                        <input type="hidden" th:value="${contract.contractId}"/>
                     </td>
                     <td th:text="${contract.employee.employeeName}"></td>
                     <td th:text="${contract.contractStartDate}"></td>
@@ -50,7 +49,6 @@
                     <td><a class="btn deleteBtn"> <i class="far fa-trash-alt" style="color: #0869f6"></i></a>
                         <input type="hidden" th:value="${contract.contractId}"/>
                     </td>
-
                 </tr>
                 </tbody>
                 <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -70,7 +68,6 @@
                     </div>
                 </div>
             </table>
-
         </main>
         <div th:if="${totalPages > 1}">
             <nav aria-label="Page navigation example">
@@ -125,7 +122,7 @@
             select: function (event, ui) {
                 let search = $("#myInput").val(ui.item.value).val();
                 $.ajax({
-                    url: "/customer/search",
+                    url: "/contract/search",
                     type: "GET",
                     data: {"nameCus": search},
                 }).done(function (data) {
@@ -140,7 +137,7 @@
     $("#submitSearch").click(function () {
         let search = $("#myInput").val();
         $.ajax({
-            url: "/customer/search",
+            url: "/contract/search",
             type: "GET",
             data: {"nameCus": search},
             dataType: "HTML",
@@ -153,7 +150,7 @@
     $(".viewBtn").click(function () {
         let id = $(this).next().val();
         $.ajax({
-            url: "/customer/view/" + id,
+            url: "/contract/view/" + id,
             type: "GET",
             dataType: "HTML",
             success: function (data) {
@@ -166,7 +163,7 @@
         if (confirm('Are you sure you want to delete this?')) {
             let id = $(this).next().val();
             $.ajax({
-                url: "/customer/delete/" + id,
+                url: "/contract/delete/" + id,
                 type: "GET",
                 dataType: "HTML",
                 success: function (data) {
