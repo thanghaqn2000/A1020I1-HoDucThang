@@ -9,6 +9,8 @@ public class DofValidation implements ConstraintValidator<DateOfBirth, String> {
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         boolean check=true;
+        if (value.equals("")||value==null)
+            value="2021-01-01";
         LocalDate birthday;
         if (check) {
             String[] dateString = value.split("-");

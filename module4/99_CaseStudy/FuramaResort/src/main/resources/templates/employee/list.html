@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout::head}">
+
+</head>
+<body class="sb-nav-fixed">
+<nav th:replace="~{/layout::_menuTop}"></nav>
+<div th:insert="~{/layout::_leftMenu}"></div>
+<div id="list">
+    <div id="layoutSidenav_content" style="margin-left: 250px;margin-top: 80px;">
+        <h1 style="color:#e20d0d; text-align: center">Employee Management</h1>
+
+        <div class="alert alert-danger alert-dismissible" th:if="${msg}">
+            <p th:if="${msg}" th:text="${msg}"></p>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <div class="formSearch">
+            <div class="autocomplete" style="width:300px;">
+                <h5 style="text-align: center">Search</h5>
+                <input class="matchedit" id="myInput" type="text" name="nameEmp" placeholder="Baby , touch me now">
+            </div>
+        </div>
+        <br><br>
+        <a href="/employee/createGet" class="btn btn-primary">Create</a>
+        <main>
+            <table class="table table-striped resultTable" style="margin-left: auto;
+                margin-right: auto;">
+                <thead>
+                <tr>
+                    <th scope="col">Employee's id</th>
+                    <th scope="col">Employee's name</th>
+                    <th scope="col">Employee's position</th>
+                    <th scope="col">Employee's Education Degree</th>
+                    <th scope="col">Employee's Division</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Date of birth</th>
+                    <th scope="col" colspan="2">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="employee:${listEmp}">
+                    <td th:text="${employee.employeeId}"></td>
+                    <td><a style="cursor: pointer" class="viewBtn" th:text="${employee.employeeName}"></a>
+                        <input type="hidden" th:value="${employee.employeeId}"/>
+                    </td>
+                    <td th:text="${employee.position.getPositionName()}"></td>
+                    <td th:text="${employee.educationDegree.getEducationDegreeName()}"></td>
+                    <td th:text="${employee.division.getDivisionName()}"></td>
+                    <td th:text="${employee.employeeAddress}"></td>
+                    <td th:text="${employee.employeeBirthday}"></td>
+                    <td><a th:href="@{/employee/detail/{id}(id=${employee.employeeId})}" class="btn btn-success">
+                        <i class="far fa-edit"></i></a></td>
+                    <td><a class="btn btn-danger deleteBtn"> <i class="far fa-trash-alt"></i></a>
+                        <input type="hidden" th:value="${employee.employeeId}"/>
+                    </td>
+                </tr>
+                </tbody>
+                <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="width: 570px">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span class="closeBtn" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure to delete this customer?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </table>
+        </main>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{'/employee/list/'(page=${listEmp.number - 1})}"
+                       th:if="${listEmp.hasPrevious()}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" th:text="${listEmp.number -1}"
+                                         th:if="${listEmp.hasPrevious()}"
+                                         th:href="@{'/employee/list/'(page=${listEmp.number - 1})}"></a></li>
+
+                <li class="page-item active"><a class="page-link" th:text="${listEmp.number}"
+                                                th:href="@{'/employee/list/'(page=${listEmp.number})}"></a></li>
+
+                <li class="page-item"><a class="page-link" th:text="${listEmp.number +1}"
+                                         th:if="${listEmp.hasNext()}"
+                                         th:href="@{'/employee/list/'(page=${listEmp.number + 1})}"></a></li>
+                <li class="page-item">
+                    <a class="page-link" th:href="@{'/employee/list/'(page=${listEmp.number + 1})}"
+                       th:if="${listEmp.hasNext()}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="/bootstrap/js/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myInput').autocomplete({
+            source: "autocompletee",
+            minLength: 1,
+            select: function(event, ui) {
+                let search= $("#myInput").val(ui.item.value).val();
+                $.ajax({
+                    url: "/employee/search",
+                    type: "GET",
+                    data: {"nameEmp": search},
+                }).done(function (data) {
+                    $(".resultTable").html(data);
+                });
+            }
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.matchedit').on('keyup', function () {
+            clearTimeout($(this).data('timer'));
+            var search = this.value;
+            if (search.length >= 0) {
+                $(this).data('timer', setTimeout(function () {
+                    $.ajax({
+                        url: "/employee/search",
+                        type: "GET",
+                        data: {"nameEmp": search},
+                    }).done(function (data) {
+                        $(".resultTable").html(data);
+                    });
+                }, 100));
+            }
+        });
+    });
+
+    $("#submitSearch").click(function () {
+        let search = $("#myInput").val();
+        $.ajax({
+            url: "/employee/search",
+            type: "GET",
+            data: {"nameEmp": search},
+            dataType: "HTML",
+            success: function (data) {
+                $("#list").html(data);
+            }
+        })
+    })
+    $(".viewBtn").click(function () {
+        let id = $(this).next().val();
+        $.ajax({
+            url: "/employee/view/" + id,
+            type: "GET",
+            dataType: "HTML",
+            success: function (data) {
+                $(".modal-body").html(data);
+                $("#idModal").modal("show");
+            }
+        })
+    })
+    $('.deleteBtn').click(function (event) {
+        if (confirm('Are you sure you want to delete this employee?')) {
+            let id = $(this).next().val();
+            $.ajax({
+                url: "/employee/delete/" + id,
+                type: "GET",
+                dataType: "HTML",
+                success: function (data) {
+                    $(".sb-nav-fixed").html(data);
+                }
+            });
+        }
+    });
+
+    (".closeBtn").click(function () {
+        $("#idModal").modal("hide");
+    })
+</script>
+<footer th:replace="~{/layout::_footer}"></footer>
+</body>
+</html>
+

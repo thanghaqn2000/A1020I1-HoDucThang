@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="layoutSidenav_content">
+    <main>
+        <form method="post" action="/customer/update" th:object="${customer}" id="create"
+              style="width: 500px;margin-right: auto;margin-left: auto">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="idCus">Customer's ID</label>
+                    <input type="text" th:field="*{customerId}" class="form-control" id="idCus">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerId')}"
+                          th:errors="*{customerId}">Name Error</span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState11">Customer's name</label>
+                    <input type="text" th:field="*{customerName}" class="form-control" id="inputState11">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerName')}"
+                          th:errors="*{customerName}">Name Error</span>
+                    <!--            <br><span style="color:red;" th:if="${#fields.hasErrors('tenTuyenBay')}"-->
+                    <!--                      th:errors="*{tenTuyenBay}">Name Error</span>-->
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState12">Customer's type</label>
+                    <select style="height: 38px;" th:field="*{customerType.customeTypeId}"
+                            id="inputState12" class="form-control">
+                        <option th:each="type : ${listType}" th:value="${type.customeTypeId}"
+                                th:text="${type.customerTypeName}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Address</label>
+                    <input type="text" th:field="*{customerAddress}" class="form-control" id="address">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{customerEmail}" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="idCard">Id Card</label>
+                    <input type="text" th:field="*{customerIdCard}" class="form-control" id="idCard">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerIdCard')}"
+                          th:errors="*{customerIdCard}">Name Error</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone</label>
+                    <input type="text" th:field="*{customerPhone}" class="form-control" id="phone">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerPhone')}"
+                          th:errors="*{customerPhone}">Name Error</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender</label>
+                    <select style="height: 40px; margin-top: 7px;" th:field="*{customerGender}"
+                            id="gender" class="form-control">
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dof">Date of birth</label>
+                    <input style="margin-top: 7px;
+                height: 41px;" type="date" th:field="*{customerBirthday}" class="form-control" id="dof">
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>

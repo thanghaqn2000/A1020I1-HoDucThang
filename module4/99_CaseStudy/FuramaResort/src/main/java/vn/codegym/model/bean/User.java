@@ -1,8 +1,10 @@
 package vn.codegym.model.bean;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Set;
 
@@ -11,7 +13,7 @@ public class User {
     @Id
     private String userName;
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "userName"),
@@ -41,8 +43,8 @@ public class User {
         this.employee = employee;
     }
 
-//    public User(String userName, String password, List<GrantedAuthority> grantList) {
-//    }
+    public User(String userName, String password, List<GrantedAuthority> grantList) {
+    }
 
     public String getUserName() {
         return userName;

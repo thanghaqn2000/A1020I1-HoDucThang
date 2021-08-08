@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped resultTable" style="margin-left: auto;
+                margin-right: auto;">
+    <thead>
+    <tr>
+        <th scope="col">Customer's id</th>
+        <th scope="col">Customer's name</th>
+        <th scope="col">Customer's type</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col" colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer:${listCustomer}">
+        <td th:text="${customer.customerId}"></td>
+        <td><a style="cursor: pointer" class="viewBtn" th:text="${customer.customerName}"></a>
+            <input type="hidden" th:value="${customer.customerId}"/>
+        </td>
+        <td th:text="${customer.customerType.customerTypeName}"></td>
+        <td th:text="${customer.customerAddress}"></td>
+        <td th:text="${customer.customerBirthday}"></td>
+        <td><a th:href="@{/customer/detail/{id}(id=${customer.customerId})}" class="btn ">
+            <i class="far fa-edit" style="color: #0869f6"></i></a></td>
+        <td><a class="btn deleteBtn"> <i class="far fa-trash-alt" style="color: #0869f6"></i></a>
+            <input type="hidden" th:value="${customer.customerId}"/>
+        </td>
+
+    </tr>
+    </tbody>
+    <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 570px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="closeBtn" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete this customer?
+                </div>
+            </div>
+        </div>
+    </div>
+</table>
+</body>
+</html>

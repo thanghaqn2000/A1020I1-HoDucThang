@@ -1,19 +1,31 @@
 package vn.codegym.model.bean;
 
+import vn.codegym.validation.DateOfBirth;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 import java.util.Set;
-
 @Entity
 public class Employee {
     @Id
     private int employeeId;
+    @NotBlank(message = "Must be not empty")
     private String employeeName;
+    @DateOfBirth(message = "Employee's age must be more than 18")
     private String employeeBirthday;
+    @Pattern(regexp = "(\\d{9}|\\d{11}$)",message = "The length must be 9 or 11 number")
     private String employeeIdCard;
+    @Positive
     private double employeeSalary;
+    @Pattern(regexp = "^0(\\d{9}$)",message = "The length must be 10 number and start with 0 ")
     private String employeePhone;
+    @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Must be like: codegym@gmail.com")
     private String employeeEmail;
+    @NotBlank(message = "Must be not empty")
     private String employeeAddress;
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId",referencedColumnName = "positionId")

@@ -1,12 +1,17 @@
 package vn.codegym.service.customer;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import vn.codegym.model.bean.Customer;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CustomerService {
-    List<Customer> findAll();
-    List<Customer> findByName();
+    Page<Customer> findAll(Pageable pageable);
+    Page<Customer> findAllSort(int pageNum,int pageSize);
+    Page<Customer> findByName(String name,Pageable pageable);
+    Set<String> selectName(String name);
     Customer findById(String id);
     void create(Customer customer);
     void update(Customer customer);

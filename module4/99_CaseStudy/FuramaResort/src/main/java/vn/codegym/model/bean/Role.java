@@ -9,7 +9,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int roleId;
     private String roleName;
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<User> users;
 
     public Role() {
