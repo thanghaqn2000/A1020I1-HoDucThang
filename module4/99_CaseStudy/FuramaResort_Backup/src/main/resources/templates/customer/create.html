@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout::head}">
+
+</head>
+<body class="sb-nav-fixed">
+<!-- Include _menu.html -->
+<!--<th:block th:include="/_menu"></th:block>-->
+<nav th:replace="~{/layout::_menuTop}"></nav>
+<div th:insert="~{/layout::_leftMenu}"></div>
+<div id="layoutSidenav_content" style="margin-left: 250px;margin-top: 80px;">
+    <div class="alert alert-danger alert-dismissible" th:if="${msg}">
+        <p th:if="${msg}" th:text="${msg}"></p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <main>
+        <form method="post" action="/customer/create" th:object="${customer}" id="create"
+              style="width: 1000px;margin-right: auto;margin-left: auto">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="idCus">Customer's ID</label>
+                    <input type="text" th:field="*{customerId}" class="form-control" id="idCus">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerId')}"
+                          th:errors="*{customerId}">Name Error</span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState11">Customer's name</label>
+                    <input type="text" th:field="*{customerName}" class="form-control" id="inputState11">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerName')}"
+                          th:errors="*{customerName}">Name Error</span>
+                    <!--            <br><span style="color:red;" th:if="${#fields.hasErrors('tenTuyenBay')}"-->
+                    <!--                      th:errors="*{tenTuyenBay}">Name Error</span>-->
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState12">Customer's type</label>
+                    <select style="height: 38px;" th:field="*{customerType.customeTypeId}"
+                            id="inputState12" class="form-control">
+                        <option th:each="type : ${listType}" th:value="${type.customeTypeId}"
+                                th:text="${type.customerTypeName}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Address</label>
+                    <input type="text" th:field="*{customerAddress}" class="form-control" id="address">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerAddress')}"
+                          th:errors="*{customerAddress}">Name Error</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{customerEmail}" class="form-control" id="email">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerEmail')}"
+                          th:errors="*{customerEmail}">Name Error</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="idCard">Id Card</label>
+                    <input type="text" th:field="*{customerIdCard}" class="form-control" id="idCard">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerIdCard')}"
+                          th:errors="*{customerIdCard}">Name Error</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone</label>
+                    <input type="text" th:field="*{customerPhone}" class="form-control" id="phone">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerPhone')}"
+                          th:errors="*{customerPhone}">Name Error</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender</label>
+                    <select style="height: 40px; margin-top: 7px;" th:field="*{customerGender}"
+                            id="gender" class="form-control">
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dof">Date of birth</label>
+                    <input style="margin-top: 7px;height: 40px;"
+                           type="date" th:field="*{customerBirthday}" class="form-control" id="dof">
+                    <span style="color:red;" th:if="${#fields.hasErrors('customerBirthday')}"
+                          th:errors="*{customerBirthday}">Name Error</span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Add
+            </button>
+            <a href="/customer/list" class="btn btn-warning">Back to list</a>
+        </form>
+    </main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to add this customer?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitCreate()">Add now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/bootstrap/js/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<footer th:replace="~{/layout::_footer}"></footer>
+<script>
+    function submitCreate() {
+        <!-- để submit form delete  -->
+        document.getElementById("create").submit();
+    }
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped resultTable" style="margin-left: auto;
+                margin-right: auto;">
+    <thead>
+    <tr>
+        <th scope="col">Employee's id</th>
+        <th scope="col">Employee's name</th>
+        <th scope="col">Employee's position</th>
+        <th scope="col">Employee's Education Degree</th>
+        <th scope="col">Employee's Division</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col" colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee:${listEmp}">
+        <td th:text="${employee.employeeId}"></td>
+        <td><a style="cursor: pointer" class="viewBtn" th:text="${employee.employeeName}"></a>
+            <input type="hidden" th:value="${employee.employeeId}"/>
+        </td>
+        <td th:text="${employee.position.getPositionName()}"></td>
+        <td th:text="${employee.educationDegree.getEducationDegreeName()}"></td>
+        <td th:text="${employee.division.getDivisionName()}"></td>
+        <td th:text="${employee.employeeAddress}"></td>
+        <td th:text="${employee.employeeBirthday}"></td>
+        <td><a th:href="@{/employee/detail/{id}(id=${employee.employeeId})}" class="btn btn-success">
+            <i class="far fa-edit"></i></a></td>
+        <td><a class="btn btn-danger deleteBtn"> <i class="far fa-trash-alt"></i></a>
+            <input type="hidden" th:value="${employee.employeeId}"/>
+        </td>
+    </tr>
+    </tbody>
+    <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 570px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="closeBtn" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete this customer?
+                </div>
+            </div>
+        </div>
+    </div>
+</table>
+</body>
+</html>

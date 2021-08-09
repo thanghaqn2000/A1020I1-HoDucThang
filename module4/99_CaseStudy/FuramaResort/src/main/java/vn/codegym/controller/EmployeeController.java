@@ -110,6 +110,7 @@ public class EmployeeController {
         modelAndView.addObject("employee", employeeService.findById(id));
         return modelAndView;
     }
+
     @PostMapping("/update")
     public String update(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
         if (bindingResult.hasFieldErrors()) {

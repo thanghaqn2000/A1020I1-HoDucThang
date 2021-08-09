@@ -97,7 +97,8 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    public String update(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
+    public String update(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, Model model,
+                         RedirectAttributes attributes) {
         if (bindingResult.hasFieldErrors()) {
             return "/customer/detail";
         }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="layoutSidenav_content">
+    <main>
+        <form method="post" action="/contract/update" th:object="${contract}" id="create"
+              style="width: 1000px;margin-right: auto;margin-left: auto">
+            <input type="hidden" th:field="*{contractId}" class="form-control" id="acc">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="cus">Customer</label>
+                    <select style="height: 38px;" th:field="*{customer.customerId}"
+                            id="cus" class="form-control">
+                        <option th:each="cus : ${listCus}" th:value="${cus.customerId}"
+                                th:text="${cus.customerName}+' | '+${cus.customerId}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="emp">Employee</label>
+                    <select style="height: 38px;" th:field="*{employee.employeeId}"
+                            id="emp" class="form-control">
+                        <option th:each="emp : ${listEmp}" th:value="${emp.employeeId}"
+                                th:text="${emp.employeeName}+' | '+${emp.employeeId}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputState12">Service</label>
+                    <select style="height: 38px;" th:field="*{service.serviceId}"
+                            id="inputState12" class="form-control">
+                        <option th:each="service : ${listService}" th:value="${service.serviceId}"
+                                th:text="${service.serviceType.serviceTypeName}+' '+${service.rentType.rentTypeName}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Start date</label>
+                    <input type="date" th:field="*{contractStartDate}" class="form-control" id="address">
+                    <span style="color:red;" th:if="${#fields.hasErrors('contractStartDate')}"
+                          th:errors="*{contractStartDate}">Name Error</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">End date</label>
+                    <input type="date" th:field="*{contractEndDate}" class="form-control" id="email">
+                    <span style="color:red;" th:if="${#fields.hasErrors('contractEndDate')}"
+                          th:errors="*{contractEndDate}">Name Error</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="idCard">Deposit</label>
+                    <input type="number" th:field="*{contractDeposit}" class="form-control" id="idCard">
+                    <span style="color:red;" th:if="${#fields.hasErrors('contractDeposit')}"
+                          th:errors="*{contractDeposit}">Name Error</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Total money</label>
+                    <input type="number" th:field="*{contractTotalMoney}" class="form-control" id="phone">
+                    <span style="color:red;" th:if="${#fields.hasErrors('contractTotalMoney')}"
+                          th:errors="*{contractTotalMoney}">Name Error</span>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>
