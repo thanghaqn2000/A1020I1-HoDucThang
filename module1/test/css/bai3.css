@@ -1,0 +1,60 @@
+*{margin: 0;padding: 0}
+
+.ndkhoi {
+    color: #655f5f;
+}
+
+.khoi1 {
+    padding: 13px 15px;
+    border-bottom: solid 1px #d2caca;
+}
+body{
+	background: url(images/nen.png);
+}
+
+.tieude{
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+     margin-bottom: 20px;
+}
+.noidung {
+    width: 38%;
+    margin: auto;
+    font-family: 'Josefin Slab', serif;
+}
+
+img.anhnho {
+    height: 60px;
+    margin-right: 2px;
+}
+.tdkhoi img {
+    float: right;
+    transition: 0.4s;
+    padding-top: 7px;
+    margin-right: -100px;
+}
+
+h2.tdkhoi {
+    margin-bottom: 17px;
+    font-size: 40px;
+    color: #777373;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.4s;
+}
+h2.tdkhoi.xanh{
+	color: lightblue;
+}
+
+h2.tdkhoi.xanh img {
+	margin-top: 5px;
+	transform: rotate(180deg);
+}
+
+
+h2.tdkhoi:hover img {
+    margin-right: 0px;
+
+}
