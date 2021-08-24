@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Name: {{Codegymer.name}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Age: {{Codegymer.age}}</li>
+    <li class="list-group-item">Mark: {{Codegymer.mark}}</li>
+    <li class="list-group-item">Gender: {{Codegymer.gender?'Nam':'Nữ'}}</li>
+    <li class="list-group-item">
+      <img bind-src="Codegymer.img" alt="" [width]="user.size">
+    </li>
+    <li class="list-group-item">
+      <label for="input">Change mark here</label>
+      <input id="input" type="number" value="{{Codegymer.mark}}" (change)="changeMark($event)">
+    </li>
+  </ul>
+</div>
