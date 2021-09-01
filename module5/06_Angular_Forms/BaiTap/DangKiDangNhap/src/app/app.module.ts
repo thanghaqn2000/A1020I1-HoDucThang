@@ -6,12 +6,14 @@ import {AppComponent} from './app.component';
 import {DangKiComponent} from './components/dang-ki/dang-ki.component';
 import {DangNhapComponent} from './components/dang-nhap/dang-nhap.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DangKiComponent,
-    DangNhapComponent
+    DangNhapComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
