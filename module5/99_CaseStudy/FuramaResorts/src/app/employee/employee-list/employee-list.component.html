@@ -1,0 +1,80 @@
+<div id="list">
+  <div id="layoutSidenav_content" style="width: 88%;
+    margin-left: 122px;
+    margin-top: 80px;">
+    <h1 style="color:#e20d0d; text-align: center">Employee Management</h1>
+    <form action="">
+      <div class="formSearch">
+        <div class="autocomplete" style="width:300px;">
+          <input id="myInput" type="text" name="nameCus" placeholder="Search by name" [(ngModel)]="searchValue">
+          <button id="submitSearch" type="submit" class="btn btn-success ml-1" (click)="doSearch()">Search</button>
+        </div>
+      </div>
+    </form>
+    <br><br>
+    <a [routerLink]="'/createEmp'" class="btn btn-primary">Create</a>
+    <main>
+      <table class="table table-striped resultTable" style="margin-left: auto;
+                margin-right: auto;">
+        <thead>
+        <tr>
+          <th scope="col">Customer's id</th>
+          <th scope="col">Customer's name</th>
+          <th scope="col">Customer's type</th>
+          <th scope="col">Address</th>
+          <th scope="col">Date of birth</th>
+          <th scope="col" colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let emp of listEmp|paginate: { itemsPerPage: 3, currentPage: page }">
+          <td>{{emp.emp_id}}</td>
+          <td><a style="cursor: pointer" class="viewBtn">{{emp.name}}</a>
+          </td>
+          <td>{{emp.position.name}}</td>
+          <td>{{emp.division.name}}</td>
+          <td>{{emp.education.name}}</td>
+          <td>{{emp.address}}</td>
+          <td>{{emp.birthday}}</td>
+          <td>{{emp.gender}}</td>
+          <td><a class="btn" [routerLink]="['/detailEmp', emp.id]">
+            <i class="far fa-edit" style="color: #0869f6"></i></a></td>
+          <td>
+            <button data-toggle="modal" data-target="#idModal" (click)="getEmpName(emp.id)" class="btn deleteBtn"
+                    style="color: #0869f6">
+              <i class="far fa-trash-alt"
+                 style="color: #0869f6"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+      <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+           aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure to delete: <span style="color:red;">
+              {{name}}
+            </span>with id: <span style="color:red;">{{emp_id}}</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete(id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+

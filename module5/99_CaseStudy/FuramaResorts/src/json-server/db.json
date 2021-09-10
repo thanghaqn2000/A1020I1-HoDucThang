@@ -1,0 +1,237 @@
+{
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "cus_id": "KH-0001",
+      "cus_type": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "name": "Hồ Đức Thắng",
+      "birthday": "2000-09-18",
+      "gender": "Nam",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
+      "address": "Quảng Trị"
+    },
+    {
+      "id": 2,
+      "cus_id": "KH-1234",
+      "cus_type": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "Nguyễn Văn A",
+      "birthday": "2002-09-26",
+      "gender": "Nữ",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
+      "address": "Quảng Trị"
+    },
+    {
+      "id": 4,
+      "cus_id": "KH-2053",
+      "cus_type": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "Đức Thiện",
+      "birthday": "2021-09-24",
+      "gender": "Nam",
+      "id_card": "123456789",
+      "phone": "0969351090",
+      "email": "thanghaqn2001@gmail.com",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 5,
+      "cus_id": "KH-8888",
+      "cus_type": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "Như",
+      "birthday": "2021-09-17",
+      "gender": "Nữ",
+      "id_card": "123456789",
+      "phone": "0969351090",
+      "email": "user01@gmail.com",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 6,
+      "cus_id": "KH-1809",
+      "cus_type": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "Văn Toàn",
+      "birthday": "2021-09-18",
+      "gender": "Nữ",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thangit189@gmail.com",
+      "address": "Quảng Trị"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "name": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "name": "Giám sát"
+    },
+    {
+      "id": 5,
+      "name": "Quản lí"
+    },
+    {
+      "id": 6,
+      "name": "Giám đốc"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    },
+    {
+      "id": 4,
+      "name": "Sau đại học"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Sale-Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành chính"
+    },
+    {
+      "id": 3,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "name": "Quản lí"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "emp_id": "NV-0001",
+      "position": {
+        "id": 6,
+        "name": "Giám đốc"
+      },
+      "education": {
+        "id": 4,
+        "name": "Sau đại học"
+      },
+      "division": {
+        "id": 4,
+        "name": "Quản lí"
+      },
+      "name": "Hồ Đức Thắng",
+      "birthday": "2000-09-18",
+      "gender": "Male",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
+      "address": "Quảng Trị",
+      "salary": 20000000
+    },
+    {
+      "id": 2,
+      "emp_id": "NV-0002",
+      "position": {
+        "id": 5,
+        "name": "Quản lí"
+      },
+      "education": {
+        "id": 3,
+        "name": "Đại học"
+      },
+      "division": {
+        "id": 4,
+        "name": "Quản lí"
+      },
+      "name": "Trần Thị Hoài",
+      "birthday": "2000-09-18",
+      "gender": "Female",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
+      "address": "Quảng Trị",
+      "salary": 20000000
+    },
+    {
+      "id": 3,
+      "emp_id": "NV-0003",
+      "position": {
+        "id": 6,
+        "name": "Giám đốc"
+      },
+      "education": {
+        "id": 4,
+        "name": "Sau đại học"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "name": "Nam Văn Trung",
+      "birthday": "2000-09-18",
+      "gender": "Male",
+      "id_card": "123456789",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
+      "address": "Quảng Trị",
+      "salary": 20000000
+    }
+  ]
+}
