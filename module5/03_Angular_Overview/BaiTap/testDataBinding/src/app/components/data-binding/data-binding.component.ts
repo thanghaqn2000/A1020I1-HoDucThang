@@ -23,7 +23,8 @@ export class DataBindingComponent implements OnInit {
     age: 20,
     gender: true,
     img: "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep-387x580.jpg",
-    size: 100
+    size: 100,
+    decription:""
   };
 
   constructor() {

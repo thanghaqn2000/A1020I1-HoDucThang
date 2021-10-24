@@ -34,18 +34,19 @@
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a th:if="${user}" th:text="${user.employee.employeeName}" class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+            <a th:if="${user}" th:text="${user.employee.employeeName}" class="nav-link dropdown-toggle"
+               id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                aria-expanded="false"> </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#!">
                     <i class="fas fa-cog"></i>
                     Settings</a></li>
-                <li><a class="dropdown-item" th:if="${user}"  th:href="@{/user/{id}(id=${user.employee.employeeId})}">
+                <li><a class="dropdown-item" th:if="${user}" th:href="@{/user/{id}(id=${user.employee.employeeId})}">
                     <i class="far fa-id-badge"></i></i>
                     Profile
-                    </a>
+                </a>
                 </li>
-                <li><a class="dropdown-item" th:if="${user}"  th:href="@{/userAccount}">
+                <li><a class="dropdown-item" th:if="${user}" th:href="@{/userAccount}">
                     <i class="fas fa-key"></i>
                     Change pass</a>
                 </li>
@@ -93,7 +94,8 @@
                             Employee
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div sec:authorize="hasRole('ADMIN')" class="collapse" id="collapseLayout2" aria-labelledby="headingOne"
+                        <div sec:authorize="hasRole('ADMIN')" class="collapse" id="collapseLayout2"
+                             aria-labelledby="headingOne"
                              data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" th:href="@{/employee/list}">Employee Management</a>

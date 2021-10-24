@@ -5,7 +5,6 @@
     <hr>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" id="email" name="email" formControlName="email">
-
     <div *ngIf="getEmail?.invalid && (getEmail?.dirty|| getEmail?.touched)">
       <div class="alert alert-danger" [hidden]="!getEmail?.errors?.pattern">
         thangit@gmail.com
@@ -14,6 +13,7 @@
         Email is required
       </div>
     </div>
+
     <fieldset formGroupName="pwGroup">
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required formControlName="password">
@@ -28,10 +28,10 @@
 
       <label><b>Confirm Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-<!--          <div class="alert alert-danger" role="alert" *ngIf="getConfirmPassword.hasError('passwordnotmatch', ['pwGroup'])&&-->
-<!--            getConfirmPassword.get('pwGroup').touched">-->
-<!--            Password does not match!-->
-<!--          </div>-->
+      <!--          <div class="alert alert-danger" role="alert" *ngIf="getConfirmPassword.hasError('passwordnotmatch', ['pwGroup'])&&-->
+      <!--            getConfirmPassword.get('pwGroup').touched">-->
+      <!--            Password does not match!-->
+      <!--          </div>-->
     </fieldset>
 
     <label><b>Age</b></label>

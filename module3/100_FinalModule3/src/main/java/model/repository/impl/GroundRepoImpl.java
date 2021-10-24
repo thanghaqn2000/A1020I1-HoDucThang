@@ -51,7 +51,6 @@ public class GroundRepoImpl implements GroundRepo {
         }
         return groundList;
     }
-
     @Override
     public boolean insertGround(MatBang matBang) {
         int row = 0;

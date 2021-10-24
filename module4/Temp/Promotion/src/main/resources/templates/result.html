@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<table class="table table-striped resultTable" style="margin-left: auto;
+                margin-right: auto;">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Detail</th>
+        <th scope="col">Discount Money</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col" colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pro:${listPromotion}">
+        <td th:text="${pro.id}"></td>
+        <td><a style="cursor: pointer" class="viewBtn" th:text="${pro.promotionName}"></a>
+            <input type="hidden" th:value="${pro.id}"/>
+        </td>
+        <td th:text="${pro.detail}"></td>
+        <td>$[[${#numbers.formatDecimal(pro.moneyPromotion, 3, 'COMMA', 2, 'POINT')}]]</td>
+        <td th:text="${pro.startDate}"></td>
+        <td th:text="${pro.endDate}"></td>
+        <td><a th:href="@{/detail/{id}(id=${pro.id})}" class="btn ">
+            <i class="far fa-edit" style="color: #0869f6"></i></a></td>
+        <td><a class="btn deleteBtn" style="color: #0869f6"> <i class="far fa-trash-alt"
+                                                                style="color: #0869f6"></i></a>
+            <input type="hidden" th:value="${pro.id}"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

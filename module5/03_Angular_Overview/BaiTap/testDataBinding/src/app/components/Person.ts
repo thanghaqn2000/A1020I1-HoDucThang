@@ -3,5 +3,6 @@ export interface Person {
   age: number,
   gender: boolean,
   mark: number,
-  img: string
+  img: string,
+  decription?:string
 }

@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div id="layoutSidenav_content">
+    <div class="alert alert-danger alert-dismissible" th:if="${msg}">
+        <p th:if="${msg}" th:text="${msg}"></p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <main>
+        <form method="post" th:object="${promotion}" id="create"
+              style="width: 1000px;margin-right: auto;margin-left: auto">
+            <h5 style="color: red">Are you sure to delete this promotion: [[${promotion.promotionName}]]</h5>
+            <input type="hidden" th:field="*{id}" class="form-control" id="idCus">
+            <a  class="btn btn-warning testDelete">Yes</a>
+            <input type="hidden" th:value="${id}" >
+            <a href="/list" class="btn btn-primary">No</a>
+        </form>
+    </main>
+    <script>
+        $('.testDelete').click(function (event) {
+            let id = $(this).next().val();
+            console.log(id);
+            $.ajax({
+                url: "/delete/" + id,
+                type: "GET",
+                dataType: "HTML",
+                success: function (data) {
+                    $(".sb-nav-fixed").html(data);
+                }
+            });
+        });
+    </script>
+</div>
 </body>
 </html>

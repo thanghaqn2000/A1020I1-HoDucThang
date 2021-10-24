@@ -85,6 +85,7 @@ export class EmployeeCreateComponent implements OnInit {
   create(){
     this._service.create(this.createForm.value).subscribe( );
     this.router.navigateByUrl('listEmp');
+    this._service.MESSAGE_CREATE="Create success employee: "+this.getName?.value;
   }
   ngOnInit(): void {
     this._service.getAllPosition().subscribe(data => {

@@ -1,10 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-$END$
+
+<body>
+<span id="time">00:30</span>
+
+</body>
+<script>
+    var check = false;
+    var BreakException = {};
+
+    function startTimer(duration) {
+        var timer = duration, minutes, seconds;
+        let test = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            document.getElementById("time").innerHTML = minutes + ":" + seconds;
+            console.log(document.getElementById("time").innerText);
+            if (--timer < 0) {
+                document.getElementById("time").innerHTML = "Time is up";
+               alert("Finish");
+                clearInterval(test);
+            }
+        }, 1000);
+       console.log(check)
+    }
+    var time = 1 * 30
+    startTimer(time);
+
+</script>
 </body>
 </html>

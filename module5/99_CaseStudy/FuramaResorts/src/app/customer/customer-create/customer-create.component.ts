@@ -65,9 +65,9 @@ export class CustomerCreateComponent implements OnInit {
   }
 
 
-
   create() {
     this._service.create(this.createForm.value).subscribe();
+    this._service.MESSAGE_CREATE="Create success customer: "+this.getName?.value;
     // console.log(this.createForm.value);
     this.router.navigateByUrl('listCus');
   }

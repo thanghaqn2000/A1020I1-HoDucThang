@@ -6,4 +6,5 @@ import vn.codegym.model.bean.User;
 public interface UserRepo extends JpaRepository<User,String> {
     User findByUserName(String userName);
     Boolean existsByUserName(String userName);
+    User findByEmployee_EmployeeEmail(String email);
 }

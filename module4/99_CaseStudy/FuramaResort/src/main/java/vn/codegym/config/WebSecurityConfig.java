@@ -36,7 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Sét đặt dịch vụ để tìm kiếm User trong Database.
         // Và sét đặt PasswordEncoder.
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-
     }
 
     @Override

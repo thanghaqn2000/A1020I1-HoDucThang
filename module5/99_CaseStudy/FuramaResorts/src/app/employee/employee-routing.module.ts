@@ -5,6 +5,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {EmployeeCreateComponent} from "./employee-create/employee-create.component";
 import {EmployeeListComponent} from "./employee-list/employee-list.component";
 import {EmployeeDetailComponent} from "./employee-detail/employee-detail.component";
+import {HomeComponent} from "../components/home/home.component";
 
 const routes: Routes = [
   {path: 'createEmp', component: EmployeeCreateComponent},
@@ -16,7 +17,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes),
    NgxPaginationModule],
   exports: [RouterModule],
-
 })
 export class EmployeeRoutingModule {
 }

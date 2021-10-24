@@ -24,14 +24,14 @@
   "customers": [
     {
       "id": 1,
-      "cus_id": "KH-0001",
+      "cus_id": "KH-0006",
       "cus_type": {
-        "id": 2,
-        "name": "Platinum"
+        "id": 1,
+        "name": "Diamond"
       },
       "name": "Hồ Đức Thắng",
       "birthday": "2000-09-18",
-      "gender": "Nam",
+      "gender": "Nữ",
       "id_card": "123456789",
       "phone": "0915225252",
       "email": "thang@gmail.com",
@@ -68,26 +68,11 @@
       "address": "Đà Nẵng"
     },
     {
-      "id": 5,
-      "cus_id": "KH-8888",
-      "cus_type": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "name": "Như",
-      "birthday": "2021-09-17",
-      "gender": "Nữ",
-      "id_card": "123456789",
-      "phone": "0969351090",
-      "email": "user01@gmail.com",
-      "address": "Đà Nẵng"
-    },
-    {
       "id": 6,
       "cus_id": "KH-1809",
       "cus_type": {
-        "id": 1,
-        "name": "Diamond"
+        "id": 5,
+        "name": "Member"
       },
       "name": "Văn Toàn",
       "birthday": "2021-09-18",
@@ -95,6 +80,36 @@
       "id_card": "123456789",
       "phone": "0915225252",
       "email": "thangit189@gmail.com",
+      "address": "Quảng Trị"
+    },
+    {
+      "id": 7,
+      "cus_id": "KH-4567",
+      "cus_type": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "Thiện Thanh",
+      "birthday": "2021-09-02",
+      "gender": "Nam",
+      "id_card": "666666666",
+      "phone": "0916890776",
+      "email": "thangit189@gmail.com",
+      "address": "da nang"
+    },
+    {
+      "id": 8,
+      "cus_id": "KH-4568",
+      "cus_type": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "name": "Thiện Thanh123",
+      "birthday": "2021-09-09",
+      "gender": "Nam",
+      "id_card": "645642222",
+      "phone": "0915225252",
+      "email": "thang@gmail.com",
       "address": "Quảng Trị"
     }
   ],
@@ -178,7 +193,7 @@
       },
       "name": "Hồ Đức Thắng",
       "birthday": "2000-09-18",
-      "gender": "Male",
+      "gender": "Nam",
       "id_card": "123456789",
       "phone": "0915225252",
       "email": "thang@gmail.com",
@@ -202,7 +217,7 @@
       },
       "name": "Trần Thị Hoài",
       "birthday": "2000-09-18",
-      "gender": "Female",
+      "gender": "Nữ",
       "id_card": "123456789",
       "phone": "0915225252",
       "email": "thang@gmail.com",
@@ -226,7 +241,7 @@
       },
       "name": "Nam Văn Trung",
       "birthday": "2000-09-18",
-      "gender": "Male",
+      "gender": "Nam",
       "id_card": "123456789",
       "phone": "0915225252",
       "email": "thang@gmail.com",

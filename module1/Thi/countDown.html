@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<p id="text"></p>
+<script>
+    function msToTime(duration) {
+        var seconds = parseInt((duration / 1000) % 60), minutes = parseInt((duration / (1000 * 60)) % 60),
+            hours = parseInt((duration / (1000 * 60 * 60)) % 24), days = parseInt(duration / (1000 * 60 * 60 * 24));
+        var hoursDays = parseInt(days * 24);
+        hours += hoursDays;
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        return hours + ":" + minutes + ":" + seconds;
+    }
+
+    function startCountdown() {
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth();
+        var year = date.getFullYear();
+        var hour=date.getHours();
+        const minuet=date.getMinutes()+1;
+        let temp = setInterval(function(){
+            var a = new Date().getTime();
+            var now = new Date(year, month, day, hour, minuet, 0, 0);
+            var timer = now - a;
+            if (timer <10) {
+                clearInterval(temp);
+                document.getElementById("text").innerHTML ="Hết giờ";
+            }else{
+                document.getElementById("text").innerHTML = msToTime(timer);
+            }
+        }, 0);
+    }
+
+    startCountdown();
+
+</script>
 </body>
 </html>

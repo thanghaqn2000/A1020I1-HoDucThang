@@ -3,6 +3,7 @@
       <p>{{message}}</p>
       <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
+  <h1 style="color:#e20d0d; text-align: center;margin-bottom: 50px">Employee Detail</h1>
 
   <main>
     <form id="create"
@@ -144,17 +145,17 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="Male" checked
+            <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="Nam" checked
                    formControlName="gender">
             <label class="form-check-label" for="exampleRadios1">
-              Male
+              Nam
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="Female"
+            <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="Nữ"
                    formControlName="gender">
             <label class="form-check-label" for="exampleRadios2">
-              Female
+              Nữ
             </label>
           </div>
           <div *ngIf="getGender?.invalid && (getGender?.dirty|| getGender?.touched)">

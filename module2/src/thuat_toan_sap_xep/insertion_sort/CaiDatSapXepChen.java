@@ -18,7 +18,6 @@ public class CaiDatSapXepChen {
         }
         return Arrays.toString(arr);
     }
-
     public static void main(String[] args) {
         int[] arr={10,6,9,3,5,7};
         System.out.println(insertionSort(arr));

@@ -10,11 +10,12 @@ import {Employee} from "../models/Employee";
 export class EmployeeListComponent implements OnInit {
   listEmp!: Employee[];
   page:number=1;
+  messageCreate:string=this._service.MESSAGE_CREATE;
   public name!:string;
   public id!:number;
   public emp_id!:string;
   public searchValue!:string;
-
+  messageDelete!:string;
   constructor(private _service: EmployeeService) {
   }
 
@@ -25,6 +26,7 @@ export class EmployeeListComponent implements OnInit {
   }
   delete(id:number){
     this._service.delete(id).subscribe(data=>{
+      this.messageDelete="Delete success employee: "+this.name;
       // this.router.navigateByUrl('listCus');
       this.ngOnInit();
     })

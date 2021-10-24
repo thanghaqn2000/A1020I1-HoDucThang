@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,10 +15,11 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
     ColorPickerComponent,
     CalculatorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+
+    <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
-$END$
+<div class="container">
+    <h2 class="loki">
+        <p class="letter">T</p>
+        <p class="letter">H</p>
+        <p class="letter">Ắ</p>
+        <p class="letter">N</p>
+        <p class="letter">G</p>
+    </h2>
+</div>
+<script>
+    const fonts = [
+        'Kirang Haerang',
+        'Indie Flower',
+        'Rye',
+        'Amatic SC',
+        'Bangers',
+        'Fredericka the Great'
+    ];
+
+    const letters = document.querySelectorAll('.letter');
+
+    let count=0;
+
+    const rollIntro = () => {
+        letters.forEach(letter => {
+
+            let randomFontIndex = Math.floor(Math.random() * fonts.length);
+            let randomFont = fonts[randomFontIndex];
+
+            letter.style.fontFamily=randomFont;
+        });
+    }
+
+    let introAnimation = setInterval(function() {
+        rollIntro();
+        if(count>15)
+            clearInterval(introAnimation);
+        count++;
+    },350);
+</script>
 </body>
 </html>

@@ -12,7 +12,7 @@ import java.util.Set;
 public class Employee {
     @Id
     private int employeeId;
-    @NotBlank(message = "Must be not empty")
+    @NotBlank(message = "Name must be not empty")
     private String employeeName;
     @DateOfBirth(message = "Employee's age must be more than 18")
     private String employeeBirthday;
@@ -20,12 +20,12 @@ public class Employee {
     private String employeeIdCard;
     @Positive
     private double employeeSalary;
-    @Pattern(regexp = "^0(\\d{9}$)",message = "The length must be 10 number and start with 0 ")
+    @Pattern(regexp = "^0(\\d{9}$)",message = "Phone number must be 10 number and start with 0 ")
     private String employeePhone;
     @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Must be like: codegym@gmail.com")
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$", message = "Email must be like: codegym@gmail.com")
     private String employeeEmail;
-    @NotBlank(message = "Must be not empty")
+    @NotBlank(message = "Address must be not empty")
     private String employeeAddress;
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId",referencedColumnName = "positionId")
@@ -36,9 +36,11 @@ public class Employee {
     @ManyToOne(targetEntity = Division.class)
     @JoinColumn(name = "divisionId",referencedColumnName = "divisionId")
     private Division division;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userName",referencedColumnName = "userName")
     private User user;
+
     @OneToMany(mappedBy = "employee")
     private Set<Contract> contracts;
     public Employee() {

@@ -73,9 +73,6 @@
                             <td><c:out value="${ground.ngayBatDau}"/></td>
                             <td><c:out value="${ground.ngayKetThuc}"/></td>
                             <td><a href="" class="btn btn-primary">Edit</a></td>
-                            <td> <a href="/delete?id=${ground.id}"
-                                     onclick="return confirm('Are you sure you want to delete?')">Delete 1</a></td>
-
                             <td><a style="color: white" class="btn btn-danger" onclick="groundSetId('${ground.id}')"
                                    data-toggle="modal" data-target="#deleteModal">
                                 Delete

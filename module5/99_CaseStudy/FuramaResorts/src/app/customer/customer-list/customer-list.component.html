@@ -6,7 +6,16 @@
     <form action="">
       <div class="formSearch">
         <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="nameCus" placeholder="Search by name" [(ngModel)]="searchValue">
+          <input id="myInput" type="text" name="nameCus" placeholder="Search by name" [(ngModel)]="searchName">
+          <select class="form-control"  [(ngModel)]="searchType" [ngModelOptions]="{standalone: true}">
+            <option value="" selected>Vui lòng chọn</option>
+            <option *ngFor="let customerType of listType" [ngValue]="customerType.name">{{customerType.name}}</option>
+          </select>
+          <select class="form-control"  [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">
+            <option value="" selected>Vui lòng chọn</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
           <button id="submitSearch" type="submit" class="btn btn-success ml-1" (click)="doSearch()">Search</button>
         </div>
       </div>
@@ -14,6 +23,14 @@
     <br><br>
     <a [routerLink]="'/createCus'" class="btn btn-primary">Create</a>
     <main>
+      <div class="alert alert-success alert-dismissible" *ngIf="messageCreate" id="success-alert">
+        <p>{{messageCreate}}</p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+      <div class="alert alert-success alert-dismissible" *ngIf="messageDelete">
+        <p>{{messageDelete}}</p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
       <table class="table table-striped resultTable" style="margin-left: auto;
                 margin-right: auto;">
         <thead>
@@ -23,7 +40,9 @@
           <th scope="col">Customer's type</th>
           <th scope="col">Address</th>
           <th scope="col">Date of birth</th>
-          <th scope="col" colspan="2">Action</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -38,16 +57,18 @@
           <td><a class="btn" [routerLink]="['/detailCus', cus.id]">
             <i class="far fa-edit" style="color: #0869f6"></i></a></td>
           <td>
-            <button data-toggle="modal" data-target="#idModal" (click)="getCustomerName(cus.id)" class="btn deleteBtn"  style="color: #0869f6">
+            <button data-toggle="modal" data-target="#idModal" (click)="getCustomerName(cus.id)" class="btn deleteBtn"
+                    style="color: #0869f6">
               <i class="far fa-trash-alt"
-                                                                    style="color: #0869f6"></i>
+                 style="color: #0869f6"></i>
             </button>
           </td>
 
         </tr>
         </tbody>
       </table>
-      <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+           aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">

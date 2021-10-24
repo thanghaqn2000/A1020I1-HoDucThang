@@ -70,7 +70,6 @@
 
     $(".viewBtn").click(function () {
         let id = $(this).next().val();
-        console.log(id)
         $.ajax({
             url: "/customer/view/" + id,
             type: "GET",

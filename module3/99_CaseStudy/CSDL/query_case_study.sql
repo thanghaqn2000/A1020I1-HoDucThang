@@ -3,7 +3,7 @@ use furama_resorts;
 -- tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.
 select *
 from nhan_vien
-where ((ho_ten like 'T%') or (ho_ten like 'H%') or (ho_ten like 'K%')) and char_length(ho_ten)<=15;
+where ((ho_ten like 'T%') or (ho_ten like 'H%') or (ho_ten like 'K%commen')) and char_length(ho_ten)<=15;
 
 -- 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 select * ,(SELECT TIMESTAMPDIFF(YEAR, khach_hang.ngay_sinh, CURDATE())) as Tuổi
@@ -329,9 +329,41 @@ values (5,3,4,'Bảo Ngọc','2010/09/11','123456789',6000000,'12345678999','vi@
 delete from nhan_vien
 where id_nhan_vien=5;
 
+-- select emp
+select id_nhan_vien,ten_vi_tri,ten_trinh_do,ten_bo_phan,ho_ten,ngay_sinh,cmnd,luong,sdt,email,dia_chi
+from nhan_vien nv
+left join vi_tri vt on vt.id_vi_tri=nv.id_vi_tri
+left join trinh_do td on td.id_trinh_do=nv.id_trinh_do
+left join bo_phan bp on bp.id_bo_phan=nv.id_bo_phan
+where id_nhan_vien=1;
+
+-- update emp
+update nhan_vien
+set id_vi_tri=?,id_trinh_do=?,id_bo_phan=?,ho_ten=?,ngay_sinh=?,cmnd=?,luong=?,sdt=?,email=?,dia_chi=?
+where id_nhan_vien=?;
+
+-- find name empp
 
 
+select id_nhan_vien,ten_vi_tri,ten_trinh_do,ten_bo_phan,ho_ten,ngay_sinh,cmnd,luong,sdt,email,dia_chi
+from nhan_vien nv
+left join vi_tri vt on vt.id_vi_tri=nv.id_vi_tri
+left join trinh_do td on td.id_trinh_do=nv.id_trinh_do
+left join bo_phan bp on bp.id_bo_phan=nv.id_bo_phan
+where ((ho_ten like ?));
+-- end nhan vien
 
+-- contract
+select hd.id_hop_dong,nv.ho_ten,kh.ho_ten,dv.ten_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,tong_tien 
+from hop_dong hd
+left join nhan_vien nv on nv.id_nhan_vien=hd.id_nhan_vien 
+left join khach_hang kh on kh.id_khach_hang=hd.id_khach_hang 
+left join dich_vu dv on dv.id_dich_vu=hd.id_dich_vu; 
+
+
+insert into hop_dong(id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,tong_tien)
+values(2,3,2,'2021/05/20','2021/05/30',10000000,15000000);
+-- end contract
 
 
  

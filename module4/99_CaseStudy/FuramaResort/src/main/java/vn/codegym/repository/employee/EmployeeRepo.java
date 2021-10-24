@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import vn.codegym.model.bean.Employee;
 
+import java.util.List;
 import java.util.Set;
 
 public interface EmployeeRepo extends JpaRepository<Employee,Integer> {
@@ -21,4 +22,6 @@ public interface EmployeeRepo extends JpaRepository<Employee,Integer> {
     Page<Employee> searchName(@Param("nameEmp") String nameEmp, Pageable pageble);
 
     Boolean existsByEmployeeId(int id);
+
+    List<Employee> findByEmployeeName(String name);
 }

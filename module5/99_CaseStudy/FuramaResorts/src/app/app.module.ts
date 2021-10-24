@@ -7,12 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import {CustomerModule} from "./customer/customer.module";
 import {HttpClientModule} from "@angular/common/http";
 import {EmployeeModule} from "./employee/employee.module";
+import {MaterialModule} from "./material.module";
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +23,7 @@ import {EmployeeModule} from "./employee/employee.module";
     CustomerModule,
     EmployeeModule,
     HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

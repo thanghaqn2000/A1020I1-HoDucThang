@@ -13,5 +13,10 @@
       <label for="input">Change mark here</label>
       <input id="input" type="number" value="{{Codegymer.mark}}" (change)="changeMark($event)">
     </li>
+    <li class="list-group-item">
+      <span>Description: {{Codegymer.decription}}</span>
+      <label for="decription">Change decription here</label>
+      <input id="decription" type="text"  [(ngModel)]="Codegymer.decription">
+    </li>
   </ul>
 </div>

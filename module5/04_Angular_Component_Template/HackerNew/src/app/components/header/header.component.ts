@@ -7,7 +7,7 @@ import {Person} from "../../Person";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input("StudentRoot") Student!:any[];
+  @Input() Student!:any[];
 
   constructor() { }
 

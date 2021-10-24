@@ -14,10 +14,11 @@ import java.util.HashMap;
 @SessionAttributes("carts")
 public class ProductController {
 
-        @ModelAttribute("carts")
-    public HashMap<Integer, Cart> showInfo(){
-            return new HashMap<>();
+    @ModelAttribute("carts")
+    public HashMap<Integer, Cart> showInfo() {
+        return new HashMap<>();
     }
+
     @Autowired
     ProductService productService;
 
@@ -27,9 +28,9 @@ public class ProductController {
     }
 
     @GetMapping("view/{id}")
-    public ModelAndView view(@PathVariable int id,@SessionAttribute("carts") HashMap<Integer,Cart> cartMap) {
+    public ModelAndView view(@PathVariable int id, @SessionAttribute("carts") HashMap<Integer, Cart> cartMap) {
         ModelAndView modelAndView = new ModelAndView("detail");
-        modelAndView.addObject("cartMap",cartMap);
+        modelAndView.addObject("cartMap", cartMap);
         modelAndView.addObject("item", productService.findById(id));
         return modelAndView;
     }

@@ -10,7 +10,6 @@ import {DictionaryService} from "../../services/dictionary.service";
 export class DictionaryDetailComponent implements OnInit {
   key!: string;
   word!: IWord;
-
   constructor(private activeRouter: ActivatedRoute,private service:DictionaryService) {
   }
 
@@ -20,7 +19,6 @@ export class DictionaryDetailComponent implements OnInit {
       this.key = param.get('key');
       // @ts-ignore
       this.word=this.service.getWord(this.key);
-      console.log(this.word);
     })
   }
 

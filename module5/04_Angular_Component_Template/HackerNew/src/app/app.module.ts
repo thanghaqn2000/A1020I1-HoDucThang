@@ -9,6 +9,8 @@ import { FormComponent } from './components/form/form.component';
 import { DetailComponent } from './components/detail/detail.component';
 import {RouterModule} from "@angular/router";
 import { ListComponent } from './components/list/list.component';
+import {DataServiceService} from "./service/data-service.service";
+import {FormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +24,12 @@ import { ListComponent } from './components/list/list.component';
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    DataServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

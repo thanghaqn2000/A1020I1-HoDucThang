@@ -12,8 +12,7 @@ export class EmployeeService {
   public API_POSITION:string="http://localhost:3000/position";
   public API_EDUCATION:string="http://localhost:3000/education";
   public API_DIVISION:string="http://localhost:3000/division";
-  public MESSAGE_DELETE:string="Delete success";
-  public MESSAGE_CREATE:string="Create success";
+  public MESSAGE_CREATE!:string;
   constructor(public http: HttpClient) {
   }
 
